@@ -1,0 +1,26 @@
+repositories:  
+  
+  cps_rmp220_support:
+    type: git
+    url: https://github.com/bjoernellens1/cps_rmp220_support.git
+    version: main
+
+  rmp220_teleop:
+    type: git
+    url: https://github.com/bjoernellens1/rmp220_teleop.git
+    version: main
+
+  cam_openCV:
+    type: git
+    url: https://github.com/bjoernellens1/ros2_cam_openCV.git
+    version: main
+
+  segwayrmp:
+    type: git
+    url: https://github.com/bjoernellens1/segwayrmp.git
+    version: humble-arm64
+
+  segway_msgs:
+    type: git
+    url: https://github.com/bjoernellens1/segway_msgs.git
+    version: main
