@@ -5,7 +5,7 @@ services:
     image: ghcr.io/bjoernellens1/ros2_rmp/rmp:base
     build:
       context: .
-      dockerfile: docker/Dockerfile_arm64
+      dockerfile: docker/Dockerfile.arm64
       args:
         ROS_DISTRO: humble
       target: base
@@ -31,9 +31,10 @@ services:
   overlay:
     extends: base
     image: ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
+    platform: linux/arm64
     build:
       context: .
-      dockerfile: docker/Dockerfile_arm64
+      dockerfile: docker/Dockerfile.arm64
       target: overlay
 
 

@@ -4,7 +4,7 @@ ARG UNDERLAY_WS=/rmp_ws
 ########################################
 # Base Image for Bot Mini Control #
 ########################################
-FROM ros:${ROS_DISTRO} as base
+FROM --platform=linux/arm64 ros:${ROS_DISTRO} as base
 ENV ROS_DISTRO=${ROS_DISTRO}
 SHELL ["/bin/bash", "-c"]
  
