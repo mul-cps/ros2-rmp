@@ -14,13 +14,3 @@ repositories:
     type: git
     url: https://github.com/bjoernellens1/ros2_cam_openCV.git
     version: main
-
-  segwayrmp:
-    type: git
-    url: https://github.com/bjoernellens1/segwayrmp.git
-    version: humble-arm64
-
-  segway_msgs:
-    type: git
-    url: https://github.com/bjoernellens1/segway_msgs.git
-    version: main

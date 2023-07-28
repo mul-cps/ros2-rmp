@@ -1,19 +1,37 @@
 ARG ROS_DISTRO=humble
 ARG UNDERLAY_WS=/rmp_ws
- 
+ARG TARGETPLATFORM
+
+
+# This file should work for both amd64 and arm64 builds. Because segway did not release some source code we must copy some binaries for the specific architectures.
+# That is why we must use some conditional statements to copy over the correct files during build process.
+# Variable TARGETPLATFORM should be auomatically created during build process by docker.
+
 ########################################
 # Base Image for Bot Mini Control #
 ########################################
-#FROM --platform=linux/arm64 ros:${ROS_DISTRO} as base
 FROM ros:${ROS_DISTRO} as base
 ENV ROS_DISTRO=${ROS_DISTRO}
 SHELL ["/bin/bash", "-c"]
- 
+
 # Create Colcon workspace with external dependencies
 RUN mkdir -p /rmp_ws/src
 WORKDIR /rmp_ws/src
-COPY dependencies.repos .
-RUN vcs import < dependencies.arm64.repos
+COPY dependencies.arm64.repos .
+COPY dependencies.amd64.repos .
+
+# Choose correct sources for architecture:
+# Copy platform-specific files
+# Use if condition to copy different files for different platforms
+RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
+      echo "Copying files for linux/amd64"; \
+      mv dependencies.amd64.repos dependencies.repos; \
+    else \
+      echo "Copying files for linux/arm64"; \
+      mv dependencies.arm64.repos dependencies.repos; \
+    fi
+
+RUN vcs import < dependencies.repos
  
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws

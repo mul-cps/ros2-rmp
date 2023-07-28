@@ -12,7 +12,7 @@ SHELL ["/bin/bash", "-c"]
 RUN mkdir -p /rmp_ws/src
 WORKDIR /rmp_ws/src
 COPY dependencies.repos .
-RUN vcs import < dependencies.repos
+RUN vcs import < dependencies.amd64.repos
  
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws

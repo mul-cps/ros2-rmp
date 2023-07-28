@@ -5,10 +5,14 @@ services:
     image: ghcr.io/bjoernellens1/ros2_rmp/rmp:base
     build:
       context: .
-      dockerfile: docker/Dockerfile.arm64
+      dockerfile: docker/Dockerfile
       args:
         ROS_DISTRO: humble
       target: base
+      x-bake:
+        platforms:
+          - linux/arm64
+          # - linux/amd64
     # Interactive shell
     stdin_open: true
     tty: true
@@ -27,16 +31,18 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
 
-  # Overlay image containing the example source code.
+  # Overlay image containing the project specific source code.
   overlay:
     extends: base
     image: ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
-    platform: linux/arm64
     build:
       context: .
-      dockerfile: docker/Dockerfile.arm64
+      dockerfile: docker/Dockerfile
       target: overlay
-
+      x-bake:
+        platforms:
+          - linux/arm64
+          # - linux/amd64
 
   # Robot State Publisher
   robot_state_publisher:

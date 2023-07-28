@@ -1,0 +1,18 @@
+repositories:
+
+  # CPS RMP lite 220 Dependencies
+  
+  segwayrmp:
+    type: git
+    url: https://github.com/bjoernellens1/segwayrmp
+    version: x86
+  
+  segway_msgs:
+    type: git
+    url: https://github.com/bjoernellens1/segway_msgs
+    version: main
+
+  RPlidar_ROS2:
+    type: git
+    url: https://github.com/bjoernellens1/sllidar_ros2
+    version: main
