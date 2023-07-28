@@ -75,22 +75,6 @@ services:
     depends_on:
       - robot_state_publisher
 
-  # MicroRos Agent
-  microros_agent:
-    image: microros/micro-ros-agent:humble
-    command: >
-      serial --dev /dev/ttyUSB1 -v6
-    devices:
-      - /dev/ttyUSB1:/dev/ttyUSB1
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    network_mode: host
-    ipc: host
-    # Needed to display graphical applications
-    privileged: true
-
   # sensors
   sensors:
     extends: overlay
