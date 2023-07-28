@@ -38,6 +38,8 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
       target: overlay
       x-bake:
         platforms:
@@ -108,7 +110,6 @@ services:
     privileged: true
     depends_on:
       - controller
-      - microros_agent
 
   # mapping
   mapping:
