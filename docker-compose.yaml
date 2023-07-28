@@ -138,6 +138,17 @@ services:
     ipc: host
     depends_on:
       - localization
+  
+  # bash
+  bash:
+    extends: overlay
+    command: >
+      /bin/bash
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
 
     # # Behavior demo using Python and py_trees
     # demo-behavior-py:
