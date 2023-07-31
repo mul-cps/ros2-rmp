@@ -140,8 +140,6 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
-    depends_on:
-      - localization
 
   # navigation
   navigation:
@@ -154,8 +152,6 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
-    depends_on:
-      - localization
   
   # bash
   bash:

@@ -42,7 +42,8 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
 
 # Use Cyclone DDS as middleware
 RUN apt-get update && apt-get install -y --no-install-recommends \
- ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+ ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+ ros-${ROS_DISTRO}-xacro
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 ENV UNDERLAY_WS=${UNDERLAY_WS}
