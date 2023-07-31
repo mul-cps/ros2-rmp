@@ -57,7 +57,7 @@ services:
     network_mode: host
     ipc: host
 
-  # Controller and teleop
+  # Controller
   controller:
     extends: overlay 
     command: >
@@ -76,6 +76,24 @@ services:
     privileged: true
     depends_on:
       - robot_state_publisher
+
+  # teleop
+  teleop:
+    extends: overlay 
+    command: >
+      ros2 launch cps_rmp220_support robot_joystick.launch.py
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyACM0:/dev/ttyACM0
+      - /dev/input/js0:/dev/input/js0
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    # Needed to display graphical applications
+    privileged: true
 
   # lidar
   lidar:
