@@ -38,12 +38,15 @@ WORKDIR /rmp_ws
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
  && apt-get update -y \
  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
- && colcon build --symlink-install
+ && colcon build --symlink-install \
+ && rm -rf /var/lib/apt/lists/* 
 
 # Use Cyclone DDS as middleware
 RUN apt-get update && apt-get install -y --no-install-recommends \
  ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
- ros-${ROS_DISTRO}-xacro
+ ros-${ROS_DISTRO}-xacro \
+ && rm -rf /var/lib/apt/lists/*
+
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 ENV UNDERLAY_WS=${UNDERLAY_WS}
@@ -64,7 +67,9 @@ WORKDIR /overlay_ws
 # COPY ./tb3_worlds/ ./src/tb3_worlds/
 RUN source /rmp_ws/install/setup.bash \
  && colcon build --symlink-install \
- && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
+ && apt-get update \
+ && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
+ && rm -rf /var/lib/apt/lists/*
 
 # Set up the entrypoint
 COPY ./docker/entrypoint.sh /
