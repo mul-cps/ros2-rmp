@@ -74,8 +74,8 @@ services:
     ipc: host
     # Needed to display graphical applications
     privileged: true
-    depends_on:
-      - robot_state_publisher
+    # depends_on:
+    #   - robot_state_publisher
 
   # teleop
   teleop:
@@ -107,27 +107,6 @@ services:
     ipc: host
     depends_on:
       - robot_state_publisher
-
-  # Localization
-  localization:
-    extends: overlay
-    command: >
-      ros2 launch bot_mini_bringup robot_localization.launch.py
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB1:/dev/ttyUSB1
-      - /dev/ttyACM0:/dev/ttyACM0
-      - /dev/input/js0:/dev/input/js0
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    network_mode: host
-    ipc: host
-    # Needed to display graphical applications
-    privileged: true
-    depends_on:
-      - controller
 
   # mapping
   mapping:
