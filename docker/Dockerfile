@@ -120,4 +120,4 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 # # Set up the entrypoint
 # ENTRYPOINT [ "/entrypoint.sh" ]
 
-# LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
+LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
