@@ -12,7 +12,8 @@ services:
       x-bake:
         platforms:
           - linux/arm64
-          #- linux/amd64
+          - linux/amd64
+
     # Interactive shell
     stdin_open: true
     tty: true
@@ -44,7 +45,24 @@ services:
       x-bake:
         platforms:
           - linux/arm64
-          # - linux/amd64
+          - linux/amd64
+
+  # Overlay image containing the project specific source code.
+  final:
+    extends: overlay
+    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:final
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/ros2_rmp/rmp:final
+      target: final
+      x-bake:
+        platforms:
+          - linux/arm64
+          - linux/amd64
+    command: >
+      ros2 launch cps_rmp220_support rsp.launch.py
 
   # Robot State Publisher
   robot_state_publisher:
