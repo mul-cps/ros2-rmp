@@ -89,4 +89,20 @@ RUN chmod +x /localization_startup.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
+###########################################
+# GUI Additions for Ros2 #
+###########################################
+FROM overlay AS guis
+
+# Install additional GUI tools
+RUN source /rmp_ws/install/setup.bash \
+ && colcon build --symlink-install \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rviz2 \
+ && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
+ && rm -rf /var/lib/apt/lists/*
+
+# Set up the entrypoint
+ENTRYPOINT [ "/entrypoint.sh" ]
+
 LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp

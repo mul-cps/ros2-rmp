@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   # Base image containing dependencies.
   base:
@@ -46,22 +47,26 @@ services:
         platforms:
           - linux/arm64
           - linux/amd64
+    volumes:
+      - .:/repo
 
-  # # Overlay image containing the project specific source code.
-  # final:
-  #   extends: overlay
-  #   image: ghcr.io/bjoernellens1/ros2_rmp/rmp:final
-  #   build:
-  #     context: .
-  #     dockerfile: docker/Dockerfile
-  #     tags:
-  #       - ghcr.io/bjoernellens1/ros2_rmp/rmp:final
-  #     target: final
-  #     x-bake:
-  #       platforms:
-  #         - linux/arm64
-  #         - linux/amd64
-  #   command: /bin/bash
+  # Additional dependencies for GUI applications
+  guis:
+    extends: overlay
+    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+      target: guis
+      x-bake:
+        platforms:
+          - linux/arm64
+          - linux/amd64
+    #entrypoint: /bin/bash
+    command: >
+      /bin/bash
 
   # Robot State Publisher
   robot_state_publisher:
@@ -98,7 +103,7 @@ services:
   teleop:
     extends: overlay 
     command: >
-      ros2 launch cps_rmp220_support robot_joystick.launch.py --ros-args -r __ns:=/probeNamespace 
+      ros2 launch cps_rmp220_support robot_joystick.launch.py 
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/ttyACM0:/dev/ttyACM0
@@ -160,20 +165,27 @@ services:
     network_mode: host
     ipc: host
 
-    # # Behavior demo using Python and py_trees
-    # demo-behavior-py:
-    #   extends: overlay
-    #   command: >
-    #     ros2 launch tb3_autonomy tb3_demo_behavior_py.launch.py
-    #     tree_type:=${BT_TYPE:?}
-    #     enable_vision:=${ENABLE_VISION:?}
-    #     target_color:=${TARGET_COLOR:?}
-
-    # # Behavior demo using C++ and BehaviorTree.CPP
-    # demo-behavior-cpp:
-    #   extends: overlay
-    #   command: >
-    #     ros2 launch tb3_autonomy tb3_demo_behavior_cpp.launch.py
-    #     tree_type:=${BT_TYPE:?}
-    #     enable_vision:=${ENABLE_VISION:?}
-    #     target_color:=${TARGET_COLOR:?}
+  # rviz2
+  rviz2:
+    extends: guis
+    # command: >
+    #   ros2 launch cps_rmp220_support robot_rviz2.launch.py
+    command: >
+      rviz2
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    # Needed to display graphical applications
+    privileged: true
+    environment:
+      # Allows graphical programs in the container.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
