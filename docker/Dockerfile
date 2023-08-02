@@ -82,3 +82,5 @@ COPY ./localization_startup.sh /
 RUN chmod +x /localization_startup.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
+
+LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp

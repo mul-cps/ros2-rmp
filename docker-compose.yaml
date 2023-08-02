@@ -12,7 +12,7 @@ services:
       x-bake:
         platforms:
           - linux/arm64
-          # - linux/amd64
+          #- linux/amd64
     # Interactive shell
     stdin_open: true
     tty: true
