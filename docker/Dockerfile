@@ -89,34 +89,35 @@ RUN chmod +x /localization_startup.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-###########################################
-# Packing it up into a smaller image by starting from scratch and copying related stuff #
-###########################################
-FROM ros:${ROS_DISTRO}-ros-core AS final
-COPY --from=overlay /overlay_ws/ /overlay_ws/
-COPY --from=overlay /opt/ros /opt/ros/
-COPY --from=overlay /usr/local/ /usr/local/
-# COPY --from=overlay /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/
-# COPY --from=overlay /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/
-# COPY --from=overlay /lib/x86_64-linux-gnu/libpthread.so.0 /lib/x86_64-linux-gnu/
-# COPY --from=overlay /lib/x86_64-linux-gnu/librt.so.1 /lib/x86_64-linux-gnu/
-# COPY --from=overlay /lib/x86_64-linux-gnu/libgcc_s.so.1 /lib/x86_64-linux-gnu/
-# COPY --from=overlay /lib/x86_64-linux-gnu/libc.so.6 /lib/x86_64-linux-gnu/
-# COPY --from=overlay /lib64/ld-linux-x86-64.so.2 /lib64/
+# ###########################################
+# # Packing it up into a smaller image by starting from scratch and copying related stuff #
+# ###########################################
+# FROM ros:${ROS_DISTRO}-ros-core AS final
+# COPY --from=overlay /overlay_ws/ /overlay_ws/
+# COPY --from=overlay /rmp_ws /rmp_ws
+# COPY --from=overlay /opt/ros /opt/ros/
+# COPY --from=overlay /usr/local/ /usr/local/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libpthread.so.0 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/librt.so.1 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libgcc_s.so.1 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libc.so.6 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib64/ld-linux-x86-64.so.2 /lib64/
 
-# Set up environment variables
-ENV LD_LIBRARY_PATH=/usr/local/lib:/opt/ros/${ROS_DISTRO}/lib:/opt/ros/${ROS_DISTRO}/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-ENV PATH=/opt/ros/${ROS_DISTRO}/bin:$PATH
+# # Set up environment variables
+# ENV LD_LIBRARY_PATH=/usr/local/lib:/opt/ros/${ROS_DISTRO}/lib:/opt/ros/${ROS_DISTRO}/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+# ENV PATH=/opt/ros/${ROS_DISTRO}/bin:$PATH
 
-# Copy necessary entrypoint and scripts
-COPY ./docker/entrypoint.sh /
-COPY ./controller_startup.sh /
-COPY ./localization_startup.sh /
+# # Copy necessary entrypoint and scripts
+# COPY ./docker/entrypoint.sh /
+# COPY ./controller_startup.sh /
+# COPY ./localization_startup.sh /
 
-# Set permissions for scripts
-RUN chmod +x /entrypoint.sh /controller_startup.sh /localization_startup.sh
+# # Set permissions for scripts
+# RUN chmod +x /entrypoint.sh /controller_startup.sh /localization_startup.sh
 
-# Set up the entrypoint
-ENTRYPOINT [ "/entrypoint.sh" ]
+# # Set up the entrypoint
+# ENTRYPOINT [ "/entrypoint.sh" ]
 
-LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
+# LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
