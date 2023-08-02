@@ -5,7 +5,7 @@ repositories:
   segwayrmp:
     type: git
     url: https://github.com/bjoernellens1/segwayrmp
-    version: x86
+    version: humble
   
   segway_msgs:
     type: git

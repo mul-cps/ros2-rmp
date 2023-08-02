@@ -12,6 +12,8 @@ ARG TARGETPLATFORM
 ########################################
 FROM ros:${ROS_DISTRO} as base
 ENV ROS_DISTRO=${ROS_DISTRO}
+#ENV TARGETPLATFORM=$TARGETPLATFORM
+
 SHELL ["/bin/bash", "-c"]
 
 # Create Colcon workspace with external dependencies
@@ -23,7 +25,11 @@ COPY dependencies.amd64.repos .
 # Choose correct sources for architecture:
 # Copy platform-specific files
 # Use if condition to copy different files for different platforms
-RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
+#RUN echo "TARGETPLATFORM is $TARGETPLATFORM"
+RUN echo "Hardware platform is: $(uname -m)"
+RUN uname -a
+
+RUN if [ "$(uname -m)" = "x86_64" ]; then \
       echo "Copying files for linux/amd64"; \
       mv dependencies.amd64.repos dependencies.repos; \
     else \
@@ -31,8 +37,9 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
       mv dependencies.arm64.repos dependencies.repos; \
     fi
 
-RUN vcs import < dependencies.repos
- 
+#RUN vcs import < dependencies.repos
+RUN vcs import < dependencies.repos;
+
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
@@ -63,8 +70,7 @@ COPY overlay.repos .
 RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
-# COPY ./tb3_autonomy/ ./src/tb3_autonomy/
-# COPY ./tb3_worlds/ ./src/tb3_worlds/
+
 RUN source /rmp_ws/install/setup.bash \
  && colcon build --symlink-install \
  && apt-get update \
@@ -83,4 +89,35 @@ RUN chmod +x /localization_startup.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
+# ###########################################
+# # Packing it up into a smaller image by starting from scratch and copying related stuff #
+# ###########################################
+# FROM ros:${ROS_DISTRO}-ros-core AS final
+# COPY --from=overlay /overlay_ws/ /overlay_ws/
+# COPY --from=overlay /rmp_ws /rmp_ws
+# COPY --from=overlay /opt/ros /opt/ros/
+# COPY --from=overlay /usr/local/ /usr/local/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libpthread.so.0 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/librt.so.1 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libgcc_s.so.1 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib/x86_64-linux-gnu/libc.so.6 /lib/x86_64-linux-gnu/
+# # COPY --from=overlay /lib64/ld-linux-x86-64.so.2 /lib64/
+
+# # Set up environment variables
+# ENV LD_LIBRARY_PATH=/usr/local/lib:/opt/ros/${ROS_DISTRO}/lib:/opt/ros/${ROS_DISTRO}/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+# ENV PATH=/opt/ros/${ROS_DISTRO}/bin:$PATH
+
+# # Copy necessary entrypoint and scripts
+# COPY ./docker/entrypoint.sh /
+# COPY ./controller_startup.sh /
+# COPY ./localization_startup.sh /
+
+# # Set permissions for scripts
+# RUN chmod +x /entrypoint.sh /controller_startup.sh /localization_startup.sh
+
+# # Set up the entrypoint
+# ENTRYPOINT [ "/entrypoint.sh" ]
+
+# LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
