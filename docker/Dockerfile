@@ -59,7 +59,7 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ENV UNDERLAY_WS=${UNDERLAY_WS}
 
 ###########################################
-# Overlay Image for Bot Mini Control #
+# Overlay Image for RMP Control #
 ###########################################
 FROM base AS overlay
  
