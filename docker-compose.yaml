@@ -88,7 +88,7 @@ services:
       ros2 launch cps_rmp220_support robot_controller.launch.py
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB0:/dev/ttyUSB1
+      - /dev/ttyUSB1:/dev/ttyUSB1
       - /dev/ttyACM0:/dev/ttyACM0
     # Interactive shell
     stdin_open: true
