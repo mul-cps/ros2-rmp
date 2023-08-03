@@ -38,6 +38,7 @@ FROM base AS overlay
 RUN mkdir -p /overlay_ws/src
 WORKDIR /overlay_ws/src
 COPY overlay.repos .
+RUN echo "Dummy step"
 RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
