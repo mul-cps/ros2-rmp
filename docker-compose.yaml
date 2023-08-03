@@ -164,6 +164,8 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
+    devices:
+      - /dev/input/js0:/dev/input/js0
 
   # rviz2
   rviz2:
