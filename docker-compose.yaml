@@ -49,6 +49,8 @@ services:
           - linux/amd64
     volumes:
       - .:/repo
+    command: >
+      /bin/bash
 
   # Additional dependencies for GUI applications
   guis:
