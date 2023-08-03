@@ -74,7 +74,7 @@ services:
   robot_state_publisher:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support rsp.launch.py --ros-args -r __ns:=/probeNamespace 
+      ros2 launch cps_rmp220_support rsp.launch.py
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
@@ -85,7 +85,7 @@ services:
   controller:
     extends: overlay 
     command: >
-      ros2 launch cps_rmp220_support robot_controller.launch.py __ns:=/probeNamespace 
+      ros2 launch cps_rmp220_support robot_controller.launch.py
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/ttyACM0:/dev/ttyACM0
