@@ -37,8 +37,9 @@ FROM base AS overlay
 # Create an overlay Colcon workspace
 RUN mkdir -p /overlay_ws/src
 WORKDIR /overlay_ws/src
-COPY overlay.repos .
+
 RUN echo "Dummy step"
+COPY overlay.repos .
 RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
