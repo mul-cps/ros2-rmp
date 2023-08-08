@@ -74,7 +74,7 @@ services:
   robot_state_publisher:
     extends: overlay
     command: >
-      ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support rsp.launch.py
+      export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support rsp.launch.py
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
@@ -85,7 +85,7 @@ services:
   controller:
     extends: overlay 
     command: >
-      ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support robot_controller.launch.py
+      export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support robot_controller.launch.py
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/ttyUSB1:/dev/ttyUSB1
@@ -105,7 +105,7 @@ services:
   teleop:
     extends: overlay 
     command: >
-      ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support robot_joystick.launch.py 
+      export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support robot_joystick.launch.py 
     devices:
       - /dev/input/js0:/dev/input/js0
     # Interactive shell
@@ -121,7 +121,7 @@ services:
   lidar:
     extends: overlay
     command: >
-      ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support robot_lidar.launch.py
+      export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support robot_lidar.launch.py
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
@@ -134,7 +134,7 @@ services:
   mapping:
     extends: overlay
     command: >
-      ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support robot_mapping.launch.py
+      export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support robot_mapping.launch.py
     # Interactive shell
     stdin_open: true
     tty: true
@@ -146,7 +146,7 @@ services:
   navigation:
     extends: overlay
     command: >
-      ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support robot_navigation.launch.py
+      export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support robot_navigation.launch.py
       map_subscribe_transient_local:=true
     stdin_open: true
     tty: true
@@ -171,7 +171,7 @@ services:
   rviz2:
     extends: guis
     # command: >
-    #   ROS_DOMAIN_ID=5 && ros2 launch cps_rmp220_support robot_rviz2.launch.py
+    #   export ROS_DOMAIN_ID=5 && ROS_DOMAIN_ID=5 ros2 launch cps_rmp220_support robot_rviz2.launch.py
     command: >
       rviz2
     # Interactive shell
