@@ -21,5 +21,7 @@ then
   echo "Sourced CPS RMP 220 Overlay workspace"
 fi
 
+export ROS_DOMAIN_ID=5
+
 # Execute the command passed into this entrypoint
 exec "$@"
