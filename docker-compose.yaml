@@ -104,6 +104,7 @@ services:
     #   - robot_state_publisher
     environment:
     - ROS_DOMAIN_ID=5
+    restart: unless-stopped
 
   # teleop
   teleop:
