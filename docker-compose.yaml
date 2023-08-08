@@ -166,6 +166,8 @@ services:
     ipc: host
     devices:
       - /dev/input/js0:/dev/input/js0
+    environment:
+    - ROS_DOMAIN_ID=5
 
   # rviz2
   rviz2:
