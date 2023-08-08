@@ -80,6 +80,8 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
 
   # Controller
   controller:
@@ -100,6 +102,8 @@ services:
     privileged: true
     # depends_on:
     #   - robot_state_publisher
+    environment:
+    - ROS_DOMAIN_ID=5
 
   # teleop
   teleop:
@@ -116,6 +120,8 @@ services:
     ipc: host
     # Needed to display graphical applications
     privileged: true
+    environment:
+    - ROS_DOMAIN_ID=5
 
   # lidar
   lidar:
@@ -129,6 +135,8 @@ services:
     ipc: host
     depends_on:
       - robot_state_publisher
+    environment:
+    - ROS_DOMAIN_ID=5
 
   # mapping
   mapping:
@@ -141,6 +149,8 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
 
   # navigation
   navigation:
@@ -153,6 +163,8 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
   
   # bash
   bash:
@@ -189,6 +201,7 @@ services:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
+      - ROS_DOMAIN_ID=5
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
