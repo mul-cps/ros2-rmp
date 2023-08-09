@@ -141,8 +141,8 @@ services:
     environment:
     - ROS_DOMAIN_ID=5
     devices:
-      - /dev/ttyUSB1:/dev/ttyUSB0
-      #- /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+      - /dev/ttyUSB0:/dev/ttyUSB0
 
   # mapping
   mapping:
