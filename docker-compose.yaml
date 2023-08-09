@@ -32,6 +32,8 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    devices:
+      - /dev/input/js0:/dev/input/js0
 
   # Overlay image containing the project specific source code.
   overlay:
