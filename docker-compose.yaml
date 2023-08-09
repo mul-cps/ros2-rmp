@@ -85,7 +85,7 @@ services:
 
   # Controller
   controller:
-    extends: overlay 
+    extends: base 
     command: >
       ros2 launch cps_rmp220_support robot_controller.launch.py
     devices:
