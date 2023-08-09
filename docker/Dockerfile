@@ -71,6 +71,8 @@ RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
 
+RUN echo "update overlay"
+
 RUN source /rmp_ws/install/setup.bash \
  && colcon build --symlink-install \
  && apt-get update \
