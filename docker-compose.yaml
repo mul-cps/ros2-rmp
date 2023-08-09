@@ -87,7 +87,7 @@ services:
   controller:
     extends: base 
     command: >
-      ros2 launch cps_rmp220_support robot_controller.launch.py
+      ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/ttyUSB1:/dev/ttyUSB1
