@@ -130,7 +130,8 @@ services:
   lidar:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support robot_lidar.launch.py
+      ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/ttyUSB1
+
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
