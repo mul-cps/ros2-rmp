@@ -140,7 +140,7 @@ services:
     #   - robot_state_publisher
     environment:
     - ROS_DOMAIN_ID=5
-    device:
+    devices:
       - /dev/ttyUSB1:/dev/ttyUSB1
       - /dev/ttyUSB0:/dev/ttyUSB0
 
