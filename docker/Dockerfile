@@ -45,8 +45,9 @@ WORKDIR /rmp_ws
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
  && apt-get update -y \
  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
- && colcon build --symlink-install \
- && rm -rf /var/lib/apt/lists/* 
+
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+ && colcon build --symlink-install
 
 # Use Cyclone DDS as middleware
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -72,10 +73,13 @@ RUN vcs import < overlay.repos
 WORKDIR /overlay_ws
 
 RUN source /rmp_ws/install/setup.bash \
- && colcon build --symlink-install \
  && apt-get update \
  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
  && rm -rf /var/lib/apt/lists/*
+
+
+RUN source /rmp_ws/install/setup.bash \
+ && colcon build --symlink-install
 
 # Set up the entrypoint
 COPY ./docker/entrypoint.sh /
@@ -96,11 +100,13 @@ FROM overlay AS guis
 
 # Install additional GUI tools
 RUN source /rmp_ws/install/setup.bash \
- && colcon build --symlink-install \
  && apt-get update \
  && apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rviz2 \
  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
  && rm -rf /var/lib/apt/lists/*
+
+RUN source /rmp_ws/install/setup.bash \
+ && colcon build --symlink-install \
 
 # Set up the entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
