@@ -136,8 +136,8 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
-    depends_on:
-      - robot_state_publisher
+    # depends_on:
+    #   - robot_state_publisher
     environment:
     - ROS_DOMAIN_ID=5
 
