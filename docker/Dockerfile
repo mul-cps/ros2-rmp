@@ -72,7 +72,7 @@ RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
 
-RUN echo "update overlay 10.08.2023"
+RUN echo "update overlay 10.08.2023-1"
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
