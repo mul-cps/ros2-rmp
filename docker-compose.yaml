@@ -73,7 +73,7 @@ services:
       /bin/bash
 
   # Robot State Publisher
-  robot_state_publisher:
+  rsp:
     extends: overlay
     command: >
       ros2 launch cps_rmp220_support rsp.launch.py
