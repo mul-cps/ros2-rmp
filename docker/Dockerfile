@@ -30,12 +30,12 @@ RUN echo "Hardware platform is: $(uname -m)"
 RUN uname -a
 
 RUN if [ "$(uname -m)" = "x86_64" ]; then \
-      echo "Copying files for linux/amd64"; \
-      mv dependencies.amd64.repos dependencies.repos; \
-    else \
-      echo "Copying files for linux/arm64"; \
-      mv dependencies.arm64.repos dependencies.repos; \
-    fi
+  echo "Copying files for linux/amd64"; \
+  mv dependencies.amd64.repos dependencies.repos; \
+  else \
+  echo "Copying files for linux/arm64"; \
+  mv dependencies.arm64.repos dependencies.repos; \
+  fi
 
 #RUN vcs import < dependencies.repos
 RUN vcs import < dependencies.repos;
@@ -43,16 +43,17 @@ RUN vcs import < dependencies.repos;
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
- && apt-get update -y \
- && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
- && colcon build --symlink-install \
- && rm -rf /var/lib/apt/lists/* 
+  && apt-get update -y \
+  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 
-# Use Cyclone DDS as middleware
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+  && colcon build --symlink-install
+
+# Use Cyclone DDS as middleware and install xacro
 RUN apt-get update && apt-get install -y --no-install-recommends \
- ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
- ros-${ROS_DISTRO}-xacro \
- && rm -rf /var/lib/apt/lists/*
+  ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+  ros-${ROS_DISTRO}-xacro \
+  && rm -rf /var/lib/apt/lists/*
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
@@ -62,7 +63,7 @@ ENV UNDERLAY_WS=${UNDERLAY_WS}
 # Overlay Image for RMP Control #
 ###########################################
 FROM base AS overlay
- 
+
 # Create an overlay Colcon workspace
 RUN mkdir -p /overlay_ws/src
 WORKDIR /overlay_ws/src
@@ -74,20 +75,16 @@ WORKDIR /overlay_ws
 RUN echo "update overlay"
 
 RUN source /rmp_ws/install/setup.bash \
- && colcon build --symlink-install \
- && apt-get update \
- && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
- && rm -rf /var/lib/apt/lists/*
+  && apt-get update \
+  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN source /rmp_ws/install/setup.bash \
+  && colcon build --symlink-install
 
 # Set up the entrypoint
 COPY ./docker/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-
-COPY ./controller_startup.sh /
-RUN chmod +x /controller_startup.sh
-
-COPY ./localization_startup.sh /
-RUN chmod +x /localization_startup.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
@@ -98,11 +95,9 @@ FROM overlay AS guis
 
 # Install additional GUI tools
 RUN source /rmp_ws/install/setup.bash \
- && colcon build --symlink-install \
- && apt-get update \
- && apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rviz2 \
- && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
- && rm -rf /var/lib/apt/lists/*
+  && apt-get update \
+  && apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rviz2 \
+  && rm -rf /var/lib/apt/lists/*
 
 # Set up the entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
