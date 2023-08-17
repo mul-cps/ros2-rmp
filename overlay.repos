@@ -5,11 +5,6 @@ repositories:
     url: https://github.com/bjoernellens1/cps_rmp220_support.git
     version: main
 
-  rmp220_middleware:
-    type: git
-    url: https://github.com/bjoernellens1/rmp220_middleware.git
-    version: main
-
   cam_openCV:
     type: git
     url: https://github.com/bjoernellens1/ros2_cam_openCV.git

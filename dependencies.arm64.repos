@@ -21,3 +21,8 @@ repositories:
     type: git
     url: https://github.com/bjoernellens1/rmp220_teleop.git
     version: main
+  
+  rmp220_middleware:
+    type: git
+    url: https://github.com/bjoernellens1/rmp220_middleware.git
+    version: main
