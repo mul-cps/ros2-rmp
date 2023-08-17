@@ -29,6 +29,8 @@ COPY dependencies.amd64.repos .
 RUN echo "Hardware platform is: $(uname -m)"
 RUN uname -a
 
+RUN echo "update base 17.08.2023-2"
+
 RUN if [ "$(uname -m)" = "x86_64" ]; then \
   echo "Copying files for linux/amd64"; \
   mv dependencies.amd64.repos dependencies.repos; \
