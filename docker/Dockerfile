@@ -61,6 +61,12 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 ENV UNDERLAY_WS=${UNDERLAY_WS}
 
+# Set up the entrypoint
+COPY ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
+
 ###########################################
 # Overlay Image for RMP Control #
 ###########################################

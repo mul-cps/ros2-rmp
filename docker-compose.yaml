@@ -89,6 +89,8 @@ services:
   controller:
     extends: base 
     command: >
+      source /opt/ros/humble/setup.bash &&
+      source /rmp_ws/install/setup.bash &&
       ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/ttyUSB0
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
