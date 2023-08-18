@@ -108,7 +108,7 @@ services:
 
   # teleop
   teleop:
-    extends: overlay 
+    extends: base 
     command: >
       ros2 launch rmp220_teleop robot_joystick.launch.py 
     devices:
