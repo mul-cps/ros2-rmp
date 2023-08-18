@@ -1,6 +1,8 @@
 #!/bin/bash
 # Basic entrypoint for ROS / Colcon Docker containers
 
+UNDERLAY_WS=/rmp_ws
+
 # Source ROS 2
 source /opt/ros/${ROS_DISTRO}/setup.bash
 echo "Sourced ROS 2 ${ROS_DISTRO}"

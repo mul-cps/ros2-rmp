@@ -61,6 +61,8 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 ENV UNDERLAY_WS=${UNDERLAY_WS}
 
+RUN echo "update Entrypoint 18.08.2023"
+
 # Set up the entrypoint
 COPY ./docker/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
