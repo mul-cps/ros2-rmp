@@ -29,7 +29,7 @@ COPY dependencies.amd64.repos .
 RUN echo "Hardware platform is: $(uname -m)"
 RUN uname -a
 
-RUN echo "update base 17.08.2023-2"
+RUN echo "update base 18.08.2023-5"
 
 RUN if [ "$(uname -m)" = "x86_64" ]; then \
   echo "Copying files for linux/amd64"; \
@@ -60,8 +60,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 ENV UNDERLAY_WS=${UNDERLAY_WS}
-
-RUN echo "update Entrypoint 18.08.2023"
 
 # Set up the entrypoint
 COPY ./docker/entrypoint.sh /
