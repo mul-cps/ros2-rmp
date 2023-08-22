@@ -192,7 +192,7 @@ services:
     # command: >
     #   ros2 launch cps_rmp220_support robot_rviz2.launch.py
     command: >
-      rviz2
+      ros2 launch cps_rmp220_support rviz.launch.py
     # Interactive shell
     stdin_open: true
     tty: true

@@ -29,7 +29,7 @@ COPY dependencies.amd64.repos .
 RUN echo "Hardware platform is: $(uname -m)"
 RUN uname -a
 
-RUN echo "update base 18.08.2023-5"
+RUN echo "update base 22.08.2023"
 
 RUN if [ "$(uname -m)" = "x86_64" ]; then \
   echo "Copying files for linux/amd64"; \
@@ -80,7 +80,7 @@ RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
 
-RUN echo "update overlay 17.08.2023"
+RUN echo "update overlay 22.08.2023"
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
