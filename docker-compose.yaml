@@ -143,6 +143,20 @@ services:
       - /dev/ttyUSB1:/dev/ttyUSB1
       - /dev/ttyUSB0:/dev/ttyUSB0
 
+  # localiaztion by ekf node
+  ekf:
+    extends: overlay
+    command: >
+      ros2 launch cps_rmp220_support robot_localization.launch.py
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
+
   # mapping
   mapping:
     extends: overlay
