@@ -171,6 +171,20 @@ services:
     environment:
     - ROS_DOMAIN_ID=5
 
+  # slam_localization
+  localization:
+    extends: overlay
+    command: >
+      ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
+
   # navigation
   navigation:
     extends: overlay
