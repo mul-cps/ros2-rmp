@@ -175,7 +175,21 @@ services:
   localization:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
+      ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map:=/repo/maps/map.yaml
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
+
+  # amcllocalization
+  amcl:
+    extends: overlay
+    command: >
+      ros2 launch cps_rmp220_support robot_amcl.launch.py map_file_name:=/repo/maps/map.yaml
     # Interactive shell
     stdin_open: true
     tty: true
