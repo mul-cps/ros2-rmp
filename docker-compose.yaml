@@ -139,8 +139,7 @@ services:
     environment:
     - ROS_DOMAIN_ID=5
     devices:
-      - /dev/ttyUSB1:/dev/ttyUSB1
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_3453995662b3af4f81f4a69eba5f3f29-if00-port0:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_3453995662b3af4f81f4a69eba5f3f29-if00-port0
 
   # localiaztion by ekf node
   ekf:
