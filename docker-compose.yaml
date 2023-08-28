@@ -22,7 +22,7 @@ services:
     network_mode: host
     ipc: host
     # Needed to display graphical applications
-    privileged: true
+    #privileged: true
     environment:
       # Allows graphical programs in the container.
       - DISPLAY=${DISPLAY}
