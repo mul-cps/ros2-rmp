@@ -99,7 +99,7 @@ services:
     network_mode: host
     ipc: host
     # Needed to display graphical applications
-    privileged: true
+    privileged: false
     # depends_on:
     #   - robot_state_publisher
     environment:
