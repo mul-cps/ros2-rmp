@@ -92,6 +92,7 @@ services:
       ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/segway
     devices:
       - /dev/segway:/dev/segway
+      - /dev/ttyUSB0:/dev/ttyUSB0
     # Interactive shell
     stdin_open: true
     tty: true
