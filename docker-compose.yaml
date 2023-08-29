@@ -171,7 +171,7 @@ services:
     environment:
     - ROS_DOMAIN_ID=5
 
-  # slam_localization
+  # slam-toolbox-localization
   localization:
     extends: overlay
     command: >
@@ -252,9 +252,9 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
 
-  # Foxglove Studio ROS2 Bridge
+  # Foxglove Studio Bridge
   foxglove_bridge:
-    extends: base
+    extends: overlay
     command: >
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
     stdin_open: true
@@ -262,6 +262,9 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # Foxglove Studio Webserver
   foxglove_webserver:
