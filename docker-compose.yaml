@@ -274,4 +274,20 @@ services:
     # Networking
     ports:
       - 8080:8080
+
+  # USB Camera Stream
+  cam:
+    extends: overlay
+    command: >
+      ros2 run ros2_cam_openCV cam_node
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    devices:
+      - /dev/video0:/dev/video0
   
