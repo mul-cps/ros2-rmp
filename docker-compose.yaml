@@ -253,7 +253,7 @@ services:
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
 
   # Foxglove Studio ROS2 Bridge
-  bridge:
+  foxglove_bridge:
     extends: base
     command: >
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
@@ -262,3 +262,13 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
+
+  # Foxglove Studio Webserver
+  foxglove_webserver:
+    image: ghcr.io/foxglove/studio:latest
+    stdin_open: true
+    tty: true
+    # Networking
+    ports:
+      - 8080:8080
+  
