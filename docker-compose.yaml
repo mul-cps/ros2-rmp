@@ -32,8 +32,6 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
-    devices:
-      - /dev/input/js0:/dev/input/js0
 
   # Overlay image containing the project specific source code.
   overlay:
@@ -225,8 +223,6 @@ services:
     # Networking and IPC for ROS 2
     network_mode: host
     ipc: host
-    devices:
-      - /dev/input/js0:/dev/input/js0
     environment:
     - ROS_DOMAIN_ID=5
 
@@ -255,3 +251,14 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+
+  # Foxglove Studio ROS2 Bridge
+  bridge:
+    extends: base
+    command: >
+      ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host

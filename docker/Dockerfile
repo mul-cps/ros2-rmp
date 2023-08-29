@@ -29,7 +29,7 @@ COPY dependencies.amd64.repos .
 RUN echo "Hardware platform is: $(uname -m)"
 RUN uname -a
 
-RUN echo "update base 23.08.2023"
+RUN echo "update base 29.08.2023"
 
 RUN if [ "$(uname -m)" = "x86_64" ]; then \
   echo "Copying files for linux/amd64"; \
@@ -46,13 +46,15 @@ RUN vcs import < dependencies.repos;
 WORKDIR /rmp_ws
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
   && apt-get update -y \
+  && apt-get install -y --no-install-recommends \
+   ros-${ROS_DISTRO}-foxglove-bridge \
   && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
   && colcon build --symlink-install
 
 # Use Cyclone DDS as middleware and install xacro
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
   ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
   ros-${ROS_DISTRO}-xacro \
   && rm -rf /var/lib/apt/lists/*
