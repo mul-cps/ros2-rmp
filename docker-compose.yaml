@@ -81,7 +81,9 @@ services:
     network_mode: host
     ipc: host
     environment:
-    - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=5
+    profiles:
+      - robot
 
   # Controller
   controller:
@@ -104,6 +106,8 @@ services:
     environment:
     - ROS_DOMAIN_ID=5
     restart: unless-stopped
+    profiles:
+      - robot
 
   # teleop
   teleop:
@@ -122,6 +126,8 @@ services:
     privileged: true
     environment:
     - ROS_DOMAIN_ID=5
+    profiles:
+      - robot
 
   # lidar
   lidar:
@@ -141,6 +147,8 @@ services:
       - /dev/rplidarA1:/dev/rplidarA1 #udevrules needed for this to work:
 #       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
 # SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
+    profiles:
+      - robot
 
 
   # localiaztion by ekf node
@@ -183,7 +191,7 @@ services:
     network_mode: host
     ipc: host
     environment:
-    - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=5
 
   # amcl_localization
   amcl:
@@ -197,7 +205,9 @@ services:
     network_mode: host
     ipc: host
     environment:
-    - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=5
+    profiles:
+      - robot
 
   # navigation
   navigation:
@@ -211,7 +221,9 @@ services:
     network_mode: host
     ipc: host
     environment:
-    - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=5
+    profiles:
+      - robot
   
   # bash
   bash:
@@ -265,6 +277,8 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    profiles:
+      - robot
 
   # Foxglove Studio Webserver
   foxglove_webserver:
@@ -274,6 +288,8 @@ services:
     # Networking
     ports:
       - 8080:8080
+    profiles:
+      - robot
 
   # USB Camera Stream
   cam:
