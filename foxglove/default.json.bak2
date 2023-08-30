@@ -2,21 +2,15 @@
   "configById": {
     "Indicator!246epy5": {
       "path": "/chassis_mode_fb.chassis_mode",
-      "style": "background",
-      "fallbackColor": "#f3ff09",
-      "fallbackLabel": "Paused",
+      "style": "bulb",
+      "fallbackColor": "#a0a0a0",
+      "fallbackLabel": "Stopped",
       "rules": [
         {
-          "operator": "=",
-          "rawValue": "1",
+          "operator": ">",
+          "rawValue": "0",
           "color": "#68e24a",
           "label": "Enabled"
-        },
-        {
-          "operator": "=",
-          "rawValue": "3",
-          "color": "#ef0808",
-          "label": "Stopeed"
         }
       ],
       "foxglovePanelTitle": "Chassis Status"
@@ -24,13 +18,13 @@
     "3D!xm9o0x": {
       "cameraState": {
         "perspective": true,
-        "distance": 4.292775278853205,
+        "distance": 1.5388995055323984,
         "phi": 63.55358804367419,
-        "thetaOffset": 90.92255125285674,
+        "thetaOffset": 90.92255125285413,
         "targetOffset": [
-          -0.29510607699692826,
-          -0.46515527202238954,
-          -3.3726357711173257e-18
+          0,
+          0,
+          0
         ],
         "target": [
           0,
@@ -169,13 +163,13 @@
       },
       "cameraState": {
         "perspective": false,
-        "distance": 17.147499999954405,
+        "distance": 11.376001845500314,
         "phi": 15.990945674652972,
-        "thetaOffset": -27.94225656208538,
+        "thetaOffset": -27.942256562082942,
         "targetOffset": [
-          -0.3252914174301529,
-          -1.1974256262178802,
-          1.0440519804793617e-15
+          -0.4791941626637678,
+          -0.9106804180995777,
+          1.0288213242914258e-15
         ],
         "target": [
           0,
