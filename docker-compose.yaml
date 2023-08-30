@@ -279,6 +279,8 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     profiles:
       - robot
+    volumes:
+      - ./foxglove/default.json:/foxglove/default-layout.json
 
   # Foxglove Studio Webserver
   foxglove_webserver:
