@@ -7,6 +7,8 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/ros2_rmp/rmp:base
       args:
         ROS_DISTRO: humble
       target: base
@@ -286,8 +288,6 @@ services:
     # Networking
     ports:
       - 8080:8080
-    profiles:
-      - robot
 
   # USB Camera Stream
   cam:
@@ -304,4 +304,41 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     devices:
       - /dev/video0:/dev/video0
+
+
+  #ROS1 Bridge
+  ros1bridge:
+    image: ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+    command: >
+      ros2 run ros1_bridge dynamic_bridge --bridge-all-2to1-topics
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+      args:
+        ROS_DISTRO: humble
+      target: bridge
+      x-bake:
+        platforms:
+          #- linux/arm64
+          - linux/amd64
+      # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
   
+  #ROS1 roscore
+  roscore:
+    command: >
+      roscore
+    extends: ros1bridge
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
