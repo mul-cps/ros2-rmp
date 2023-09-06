@@ -175,7 +175,7 @@ services:
     network_mode: host
     ipc: host
     environment:
-    - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # slam-toolbox-localization

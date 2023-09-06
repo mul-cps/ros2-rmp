@@ -67,6 +67,9 @@ ENV UNDERLAY_WS=${UNDERLAY_WS}
 COPY ./docker/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
+# Update repository at the end of this build stage
+RUN vcs pull src
+
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 ###########################################
@@ -96,6 +99,9 @@ RUN source /rmp_ws/install/setup.bash \
 COPY ./docker/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
+# Update repository at the end of this build stage
+RUN vcs pull src
+
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 ###########################################
@@ -108,6 +114,9 @@ RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
   && apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rviz2 \
   && rm -rf /var/lib/apt/lists/*
+
+# Update repository at the end of this build stage
+RUN vcs pull src
 
 # Set up the entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
