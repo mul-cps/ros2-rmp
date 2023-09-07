@@ -40,7 +40,7 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
   fi
 
 #RUN vcs import < dependencies.repos
-RUN vcs import < dependencies.repos;
+RUN vcs import < dependencies.repos
 
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws
