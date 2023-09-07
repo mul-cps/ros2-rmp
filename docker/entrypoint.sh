@@ -11,7 +11,7 @@ echo "Sourced ROS 2 ${ROS_DISTRO}"
 if [ -f ${UNDERLAY_WS}/install/setup.bash ]
 then
   source ${UNDERLAY_WS}/install/setup.bash
-  #export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(ros2 pkg prefix turtlebot3_gazebo)/share/turtlebot3_gazebo/models
+  vcs pull ${UNDERLAY_WS}/src
   echo "Sourced CPS RMP 220 base workspace"
 fi
 
@@ -19,7 +19,7 @@ fi
 if [ -f /overlay_ws/install/setup.bash ]
 then
   source /overlay_ws/install/setup.bash
-  #export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(ros2 pkg prefix tb3_worlds)/share/tb3_worlds/models
+  vcs pull /overlay_ws/src
   echo "Sourced CPS RMP 220 Overlay workspace"
 fi
 
@@ -29,6 +29,21 @@ then
   source ~/ros2_humbleinstall/setup.bash
   #export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(ros2 pkg prefix turtlebot3_gazebo)/share/turtlebot3_gazebo/models
   echo "Sourced CPS RMP 220 base workspace"
+fi
+
+# Implement updating all repositories at launch
+if [ -f ${UNDERLAY_WS}/]
+then
+  cd ${UNDERLAY_WS}
+  vcs pull src
+  echo "Updated base workspace"
+fi
+
+if [ -f /overlay_ws/]
+then
+  cd /overlay_ws
+  vcs pull src
+  echo "Updated overlay workspace"
 fi
 
 # Execute the command passed into this entrypoint
