@@ -257,7 +257,8 @@ services:
 
   # rviz2
   rviz2:
-    extends: guis
+    #extends: guis
+    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
     # command: >
     #   ros2 launch cps_rmp220_support robot_rviz2.launch.py
     command: >
@@ -266,7 +267,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    #network_mode: host
+    network_mode: host
     ipc: host
     # Needed to display graphical applications
     privileged: true
@@ -281,7 +282,7 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
-
+    
   # Foxglove Studio Bridge
   foxglove_bridge:
     extends: overlay

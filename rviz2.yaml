@@ -1,0 +1,43 @@
+networks:
+  pc: # config for this pc. Only required for running the containers locally on the pc. For instance rviz2 or guis with gazebo.
+    driver: macvlan
+    driver_opts:
+      parent: wlx00e04c5513fc # pc network interface: here my wifi card. Can be found with ifconfig.
+    ipam:
+      config:
+          - subnet: 192.168.0.0/24
+            gateway: 192.168.0.1
+            ip_range: 192.168.0.200/25
+            aux_addresses:
+              net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
+
+services:
+   # rviz2
+  rviz2:
+    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    # command: >
+    #   ros2 launch cps_rmp220_support robot_rviz2.launch.py
+    command: >
+      ros2 launch cps_rmp220_support rviz.launch.py
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    # Needed to display graphical applications
+    privileged: true
+    environment:
+      # Allows graphical programs in the container.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    volumes:
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
+    #   pc:
+    #     ipv4_address: 192.168.0.201 #here need to set fixed ip to avoid collissions with other containers on robot.
