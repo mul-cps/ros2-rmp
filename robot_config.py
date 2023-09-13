@@ -11,7 +11,7 @@ def is_service_running(service_name):
 def start_service(service_name):
     if not is_service_running(service_name):
         print(f"Starting {service_name}...")
-        subprocess.run(["docker-compose", "up", "-d", service_name])
+        subprocess.run(["docker", "compose", "up", "-d", service_name])
         running_services.append(service_name)
     else:
         print(f"{service_name} is already running.")
@@ -20,7 +20,7 @@ def start_service(service_name):
 def stop_service(service_name):
     if is_service_running(service_name):
         print(f"Stopping {service_name}...")
-        subprocess.run(["docker-compose", "down", "-v", "--remove-orphans", service_name])
+        subprocess.run(["docker", "compose", "down", "-v", "--remove-orphans", service_name])
         running_services.remove(service_name)
     else:
         print(f"{service_name} is not running.")
