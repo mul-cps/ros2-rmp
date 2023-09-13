@@ -13,8 +13,6 @@ networks:
             ip_range: 192.168.0.200/25
             aux_addresses:
               net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
-  ros2-bridge:
-    driver: bridge
 
 services:
   # Base image containing dependencies.
@@ -51,8 +49,9 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
 
-    networks: # not using bridging anymore, instead try using all services on macvlan? let's see...
-        ros2-bridge:
+    networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
+      rmp:
+        #ipv4_address: 192.168.0.101 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
 
   # Overlay image containing the project specific source code.
   overlay:
@@ -126,10 +125,6 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    networks:
-        rmp:
-          ipv4_address: 192.168.0.101
-        ros2-bridge:
 
   # teleop
   teleop:
@@ -149,11 +144,6 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    networks:
-        rmp:
-          ipv4_address: 192.168.0.102
-        ros2-bridge:
-
 
   # lidar
   lidar:
