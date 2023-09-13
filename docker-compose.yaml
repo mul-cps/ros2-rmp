@@ -1,5 +1,21 @@
 version: "3.9"
 
+# First network configuration. Change this to the network interface you want to use primarily. (Better configuration for multiple Network interfaces needed).
+networks:
+  rmp:
+    driver: macvlan
+    driver_opts:
+      parent: wlx00e04c5513fc
+      ipam:
+        config:
+          - subnet: 192.168.0.0/24
+            gateway: 192.168.0.1
+            ip_range: 192.168.0.200/25
+            aux_addresses:
+              net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
+  ros2-bridge:
+    driver: bridge
+
 services:
   # Base image containing dependencies.
   base:
@@ -21,7 +37,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     # Needed to display graphical applications
     #privileged: true
@@ -80,7 +96,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -98,7 +114,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     # Needed to display graphical applications
     privileged: false
@@ -107,6 +123,10 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    networks:
+        rmp:
+          ipv4_address: 192.168.0.100
+        ros-bridge:
 
   # teleop
   teleop:
@@ -119,7 +139,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     # Needed to display graphical applications
     privileged: true
@@ -135,7 +155,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     # depends_on:
     #   - robot_state_publisher
@@ -157,7 +177,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -172,7 +192,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -187,7 +207,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -202,7 +222,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -217,7 +237,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -231,7 +251,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
     - ROS_DOMAIN_ID=5
@@ -248,7 +268,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     # Needed to display graphical applications
     privileged: true
@@ -272,7 +292,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -297,7 +317,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -324,7 +344,7 @@ services:
           #- linux/arm64
           - linux/amd64
       # Networking and IPC for ROS 2
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -336,7 +356,7 @@ services:
     command: >
       roscore
     extends: ros1bridge
-    network_mode: host
+    #network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
