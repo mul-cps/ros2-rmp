@@ -5,7 +5,7 @@ networks:
   rmp:
     driver: macvlan
     driver_opts:
-      parent: wlx00e04c5513fc
+      parent: eno1 # robot network interface
     ipam:
       config:
           - subnet: 192.168.0.0/24
