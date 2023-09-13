@@ -125,7 +125,7 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     networks:
         rmp:
-          ipv4_address: 192.168.0.100
+          ipv4_address: 192.168.0.101
         ros2-bridge:
 
   # teleop
