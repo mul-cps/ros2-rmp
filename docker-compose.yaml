@@ -32,7 +32,7 @@ services:
         platforms:
           - linux/arm64
           - linux/amd64
-      networks: # all services should inherit this network?
+      networks: # all services should inherit this network? nope they somehow don't. Need to specify for all services then.
         ros2-bridge:
 
     # Interactive shell
@@ -148,6 +148,9 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    networks:
+        ros2-bridge:
+
 
   # lidar
   lidar:
