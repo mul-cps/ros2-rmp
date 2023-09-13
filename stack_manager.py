@@ -10,12 +10,12 @@ stack3 = stack1 + ["amcl", "navigation"]
 # Function to start a stack
 def start_stack(stack):
     print(f"Starting {', '.join(stack)}...")
-    subprocess.run(["docker-compose", "up", "-d"] + stack)
+    subprocess.run(["docker", "compose", "up", "-d"] + stack)
 
 # Function to stop a stack
 def stop_stack(stack):
     print(f"Stopping {', '.join(stack)}...")
-    subprocess.run(["docker-compose", "down", "-v", "--remove-orphans"] + stack)
+    subprocess.run(["docker", "compose", "down", "-v", "--remove-orphans"] + stack)
 
 # Main program
 if __name__ == "__main__":
