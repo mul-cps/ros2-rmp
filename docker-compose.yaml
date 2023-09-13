@@ -32,6 +32,8 @@ services:
         platforms:
           - linux/arm64
           - linux/amd64
+      networks: # all services should inherit this network?
+        ros2-bridge:
 
     # Interactive shell
     stdin_open: true
