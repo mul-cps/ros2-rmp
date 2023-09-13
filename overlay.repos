@@ -9,3 +9,8 @@ repositories:
     type: git
     url: https://github.com/bjoernellens1/ros2_cam_openCV.git
     version: main
+  
+  ros2-exploration:
+    type: git
+    url: https://github.com/robo-friends/m-explore-ros2.git
+    version: feature/slam_toolbox_compat
