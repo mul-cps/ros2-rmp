@@ -148,8 +148,8 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    networks:
-        ros2-bridge:
+    # networks:
+    #     ros2-bridge:
 
 
   # lidar
