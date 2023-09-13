@@ -1,4 +1,15 @@
+#!/usr/bin/env python3
+
+import os
 import subprocess
+
+# Function to get the path to the docker-compose.yaml file
+def get_compose_file_path():
+    path = input("Enter the path to the docker-compose.yaml file (press Enter for current directory): ").strip()
+    return path if path else "docker-compose.yaml"
+
+# Initialize the path to the docker-compose.yaml file
+compose_file_path = get_compose_file_path()
 
 # Define a list to keep track of running services
 running_services = []
@@ -11,7 +22,7 @@ def is_service_running(service_name):
 def start_service(service_name):
     if not is_service_running(service_name):
         print(f"Starting {service_name}...")
-        subprocess.run(["docker", "compose", "up", "-d", service_name])
+        subprocess.run(["docker", "compose", "-f", compose_file_path, "up", "-d", service_name])
         running_services.append(service_name)
     else:
         print(f"{service_name} is already running.")
@@ -20,7 +31,7 @@ def start_service(service_name):
 def stop_service(service_name):
     if is_service_running(service_name):
         print(f"Stopping {service_name}...")
-        subprocess.run(["docker", "compose", "down", "-v", "--remove-orphans", service_name])
+        subprocess.run(["docker", "compose", "-f", compose_file_path, "down", "-v", "--remove-orphans", service_name])
         running_services.remove(service_name)
     else:
         print(f"{service_name} is not running.")
@@ -33,7 +44,8 @@ if __name__ == "__main__":
         print("2. Start AMCL and Navigation")
         print("3. Start Mapping and Navigation")
         print("4. Stop AMCL and Mapping")
-        print("5. Quit")
+        print("5. Change docker-compose.yaml file path")
+        print("6. Quit")
 
         choice = input("Enter your choice: ")
 
@@ -52,6 +64,8 @@ if __name__ == "__main__":
             stop_service("amcl")
             stop_service("mapping")
         elif choice == "5":
+            compose_file_path = get_compose_file_path()
+        elif choice == "6":
             break
         else:
             print("Invalid choice. Please try again.")
