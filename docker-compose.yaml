@@ -32,8 +32,6 @@ services:
         platforms:
           - linux/arm64
           - linux/amd64
-      networks: # all services should inherit this network? nope they somehow don't. Need to specify for all services then.
-        ros2-bridge:
 
     # Interactive shell
     stdin_open: true
@@ -52,6 +50,9 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+
+    networks: # all services should inherit this network? nope they somehow don't. Need to specify for all services then.
+        ros2-bridge:
 
   # Overlay image containing the project specific source code.
   overlay:
