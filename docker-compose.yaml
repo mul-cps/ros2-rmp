@@ -51,7 +51,7 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
 
-    networks: # all services should inherit this network? nope they somehow don't. Need to specify for all services then.
+    networks: # not using bridging anymore, instead try using all services on macvlan? let's see...
         ros2-bridge:
 
   # Overlay image containing the project specific source code.
