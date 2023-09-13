@@ -6,13 +6,13 @@ networks:
     driver: macvlan
     driver_opts:
       parent: wlx00e04c5513fc
-      ipam:
-        config:
-            - subnet: 192.168.0.0/24
-            - gateway: 192.168.0.1
-            - ip_range: 192.168.0.200/25
-            - aux_addresses:
-                net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
+    ipam:
+      config:
+          - subnet: 192.168.0.0/24
+            gateway: 192.168.0.1
+            ip_range: 192.168.0.200/25
+            aux_addresses:
+              net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
   ros2-bridge:
     driver: bridge
 
