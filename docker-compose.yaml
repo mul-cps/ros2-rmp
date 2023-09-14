@@ -298,6 +298,10 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     volumes:
       - ./foxglove/default.json:/foxglove/default-layout.json
+    networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
+      rmp:
+        ipv4_address: 192.168.0.201 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
+
 
   # Foxglove Studio Webserver
   foxglove_webserver:
@@ -305,6 +309,7 @@ services:
     stdin_open: true
     tty: true
     # Networking
+    network_mode: bridge
     ports:
       - 8080:8080
 
