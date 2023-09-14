@@ -325,6 +325,21 @@ services:
       - /dev/video0:/dev/video0
 
 
+  # ROS2 Frontier exploration
+  explorer:
+    extends: overlay
+    command: >
+      ros2 launch cps_rmp220_support robot_exploration.launch.py
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    #network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+  ### Images for ROS1 Interactions
   #ROS1 Bridge
   ros1bridge:
     image: ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
