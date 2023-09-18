@@ -383,3 +383,18 @@ services:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
+
+  
+  # ROS2 oak-d-lite camera
+  oakd:
+    extends: overlay
+    command: >
+      ros2 launch depthai_examples stereo.launch.py
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    #network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
