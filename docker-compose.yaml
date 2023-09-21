@@ -414,7 +414,7 @@ services:
     # Networking and IPC for ROS 2
     #network_mode: host
     ipc: host
-    privileged: true
+    #privileged: true
     device_cgroup_rules:
       - 'c 189:* rmw'
     volumes:
