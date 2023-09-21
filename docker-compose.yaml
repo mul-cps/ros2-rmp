@@ -415,7 +415,7 @@ services:
     #network_mode: host
     ipc: host
     privileged: true
-    devices:
+    #devices:
       #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
     environment:
       - DISPLAY=${DISPLAY}
