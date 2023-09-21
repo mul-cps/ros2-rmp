@@ -398,29 +398,28 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    privileged: true
-    devices:
+    #privileged: true
+    #devices:
       #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
 # SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666", SYMLINK+="oakd-lite"
-      - /dev/:/dev/ 
+      #- /dev/:/dev/ 
+    device_cgroup_rules:
+      - 'c 189:* rmw'
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+    
 
-  # for testing the oak-d-lite camera
+  # for testing the oak-d-lite camera -> works now with cgroup rules
   depthai:
     image: luxonis/depthai:latest
     command: >
       python3 /depthai/depthai_demo.py
     stdin_open: true
     tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    #privileged: true
     device_cgroup_rules:
       - 'c 189:* rmw'
     volumes:
       - /dev/bus/usb:/dev/bus/usb
-    #devices:
-      #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
