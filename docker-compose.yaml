@@ -415,6 +415,10 @@ services:
     #network_mode: host
     ipc: host
     privileged: true
+    device_cgroup_rules:
+      - 'c 189:* rmw'
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
     #devices:
       #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
     environment:
