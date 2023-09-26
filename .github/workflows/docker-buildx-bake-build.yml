@@ -27,7 +27,7 @@ jobs:
 
     - name: Build and Push Docker Compose Services
       run: |
-        docker buildx bake -f docker-compose.yml
+        docker buildx bake --push
         docker buildx bake -f docker-compose.yml --push
       #env:
       #  COMPOSE_FILE: docker-compose.yml
