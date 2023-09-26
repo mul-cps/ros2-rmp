@@ -80,7 +80,7 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 FROM base AS overlay
 
 # Create an overlay Colcon workspace
-RUN echo "update overlay 26.09.2023"
+RUN echo "update overlay 26.09.2023-take-2"
 RUN mkdir -p /overlay_ws/src
 WORKDIR /overlay_ws/src
 COPY overlay.repos .
@@ -92,7 +92,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install ros-humble-robot-localization -y \
+  && DEBIAN_FRONTEND=noninteractive apt-get install ros-humble-robot-localization ros-humble-joint-state-publisher -y \
   && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
   && rm -rf /var/lib/apt/lists/*
 
