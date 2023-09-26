@@ -106,7 +106,7 @@ services:
 
   # Controller
   controller:
-    extends: base 
+    extends: base
     command: >
       ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/segway
     devices:
@@ -129,6 +129,8 @@ services:
   # teleop
   teleop:
     extends: base 
+    depends_on:
+      - controller
     command: >
       ros2 launch rmp220_teleop robot_joystick.launch.py 
     devices:
@@ -169,6 +171,9 @@ services:
   # localiaztion by ekf node
   ekf:
     extends: overlay
+    depends_on:
+      - controller
+      - rsp
     command: >
       ros2 launch cps_rmp220_support robot_localization.launch.py
     # Interactive shell
@@ -184,6 +189,10 @@ services:
   # mapping
   mapping:
     extends: overlay
+    depends_on:
+      - ekf
+      - rsp
+      - lidar
     command: >
       ros2 launch cps_rmp220_support robot_mapping.launch.py
     # Interactive shell
@@ -199,6 +208,10 @@ services:
   # slam-toolbox-localization
   localization:
     extends: overlay
+    depends_on:
+      - ekf
+      - rsp
+      - lidar
     command: >
       ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
     # Interactive shell
@@ -214,6 +227,10 @@ services:
   # amcl_localization
   amcl:
     extends: overlay
+    depends_on:
+      - ekf
+      - rsp
+      - lidar
     command: >
       ros2 launch cps_rmp220_support robot_amcl.launch.py map:=/repo/maps/map.yaml
     # Interactive shell
@@ -335,6 +352,14 @@ services:
   # ROS2 Frontier exploration
   explorer:
     extends: overlay
+    depends_on:
+      - controller
+      - teleop
+      - rsp
+      - lidar
+      - mapping
+      - ekf
+      - navigation
     command: >
       ros2 launch cps_rmp220_support robot_exploration.launch.py
     stdin_open: true
