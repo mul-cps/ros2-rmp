@@ -246,6 +246,13 @@ services:
   # navigation
   navigation:
     extends: overlay
+    depends_on:
+      - controller
+      - teleop
+      - rsp
+      - lidar
+      - ekf
+      - oakd
     # command: >
     #   ros2 launch cps_rmp220_support robot_navigation.launch.py
     #   map_subscribe_transient_local:=true
