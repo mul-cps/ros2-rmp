@@ -359,7 +359,6 @@ services:
       - teleop
       - rsp
       - lidar
-      - mapping
       - ekf
       - navigation
     command: >
