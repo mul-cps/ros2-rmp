@@ -246,9 +246,11 @@ services:
   # navigation
   navigation:
     extends: overlay
+    # command: >
+    #   ros2 launch cps_rmp220_support robot_navigation.launch.py
+    #   map_subscribe_transient_local:=true
     command: >
-      ros2 launch cps_rmp220_support robot_navigation.launch.py
-      map_subscribe_transient_local:=true
+      ros2 launch nav2_bringup bringup_launch.py slam:=True map:=/repo/maps/map_current.sav.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
