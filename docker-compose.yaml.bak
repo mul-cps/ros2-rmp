@@ -2,23 +2,17 @@ version: "3.9"
 
 # First network configuration. Change this to the network interface you want to use primarily. (Better configuration for multiple Network interfaces needed).
 networks:
-  # rmp:
-  #   driver: macvlan
-  #   driver_opts:
-  #     parent: eno1 # robot network interface
-  #   ipam:
-  #     config:
-  #         - subnet: 192.168.0.0/24
-  #           gateway: 192.168.0.1
-  #           ip_range: 192.168.0.200/25
-  #           aux_addresses:
-  #             net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
-  # make new bridge network for ros
   rmp:
-    driver: bridge
-    # ipam:
-    #   config:
-    #       - subnet:
+    driver: macvlan
+    driver_opts:
+      parent: eno1 # robot network interface
+    ipam:
+      config:
+          - subnet: 192.168.0.0/24
+            gateway: 192.168.0.1
+            ip_range: 192.168.0.200/25
+            aux_addresses:
+              net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
 
 services:
   # Base image containing dependencies.
