@@ -328,9 +328,9 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
-      rmp:
-        ipv4_address: 192.168.0.201 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
+    # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
+    #   rmp:
+    #     ipv4_address: 192.168.0.201 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
 
 
   # Foxglove Studio Webserver
