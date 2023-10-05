@@ -41,7 +41,7 @@ services:
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
-    #network_mode: host
+    network_mode: host
     ipc: host
     # Needed to display graphical applications
     #privileged: true
