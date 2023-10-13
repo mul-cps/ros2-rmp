@@ -173,6 +173,19 @@ services:
 #       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
 # SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
 
+  # Lidar filtering node.
+  lidar_filter:
+    extends: overlay
+    command: >
+      ros2 launch laser_filters box_filter_example.launch.py
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    #network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # localiaztion by ekf node
   ekf:
