@@ -92,7 +92,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install nano ros-humble-robot-localization ros-humble-joint-state-publisher -y \
+  && DEBIAN_FRONTEND=noninteractive apt-get install nano ros-humble-robot-localization ros-humble-joint-state-publisher ros-humble-laser-filters -y \
   && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
   && rm -rf /var/lib/apt/lists/*
 
