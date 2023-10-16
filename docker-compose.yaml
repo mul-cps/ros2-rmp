@@ -177,7 +177,7 @@ services:
   lidar_filter:
     extends: overlay
     command: >
-      ros2 launch laser_filters box_filter_example.launch.py
+      ros2 launch cps_rmp220_support robot_scan_filter.launch.py
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
