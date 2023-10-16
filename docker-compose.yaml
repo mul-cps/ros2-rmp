@@ -156,6 +156,8 @@ services:
   # lidar
   lidar:
     extends: overlay
+    depends_on:
+      - lidar_filter
     command: >
       ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     stdin_open: true
