@@ -280,7 +280,7 @@ services:
     # command: >
     #   ros2 launch nav2_bringup bringup_launch.py slam:=True map:=/repo/maps/map_current.sav.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
     command: >
-      ros2 launch nav2_bringup bringup_launch.py slam:=False map:=/repo/maps/map.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
+      ros2 launch nav2_bringup bringup_launch.py slam:=False map:=/repo/maps/map_openlabday.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
     stdin_open: true
     tty: true
     # Networking and IPC for ROS 2
