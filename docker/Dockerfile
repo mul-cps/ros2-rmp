@@ -8,7 +8,7 @@ ARG TARGETPLATFORM
 # Variable TARGETPLATFORM should be auomatically created during build process by docker.
 
 ########################################
-# Base Image for Bot Mini Control #
+# Base Image for RMP Control #
 ########################################
 FROM ros:${ROS_DISTRO} as base
 ENV ROS_DISTRO=${ROS_DISTRO}

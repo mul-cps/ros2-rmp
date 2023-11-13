@@ -421,7 +421,7 @@ services:
           #- linux/arm64
           - linux/amd64
       # Networking and IPC for ROS 2
-    #network_mode: host
+    network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
@@ -433,7 +433,7 @@ services:
     command: >
       roscore
     extends: ros1bridge
-    #network_mode: host
+    network_mode: host
     ipc: host
     environment:
       - ROS_DOMAIN_ID=5
