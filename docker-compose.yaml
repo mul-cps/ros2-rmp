@@ -20,7 +20,7 @@ networks:
     #   config:
     #       - subnet:
 
-# add this mountpoint to all services: ./customize/entrypoint.sh:/entrypoint.sh
+# add this mountpoint to all services: - ./customize/entrypoint.sh:/entrypoint.sh
 # Attention: child services will inherit settings from their parents. So if you set a network_mode: host in the base service, all child services will also use host networking. This is not always what you want. So be careful with this.
 
 services:
@@ -301,7 +301,6 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 
-  
   # ROS2 oak-d-lite camera
   oakd:
     extends: overlay
