@@ -481,3 +481,24 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
   
+  zerotier:
+    image: "zyclonite/zerotier:router"
+    container_name: zerotier-one
+    devices:
+      - /dev/net/tun
+    network_mode: host
+    volumes:
+      - '/var/lib/zerotier-one:/var/lib/zerotier-one'
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - NET_RAW
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Amsterdam
+      - PUID=1000
+      - PGID=1000
+      - ZEROTIER_ONE_LOCAL_PHYS=enp5s0 wlx00e04c5513fc # change for actual interfaces
+      - ZEROTIER_ONE_USE_IPTABLES_NFT=false
+      - ZEROTIER_ONE_GATEWAY_MODE=inbound # might change to both ways
+      #- ZEROTIER_ONE_NETWORK_IDS= # does not really do much?
