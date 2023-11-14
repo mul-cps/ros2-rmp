@@ -9,6 +9,9 @@
         </General>      
         <Discovery>
             <Peers>
+                <Peer address="10.241.215.39"/>
+                <Peer address="10.241.176.189"/>
+                <Peer address="10.241.125.101"/>
             </Peers>
             <ParticipantIndex>auto</ParticipantIndex>
             <MaxAutoParticipantIndex>40</MaxAutoParticipantIndex>
