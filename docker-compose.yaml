@@ -54,11 +54,13 @@ services:
       # set correct ros2 parameters: domain id and rmw implementation
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
       - ./customize/entrypoint.sh:/entrypoint.sh
+      - ./customize/cyclonedds_zerotier.xml:/cyclonedds.xml
 
     # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
     #   rmp:
