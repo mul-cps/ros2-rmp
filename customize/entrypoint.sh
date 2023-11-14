@@ -79,20 +79,20 @@ fi
 apt update && apt install -y iproute2
 
 # Find the ZeroTier interface name dynamically
-zerotier_interface=$(ip addr show | awk '/^.*: zt/{print $2}' | cut -d ':' -f 1)
+# zerotier_interface=$(ip addr show | awk '/^.*: zt/{print $2}' | cut -d ':' -f 1)
 
-if [ -z "$zerotier_interface" ]; then
-  echo "ZeroTier interface not found."
-  exit 1
-fi
+# if [ -z "$zerotier_interface" ]; then
+#   echo "ZeroTier interface not found."
+#   exit 1
+# fi
 
-echo "Using ZeroTier interface: $zerotier_interface"
+# echo "Using ZeroTier interface: $zerotier_interface"
 
-# Set the path to your CycloneDDS configuration file
-config_file="/cyclonedds.xml"
+# # Set the path to your CycloneDDS configuration file
+# config_file="/cyclonedds.xml"
 
-# Replace the content between <NetworkInterfaceAddress> tags
-sed -i "s|<NetworkInterfaceAddress>.*</NetworkInterfaceAddress>|<NetworkInterfaceAddress>$zerotier_interface</NetworkInterfaceAddress>|g" "$config_file"
+# # Replace the content between <NetworkInterfaceAddress> tags
+# sed -i "s|<NetworkInterfaceAddress>.*</NetworkInterfaceAddress>|<NetworkInterfaceAddress>$zerotier_interface</NetworkInterfaceAddress>|g" "$config_file"
 
 # Execute the command passed into this entrypoint
 exec "$@"
