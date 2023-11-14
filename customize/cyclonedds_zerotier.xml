@@ -3,14 +3,14 @@
     <Domain id="any">
         <General>
             <Interfaces>
-                <NetworkInterface name="zt3jn7jpga"/>
+                <NetworkInterface name="tailscale0"/>
             </Interfaces>
             <AllowMulticast>true</AllowMulticast>
         </General>      
         <Discovery>
             <Peers>
-                <Peer address="10.241.215.39"/>
-                <Peer address="10.241.176.189"/>
+                <Peer address="100.122.167.177"/>
+                <Peer address="100.73.99.155"/>
                 <Peer address="10.241.125.101"/>
             </Peers>
             <ParticipantIndex>auto</ParticipantIndex>
