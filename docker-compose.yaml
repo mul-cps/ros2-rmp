@@ -101,6 +101,8 @@ services:
           - linux/amd64
     command: >
       /bin/bash
+    devices:
+          - /dev/dri:/dev/dri
 
   # Robot State Publisher
   rsp:
