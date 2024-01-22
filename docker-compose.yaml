@@ -59,8 +59,8 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
-      - ./customize/entrypoint.sh:/entrypoint.sh
-      - ./customize/cyclonedds.xml:/cyclonedds.xml
+      - ./config/entrypoint.sh:/entrypoint.sh
+      - ./config/cyclonedds.xml:/cyclonedds.xml
 
     # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
     #   rmp:
@@ -118,6 +118,7 @@ services:
     devices:
       - /dev/segway:/dev/ttyUSB0
       #- /dev/ttyUSB0:/dev/ttyUSB0
+    privileged: true
 
   # teleop
   teleop:
@@ -129,6 +130,7 @@ services:
     devices:
       - /dev/input/js0:/dev/input/js0
       #- /dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick:/dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick
+    privileged: true
 
   # lidar
   lidar:
@@ -198,8 +200,8 @@ services:
       - ekf
       - oakd
     command: >
-      ros2 launch nav2_bringup bringup_launch.py slam:=False map:=/repo/maps/map_openlabday.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
-  
+      ros2 launch nav2_bringup bringup_launch.py slam:=True map:=/repo/maps/map.yaml use_sim_time:=False use_composition:=True params_file:=/repo/config/nav2_params.yaml
+  #maps/map_openlabday.yaml
   # bash
   bash:
     extends: overlay
@@ -233,7 +235,7 @@ services:
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
 
   # Foxglove Studio Webserver
-  foxglove_webserver:
+  foxglove:
     image: ghcr.io/foxglove/studio:latest
     stdin_open: true
     tty: true
