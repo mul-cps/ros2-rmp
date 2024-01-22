@@ -102,7 +102,7 @@ services:
     command: >
       /bin/bash
     devices:
-          - /dev/dri:/dev/dri
+      - /dev/dri:/dev/dri
 
   # Robot State Publisher
   rsp:
@@ -116,8 +116,8 @@ services:
     command: >
       ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/segway
     devices:
-      - /dev/segway:/dev/segway
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/segway:/dev/ttyUSB0
+      #- /dev/ttyUSB0:/dev/ttyUSB0
 
   # teleop
   teleop:
@@ -128,6 +128,7 @@ services:
       ros2 launch rmp220_teleop robot_joystick.launch.py 
     devices:
       - /dev/input/js0:/dev/input/js0
+      #- /dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick:/dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick
 
   # lidar
   lidar:
