@@ -308,6 +308,29 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 
+## Configure on ROS1 Hosts
+# seggy 192.168.0.100
+#     locally running ros-package: control1 
+#          subscribing topic2
+#          publishing  topic1                 
+
+# robot2 192.168.x.x
+#     locally running ros-package: control2
+#          subscribing topic1
+#          publishing  topic2
+# As we need one ros-master to control the communication, we choose 192.168.1.1 as master. Therefore we execute locally on robot 1:
+
+# export ROS_MASTER_URI=http://192.168.0.100:11311 # or localhost?
+# export ROS_HOSTNAME=192.168.0.100
+# export ROS_IP=192.168.0.100   
+# roscore
+
+# In order to connect to the ROS-master, we execute locally on robot2:
+
+# export ROS_MASTER_URI=http://192.1.1.1:11311            
+# export ROS_IP=192.168.1.2                               
+# export ROS_HOSTNAME=192.168.1.2
+
   # ROS2 oak-d-lite camera
   oakd:
     extends: overlay
