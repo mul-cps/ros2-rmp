@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+    <Domain id="any">
+        <General>
+            <Interfaces>
+                <NetworkInterface name="tailscale0"/>
+            </Interfaces>
+            <AllowMulticast>true</AllowMulticast>
+        </General>      
+        <Discovery>
+            <Peers>
+            </Peers>
+            <ParticipantIndex>auto</ParticipantIndex>
+            <MaxAutoParticipantIndex>40</MaxAutoParticipantIndex>
+        </Discovery>
+        <Tracing>
+            <Verbosity>severe</Verbosity>
+            <OutputFile>stdout</OutputFile>
+        </Tracing>
+    </Domain>
+</CycloneDDS>

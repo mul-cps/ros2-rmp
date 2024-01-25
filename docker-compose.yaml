@@ -20,6 +20,9 @@ networks:
     #   config:
     #       - subnet:
 
+# add this mountpoint to all services: - ./customize/entrypoint.sh:/entrypoint.sh
+# Attention: child services will inherit settings from their parents. So if you set a network_mode: host in the base service, all child services will also use host networking. This is not always what you want. So be careful with this.
+
 services:
   # Base image containing dependencies.
   base:
@@ -36,7 +39,6 @@ services:
         platforms:
           - linux/arm64
           - linux/amd64
-
     # Interactive shell
     stdin_open: true
     tty: true
@@ -44,16 +46,21 @@ services:
     network_mode: host
     ipc: host
     # Needed to display graphical applications
-    #privileged: true
     environment:
       # Allows graphical programs in the container.
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
+      # set correct ros2 parameters: domain id and rmw implementation
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+      - ./config/entrypoint.sh:/entrypoint.sh
+      - ./config/cyclonedds.xml:/cyclonedds.xml
 
     # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
     #   rmp:
@@ -92,23 +99,16 @@ services:
         platforms:
           - linux/arm64
           - linux/amd64
-    #entrypoint: /bin/bash
     command: >
       /bin/bash
+    devices:
+      - /dev/dri:/dev/dri
 
   # Robot State Publisher
   rsp:
     extends: overlay
     command: >
       ros2 launch cps_rmp220_support rsp.launch.py
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # Controller
   controller:
@@ -116,21 +116,9 @@ services:
     command: >
       ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/segway
     devices:
-      - /dev/segway:/dev/segway
-      - /dev/ttyUSB0:/dev/ttyUSB0
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    # Needed to display graphical applications
-    privileged: false
-    # depends_on:
-    #   - robot_state_publisher
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - /dev/segway:/dev/ttyUSB0
+      #- /dev/ttyUSB0:/dev/ttyUSB0
+    privileged: true
 
   # teleop
   teleop:
@@ -141,17 +129,8 @@ services:
       ros2 launch rmp220_teleop robot_joystick.launch.py 
     devices:
       - /dev/input/js0:/dev/input/js0
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    # Needed to display graphical applications
+      #- /dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick:/dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick
     privileged: true
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # lidar
   lidar:
@@ -160,16 +139,6 @@ services:
       - lidar_filter
     command: >
       ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    # depends_on:
-    #   - robot_state_publisher
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     devices:
       - /dev/rplidarA1:/dev/rplidarA1 #udevrules needed for this to work:
 #       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
@@ -180,14 +149,6 @@ services:
     extends: overlay
     command: >
       ros2 launch cps_rmp220_support robot_scan_filter.launch.py
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # localiaztion by ekf node
   ekf:
@@ -197,15 +158,6 @@ services:
       - rsp
     command: >
       ros2 launch cps_rmp220_support robot_localization.launch.py
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # mapping
   mapping:
@@ -216,15 +168,6 @@ services:
       - lidar
     command: >
       ros2 launch cps_rmp220_support robot_mapping.launch.py
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # slam-toolbox-localization
   localization:
@@ -235,15 +178,6 @@ services:
       - lidar
     command: >
       ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # amcl_localization
   amcl:
@@ -254,15 +188,6 @@ services:
       - lidar
     command: >
       ros2 launch cps_rmp220_support robot_amcl.launch.py map:=/repo/maps/map.yaml
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # navigation
   navigation:
@@ -274,52 +199,23 @@ services:
       - lidar
       - ekf
       - oakd
-    # command: >
-    #   ros2 launch cps_rmp220_support robot_navigation.launch.py
-    #   map_subscribe_transient_local:=true
-    # command: >
-    #   ros2 launch nav2_bringup bringup_launch.py slam:=True map:=/repo/maps/map_current.sav.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
     command: >
-      ros2 launch nav2_bringup bringup_launch.py slam:=False map:=/repo/maps/map_openlabday.yaml use_sim_time:=False use_composition:=True params_file:=/overlay_ws/src/cps_rmp220_support/config/nav2_params.yaml
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-  
+      ros2 launch nav2_bringup bringup_launch.py slam:=True map:=/repo/maps/map.yaml use_sim_time:=False use_composition:=True params_file:=/repo/config/nav2_params.yaml
+  #maps/map_openlabday.yaml
   # bash
   bash:
     extends: overlay
     command: >
       /bin/bash
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-    - ROS_DOMAIN_ID=5
-    - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   # rviz2
   rviz2:
     #extends: guis
     image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
-    # command: >
-    #   ros2 launch cps_rmp220_support robot_rviz2.launch.py
     command: >
       ros2 launch cps_rmp220_support rviz.launch.py
-    # Interactive shell
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    network_mode: host
-    ipc: host
     # Needed to display graphical applications
-    privileged: true
+    privileged: true # really necessary?
     environment:
       # Allows graphical programs in the container.
       - DISPLAY=${DISPLAY}
@@ -337,21 +233,9 @@ services:
     extends: overlay
     command: >
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
-    #   rmp:
-    #     ipv4_address: 192.168.0.201 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
-
 
   # Foxglove Studio Webserver
-  foxglove_webserver:
+  foxglove:
     image: ghcr.io/foxglove/studio:latest
     stdin_open: true
     tty: true
@@ -369,14 +253,6 @@ services:
     extends: overlay
     command: >
       ros2 run ros2_cam_openCV cam_node
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     devices:
       - /dev/video0:/dev/video0
 
@@ -393,14 +269,6 @@ services:
       - navigation
     command: >
       ros2 launch cps_rmp220_support robot_exploration.launch.py
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
   ### Images for ROS1 Interactions
   #ROS1 Bridge
@@ -440,21 +308,34 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 
-  
+## Configure on ROS1 Hosts
+# seggy 192.168.0.100
+#     locally running ros-package: control1 
+#          subscribing topic2
+#          publishing  topic1                 
+
+# robot2 192.168.x.x
+#     locally running ros-package: control2
+#          subscribing topic1
+#          publishing  topic2
+# As we need one ros-master to control the communication, we choose 192.168.1.1 as master. Therefore we execute locally on robot 1:
+
+# export ROS_MASTER_URI=http://192.168.0.100:11311 # or localhost?
+# export ROS_HOSTNAME=192.168.0.100
+# export ROS_IP=192.168.0.100   
+# roscore
+
+# In order to connect to the ROS-master, we execute locally on robot2:
+
+# export ROS_MASTER_URI=http://192.1.1.1:11311            
+# export ROS_IP=192.168.1.2                               
+# export ROS_HOSTNAME=192.168.1.2
+
   # ROS2 oak-d-lite camera
   oakd:
     extends: overlay
     command: >
       ros2 launch depthai_examples stereo.launch.py
-    stdin_open: true
-    tty: true
-    # Networking and IPC for ROS 2
-    #network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-    #privileged: true
     #devices:
       #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
 # SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666", SYMLINK+="oakd-lite"
@@ -463,7 +344,6 @@ services:
       - 'c 189:* rmw'
     volumes:
       - /dev/bus/usb:/dev/bus/usb
-    
 
   # for testing the oak-d-lite camera -> works now with cgroup rules
   depthai:
@@ -481,3 +361,24 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
   
+  zerotier:
+    image: "zyclonite/zerotier:router"
+    container_name: zerotier-one
+    devices:
+      - /dev/net/tun
+    network_mode: host
+    volumes:
+      - '/var/lib/zerotier-one:/var/lib/zerotier-one'
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - NET_RAW
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Amsterdam
+      - PUID=1000
+      - PGID=1000
+      - ZEROTIER_ONE_LOCAL_PHYS=enp5s0 wlx00e04c5513fc # change for actual interfaces
+      - ZEROTIER_ONE_USE_IPTABLES_NFT=false
+      - ZEROTIER_ONE_GATEWAY_MODE=inbound # might change to both ways
+      #- ZEROTIER_ONE_NETWORK_IDS= # does not really do much?
