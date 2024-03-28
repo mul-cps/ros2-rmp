@@ -5,20 +5,20 @@ showFooter: false
 
 actions:
   - title: "Start Navigation Stack"
-    shell: docker start cps_loki-navigation-1
+    shell: docker start ros2_rmp-navigation-1
     icon: '<img src = "customIcons/nav2_start.png" width = "48px"/>'
   - title: "Stop Navigation Stack"
-    shell: docker stop cps_loki-navigation-1
+    shell: docker stop ros2_rmp-navigation-1
     icon: '<img src = "customIcons/nav2_stop.png" width = "48px"/>'
   - title: "Start Mapping"
-    shell: docker start cps_loki-mapping-1
+    shell: docker start ros2_rmp-mapping-1
     icon: '<img src = "customIcons/mapping_start.gif" width = "48px"/>'
   - title: "Stop Mapping"
-    shell: docker stop cps_loki-mapping-1
+    shell: docker stop ros2_rmp-mapping-1
     icon: '<img src = "customIcons/mapping_stop.gif" width = "48px"/>'
   - title: "Restart Teleop"
     icon: '<img src = "customIcons/gamepad.png" width = "48px"/>'
-    shell: docker restart cps_loki-teleop-1
+    shell: docker restart ros2_rmp-teleop-1
   - title: Restart or Shutdown System
     icon: restart
     shell: systemctl {{ choice }}

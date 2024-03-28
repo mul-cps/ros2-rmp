@@ -217,7 +217,6 @@ services:
     stdin_open: true
     tty: true
     # Networking
-    network_mode: bridge
     networks:
       - caddy_network
     ports:
