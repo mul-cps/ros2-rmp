@@ -1,28 +1,5 @@
 version: "3.9"
 
-# First network configuration. Change this to the network interface you want to use primarily. (Better configuration for multiple Network interfaces needed).
-networks:
-  # rmp:
-  #   driver: macvlan
-  #   driver_opts:
-  #     parent: eno1 # robot network interface
-  #   ipam:
-  #     config:
-  #         - subnet: 192.168.0.0/24
-  #           gateway: 192.168.0.1
-  #           ip_range: 192.168.0.200/25
-  #           aux_addresses:
-  #             net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
-  # make new bridge network for ros
-  rmp:
-    driver: bridge
-    # ipam:
-    #   config:
-    #       - subnet:
-
-# add this mountpoint to all services: - ./customize/entrypoint.sh:/entrypoint.sh
-# Attention: child services will inherit settings from their parents. So if you set a network_mode: host in the base service, all child services will also use host networking. This is not always what you want. So be careful with this.
-
 services:
   # Base image containing dependencies.
   base:
@@ -141,8 +118,8 @@ services:
       ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     devices:
       - /dev/rplidarA1:/dev/rplidarA1 #udevrules needed for this to work:
-#       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
-# SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
+        #       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
+        # SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
 
   # Lidar filtering node.
   lidar_filter:
@@ -241,6 +218,8 @@ services:
     tty: true
     # Networking
     network_mode: bridge
+    networks:
+      - caddy_network
     ports:
       - 8080:8080
     depends_on:
@@ -272,41 +251,41 @@ services:
 
   ### Images for ROS1 Interactions
   #ROS1 Bridge
-  ros1bridge:
-    image: ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
-    command: >
-      ros2 run ros1_bridge dynamic_bridge --bridge-all-2to1-topics
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-      tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
-      args:
-        ROS_DISTRO: humble
-      target: bridge
-      x-bake:
-        platforms:
-          #- linux/arm64
-          - linux/amd64
-      # Networking and IPC for ROS 2
-    network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
+  # ros1bridge:
+  #   image: ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+  #   command: >
+  #     ros2 run ros1_bridge dynamic_bridge --bridge-all-2to1-topics
+  #   build:
+  #     context: .
+  #     dockerfile: docker/Dockerfile
+  #     tags:
+  #       - ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+  #     args:
+  #       ROS_DISTRO: humble
+  #     target: bridge
+  #     x-bake:
+  #       platforms:
+  #         #- linux/arm64
+  #         - linux/amd64
+  #     # Networking and IPC for ROS 2
+  #   network_mode: host
+  #   ipc: host
+  #   environment:
+  #     - ROS_DOMAIN_ID=5
+  #     - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+  #     - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
   
   #ROS1 roscore
-  roscore:
-    command: >
-      roscore
-    extends: ros1bridge
-    network_mode: host
-    ipc: host
-    environment:
-      - ROS_DOMAIN_ID=5
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
+  # roscore:
+  #   command: >
+  #     roscore
+  #   extends: ros1bridge
+  #   network_mode: host
+  #   ipc: host
+  #   environment:
+  #     - ROS_DOMAIN_ID=5
+  #     - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+  #     - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 
 ## Configure on ROS1 Hosts
 # seggy 192.168.0.100
@@ -360,25 +339,91 @@ services:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
-  
-  zerotier:
-    image: "zyclonite/zerotier:router"
-    container_name: zerotier-one
-    devices:
-      - /dev/net/tun
-    network_mode: host
+
+################################################################################################################################
+# Core Services for Web Management                                                                                             #
+################################################################################################################################
+  caddy:
+    image: caddy:latest
+    networks:
+      - caddy_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
-      - '/var/lib/zerotier-one:/var/lib/zerotier-one'
-    cap_add:
-      - NET_ADMIN
-      - SYS_ADMIN
-      - NET_RAW
-    restart: unless-stopped
+      - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./config/caddy/content:/usr/share/caddy/
+    restart: always
+    depends_on:
+      - foxglove
+      - olivetin
+  roscore:
+    image: husarion/ros1-bridge:foxy-0.9.6-20230327-stable
+    command: |
+      bash -c "source /opt/ros/noetic/setup.bash && roscore"
+    network_mode: host
     environment:
-      - TZ=Europe/Amsterdam
-      - PUID=1000
-      - PGID=1000
-      - ZEROTIER_ONE_LOCAL_PHYS=enp5s0 wlx00e04c5513fc # change for actual interfaces
-      - ZEROTIER_ONE_USE_IPTABLES_NFT=false
-      - ZEROTIER_ONE_GATEWAY_MODE=inbound # might change to both ways
-      #- ZEROTIER_ONE_NETWORK_IDS= # does not really do much?
+      - ROS_DOMAIN_ID=5
+    restart: always
+  ros1bridge:
+    image: husarion/ros1-bridge:foxy-0.9.6-20230327-stable
+    command: |
+      ros2 run ros1_bridge dynamic_bridge
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    restart: always
+  webui-joystick:
+    image: husarion/webui-ros-joystick:noetic-0.0.1-20230510-stable
+    network_mode: host
+    # networks:
+    #   - caddy_network
+    # ports:
+    #   - 8000:8000
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=5
+    restart: always
+    depends_on:
+      - ros1bridge
+    command: roslaunch webui-ros-joystick webui.launch
+  olivetin:
+    container_name: olivetin
+    image: jamesread/olivetin
+    #image: ghcr.io/bjoernellens1/cps_bot_mini_ws/olivetin
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/cps_bot_mini_ws/olivetin
+      target: olivetin
+      x-bake:
+        platforms:
+          #- linux/arm64
+          - linux/amd64
+    user: root
+    privileged: true
+    volumes:
+      - ./config/olivetin/:/config/ # here is config.yaml and icons located
+      - ./config/olivetin/icons:/var/www/olivetin/customIcons
+      - .:/repo
+      - /var/run/docker.sock:/var/run/docker.sock
+      
+      # - /var/lib/docker:/var/lib/docker
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
+    networks:
+      - caddy_network
+    ports:
+      - "1337:1337"
+    restart: always
+
+################################################################################################################################
+# Docker related extra stuff                                                                                                   #
+################################################################################################################################
+networks:
+  caddy_network:
+    driver: bridge

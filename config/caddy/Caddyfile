@@ -2,7 +2,7 @@
 # 	debug
 # }
 
-http://loki {
+http://cps-seggy {
 	root * /usr/share/caddy
 	file_server browse
 
@@ -20,7 +20,7 @@ http://loki {
 	}
 }
 
-http://loki.local {
+http://cps-seggy.local {
 	root * /usr/share/caddy
 	file_server browse
 
