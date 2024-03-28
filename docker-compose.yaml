@@ -246,7 +246,7 @@ services:
     depends_on:
       - foxglove_bridge
     volumes:
-      - ./foxglove/default.json:/foxglove/default-layout.json
+      - ./config/foxglove/default.json:/foxglove/default-layout.json
 
   # USB Camera Stream
   cam:

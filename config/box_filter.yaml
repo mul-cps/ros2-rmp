@@ -1,0 +1,27 @@
+scan_to_scan_filter_chain:
+  ros__parameters:
+    filter1:
+      name: box_filter
+      type: laser_filters/LaserScanBoxFilter
+      params:
+        box_frame: laser_frame
+        max_x: 0.80 #was 0.16
+        max_y: 0.18 #was 0.17
+        max_z: 0.1
+        min_x: -0.41 #was -0.41
+        min_y: -0.18 # was -0.17
+        min_z: -0.2
+        invert: false # activate to remove all points outside of the box
+      name: shadows
+        type: laser_filters/ScanShadowsFilter
+        params:
+          min_angle: 10
+          max_angle: 170
+          neighbors: 20
+          window: 1
+      name: dark_shadows
+        type: laser_filters/LaserScanIntensityFilter
+        params:
+          lower_threshold: 100
+          upper_threshold: 10000
+          disp_histogram: 0

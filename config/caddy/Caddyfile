@@ -1,0 +1,34 @@
+# {
+# 	debug
+# }
+
+http://loki {
+	root * /usr/share/caddy
+	file_server browse
+
+	handle_path /config* {
+		reverse_proxy http://olivetin:1337
+	}
+
+	handle_path /viz* {
+		reverse_proxy http://foxglove:8080
+	}
+
+	# this is not working right now
+	handle_path /joy* {
+		reverse_proxy http://host.docker.internal:8000
+	}
+}
+
+http://loki.local {
+	root * /usr/share/caddy
+	file_server browse
+
+	handle_path /config {
+		reverse_proxy http://olivetin:1337
+	}
+
+	handle_path /viz* {
+		reverse_proxy http://foxglove:8080
+	}
+}

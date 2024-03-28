@@ -1,0 +1,247 @@
+html
+{
+    background-color: rgb(51, 51, 51);
+    font-family: sans-serif;
+    padding-bottom: 50px;
+}
+
+#HEADLINE
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: white;
+    background-color: rgb(1, 115, 126);
+    box-shadow: 0px 15px 0px -5px rgb(1, 89, 97);
+    
+    margin-top: 2px;
+}
+
+#LOGO
+{
+    height: 1em;
+    width: auto;
+
+    float: right;
+    margin-top: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: inherit;
+}
+
+.mini-heads
+{
+    color: white;
+    font-weight: 700;
+}
+
+#LEFT
+{
+    float: left;
+    max-width: 49.5%;
+
+    text-align: center;
+}
+
+#RIGHT
+{
+    float: right;
+    max-width: 49.5%;
+    flex-direction: row;
+
+    text-align: center;
+}
+
+.qr
+{
+    max-width: 59.5%;
+    height: auto;
+
+    object-fit: cover;
+
+    border-color: black;
+    border: 3px solid;
+    border-radius: 10%;
+    
+}
+
+.qr_2
+{
+    width: 35%;
+    height: auto;
+}
+
+table, td
+{
+    color: white;
+
+    width: 70%;
+    line-height: 190%;
+    border: 1px solid rgb(76, 76, 76);
+    background-color: rgb(34, 34, 34); 
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#SPACE
+{
+    padding: 3px;
+}
+
+#NORM_SET
+{
+    padding-top: 6px;
+}
+
+.link
+{
+    color: white;
+    background-color: rgb(1, 115, 126);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.link:hover
+{
+    color: rgb(206, 206, 206);
+}
+
+.link:visited
+{
+    color: rgb(75, 75, 75);
+    background-color: rgb(1, 89, 97);
+}
+
+.info
+{
+    color: white;
+    
+    background-color: rgb(34, 34, 34);
+
+    padding-top: 3px;
+    padding-right: 6px;
+    text-indent: 6px;
+
+    position: fixed;
+    bottom: 0px;
+    right: 6px;
+
+    border: 1px solid rgb(76, 76, 76);
+}
+
+.info:hover
+{
+    cursor: pointer;
+}
+
+.info:visited
+{
+    color: rgb(206, 206, 206);
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Phone */ /* pract. ab 400% zoom (inludkiert) am pc */
+@media only screen and (max-width : 480px)
+{
+    #LEFT
+    {
+      width: 100%;
+      max-width: none;
+      clear: both;
+      text-align: center;
+    }
+
+    #RIGHT
+    {
+        max-width: none;
+        padding-top: 10px;
+    }
+
+    .qr
+    {
+        max-width: 43.9%;
+    }
+    
+    .qr_2
+    {
+        width: 29%;
+    }
+}
+
+/* Tablet / Ipad */ /* pract. ab 200% Zoom (nicht inkludiert) am pc */
+@media only screen and (max-width : 767px) and (min-width: 481px)
+{
+    #LEFT
+    {
+        max-width: none;
+        width: 100%;
+        clear: both;
+        text-align: center;
+    }
+
+    .qr
+    {
+        max-width: 35%;
+    }
+
+    table td
+    {
+        font-size: large;
+    }
+
+    .mini-heads
+    {
+        font-size: x-large;
+    }
+
+    #RIGHT
+    {
+        max-width: none;
+    }
+
+    #SPACE
+    {
+        padding: none;
+        display: none;
+    }
+
+    #BLOCK_ONE
+    {
+        max-width: 49.5%;
+        float: left;
+    }
+
+    #BLOCK_TWO
+    {
+        max-width: 49.5%;
+        float: right;
+    }
+
+    #BLOCK_THREE
+    {
+        max-width: 49.5%;
+        float: right;
+    }
+
+    .qr_2
+    {
+        max-width: 80%;
+        width: 50%;
+    }
+
+    .link
+    {
+        font-size: larger;
+    }
+
+    .info
+    {
+        font-size: larger;
+    }
+}   
