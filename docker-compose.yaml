@@ -61,6 +61,7 @@ services:
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
       - ./config/entrypoint.sh:/entrypoint.sh
       - ./config/cyclonedds.xml:/cyclonedds.xml
+    restart: unless-stopped
 
     # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
     #   rmp:
@@ -150,7 +151,7 @@ services:
     command: >
       ros2 launch cps_rmp220_support robot_scan_filter.launch.py
 
-  # localiaztion by ekf node
+  # localization by ekf node
   ekf:
     extends: overlay
     depends_on:
@@ -200,7 +201,7 @@ services:
       - ekf
       - oakd
     command: >
-      ros2 launch nav2_bringup bringup_launch.py slam:=True map:=/repo/maps/map.yaml use_sim_time:=False use_composition:=True params_file:=/repo/config/nav2_params.yaml
+      ros2 launch nav2_bringup bringup_launch.py slam:=False map:=/repo/maps/map_01-26-24.yaml use_sim_time:=False use_composition:=True params_file:=/repo/config/nav2_params.yaml
   #maps/map_openlabday.yaml
   # bash
   bash:
@@ -233,6 +234,9 @@ services:
     extends: overlay
     command: >
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
+    #tls:=true certfile:=/certs/foxgloveCert.crt keyfile:=/certs/foxgloveKey.key
+    volumes:
+      - /opt/cps/certs:/certs
 
   # Foxglove Studio Webserver
   foxglove:
@@ -327,9 +331,9 @@ services:
 
 # In order to connect to the ROS-master, we execute locally on robot2:
 
-# export ROS_MASTER_URI=http://192.1.1.1:11311            
-# export ROS_IP=192.168.1.2                               
-# export ROS_HOSTNAME=192.168.1.2
+# export ROS_MASTER_URI=http://192.168.0.100:11311            
+# export ROS_IP=192.168.0.?                               
+# export ROS_HOSTNAME=192.168.1.?
 
   # ROS2 oak-d-lite camera
   oakd:
