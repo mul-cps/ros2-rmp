@@ -1,1 +1,0 @@
-docker compose up -d controller teleop rsp lidar mapping navigation
