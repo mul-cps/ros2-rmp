@@ -227,13 +227,33 @@ services:
       - ./config/foxglove/default.json:/foxglove/default-layout.json
 
   # USB Camera Stream
-  cam:
+  # cam:
+  #   extends: overlay
+  #   command: >
+  #     ros2 run ros2_cam_openCV cam_node
+  #   devices:
+  #     - /dev/video0:/dev/video0
+
+  # cam:
+  #   extends: overlay
+  #   command: >
+  #     ros2 launch ffmpeg_image_transport cam.launch.py
+  #   devices:
+  #     - /dev/video0:/dev/video0
+  #     - /dev/dri:/dev/dri
+  webcam:
     extends: overlay
-    command: >
-      ros2 run ros2_cam_openCV cam_node
+    image: husarion/image-transport:humble-4.2.0
     devices:
       - /dev/video0:/dev/video0
-
+      - /dev/dri:/dev/dri
+    volumes:
+      - ./:/repo
+    command: >
+      ros2 launch /repo/webcam.launch.py
+        ffmpeg_encoding:=libx264
+        ffmpeg_preset:=ultrafast
+        ffmpeg_tune:=zerolatency
 
   # ROS2 Frontier exploration
   explorer:
@@ -369,7 +389,7 @@ services:
   ros1bridge:
     image: husarion/ros1-bridge:foxy-0.9.6-20230327-stable
     command: |
-      ros2 run ros1_bridge dynamic_bridge
+      sh /opt/ros/noetic/setup.sh && ros2 run ros1_bridge dynamic_bridge
     network_mode: host
     ipc: host
     environment:
