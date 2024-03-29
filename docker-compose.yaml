@@ -407,8 +407,8 @@ services:
     environment:
       - ROS_DOMAIN_ID=5
     restart: always
-    depends_on:
-      - ros1bridge
+    #depends_on:
+    #  - ros1bridge
     command: roslaunch webui-ros-joystick webui.launch
   olivetin:
     container_name: olivetin

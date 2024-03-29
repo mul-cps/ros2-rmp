@@ -1,2 +1,3 @@
 *.pgm
 maps/
+__pycache__/
