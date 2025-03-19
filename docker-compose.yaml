@@ -141,7 +141,7 @@ services:
     command: >
       ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     devices:
-      - /dev/rplidarA1:/dev/rplidarA1 #udevrules needed for this to work:
+      - /dev/ttyUSB0:/dev/rplidarA1 #udevrules needed for this to work:
 #       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
 # SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
 
