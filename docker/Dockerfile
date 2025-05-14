@@ -190,6 +190,7 @@ RUN sudo apt update && sudo apt -y install libgflags-dev nlohmann-json3-dev  \
   ros-$ROS_DISTRO-diagnostic-updater ros-$ROS_DISTRO-diagnostic-msgs ros-$ROS_DISTRO-statistics-msgs \
   ros-$ROS_DISTRO-backward-ros libdw-dev
 
-RUN cd /overlay_ws && \
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+  && cd /overlay_ws \
   # build release, Default is Debug
-  colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release
+  && colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release

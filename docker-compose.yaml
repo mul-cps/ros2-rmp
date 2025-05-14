@@ -38,7 +38,7 @@ services:
       # set correct ros2 parameters: domain id and rmw implementation
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - CYCLONEDDS_URI=file:///cyclonedds.xml
+      #- CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
@@ -110,7 +110,6 @@ services:
       ros2 launch rmp220_teleop robot_joystick.launch.py 
     devices:
       - /dev/input/js0:/dev/input/js0
-      #- /dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick:/dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick
     privileged: true
 
   # lidar
@@ -122,8 +121,6 @@ services:
       ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     devices:
       - /dev/ttyUSB0:/dev/rplidarA1 #udevrules needed for this to work:
-#       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
-# SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
 
   # Lidar filtering node.
   lidar_filter:
@@ -329,9 +326,12 @@ services:
       target: orbbec
       x-bake:
         platforms:
-          - linux/arm64
+          #- linux/arm64
           - linux/amd64
     command: >
-      /bin/bash
+      ros2 launch orbbec_camera femto.launch.py enable_colored_point_cloud:=True
     devices:
-      - /dev/dri:/dev/dri
+      - /dev/dev:/dev/dev
+    privileged: true
+    environment:
+      - CAMERA_LAUNCH=femto.launch.py
