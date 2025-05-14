@@ -2,25 +2,9 @@ version: "3.9"
 
 # First network configuration. Change this to the network interface you want to use primarily. (Better configuration for multiple Network interfaces needed).
 networks:
-  # rmp:
-  #   driver: macvlan
-  #   driver_opts:
-  #     parent: eno1 # robot network interface
-  #   ipam:
-  #     config:
-  #         - subnet: 192.168.0.0/24
-  #           gateway: 192.168.0.1
-  #           ip_range: 192.168.0.200/25
-  #           aux_addresses:
-  #             net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
-  # make new bridge network for ros
   rmp:
     driver: bridge
-    # ipam:
-    #   config:
-    #       - subnet:
 
-# add this mountpoint to all services: - ./customize/entrypoint.sh:/entrypoint.sh
 # Attention: child services will inherit settings from their parents. So if you set a network_mode: host in the base service, all child services will also use host networking. This is not always what you want. So be careful with this.
 
 services:
@@ -62,10 +46,6 @@ services:
       - ./config/entrypoint.sh:/entrypoint.sh
       - ./config/cyclonedds.xml:/cyclonedds.xml
     restart: unless-stopped
-
-    # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
-    #   rmp:
-    #     #ipv4_address: 192.168.0.101 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
 
   # Overlay image containing the project specific source code.
   overlay:
@@ -234,7 +214,6 @@ services:
     extends: overlay
     command: >
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
-    #tls:=true certfile:=/certs/foxgloveCert.crt keyfile:=/certs/foxgloveKey.key
     volumes:
       - /opt/cps/certs:/certs
 
@@ -312,38 +291,11 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 
-## Configure on ROS1 Hosts
-# seggy 192.168.0.100
-#     locally running ros-package: control1 
-#          subscribing topic2
-#          publishing  topic1                 
-
-# robot2 192.168.x.x
-#     locally running ros-package: control2
-#          subscribing topic1
-#          publishing  topic2
-# As we need one ros-master to control the communication, we choose 192.168.1.1 as master. Therefore we execute locally on robot 1:
-
-# export ROS_MASTER_URI=http://192.168.0.100:11311 # or localhost?
-# export ROS_HOSTNAME=192.168.0.100
-# export ROS_IP=192.168.0.100   
-# roscore
-
-# In order to connect to the ROS-master, we execute locally on robot2:
-
-# export ROS_MASTER_URI=http://192.168.0.100:11311            
-# export ROS_IP=192.168.0.?                               
-# export ROS_HOSTNAME=192.168.1.?
-
   # ROS2 oak-d-lite camera
   oakd:
     extends: overlay
     command: >
       ros2 launch depthai_examples stereo.launch.py
-    #devices:
-      #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
-# SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666", SYMLINK+="oakd-lite"
-      #- /dev/:/dev/ 
     device_cgroup_rules:
       - 'c 189:* rmw'
     volumes:
@@ -365,24 +317,21 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
   
-  zerotier:
-    image: "zyclonite/zerotier:router"
-    container_name: zerotier-one
+  # Orbbec Camera
+  orbbec:
+    extends: guis
+    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:orbbec
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/bjoernellens1/ros2_rmp/rmp:orbbec
+      target: orbbec
+      x-bake:
+        platforms:
+          - linux/arm64
+          - linux/amd64
+    command: >
+      /bin/bash
     devices:
-      - /dev/net/tun
-    network_mode: host
-    volumes:
-      - '/var/lib/zerotier-one:/var/lib/zerotier-one'
-    cap_add:
-      - NET_ADMIN
-      - SYS_ADMIN
-      - NET_RAW
-    restart: unless-stopped
-    environment:
-      - TZ=Europe/Amsterdam
-      - PUID=1000
-      - PGID=1000
-      - ZEROTIER_ONE_LOCAL_PHYS=enp5s0 wlx00e04c5513fc # change for actual interfaces
-      - ZEROTIER_ONE_USE_IPTABLES_NFT=false
-      - ZEROTIER_ONE_GATEWAY_MODE=inbound # might change to both ways
-      #- ZEROTIER_ONE_NETWORK_IDS= # does not really do much?
+      - /dev/dri:/dev/dri
