@@ -44,7 +44,7 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
       - ./config/entrypoint.sh:/entrypoint.sh
-      - ./config/cyclonedds.xml:/cyclonedds.xml
+      # - ./config/cyclonedds.xml:/cyclonedds.xml
     restart: unless-stopped
 
   # Overlay image containing the project specific source code.
@@ -329,9 +329,7 @@ services:
           #- linux/arm64
           - linux/amd64
     command: >
-      ros2 launch orbbec_camera femto.launch.py enable_colored_point_cloud:=True
+      ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=True
     devices:
       - /dev/dev:/dev/dev
     privileged: true
-    environment:
-      - CAMERA_LAUNCH=femto.launch.py
