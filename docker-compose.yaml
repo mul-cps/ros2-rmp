@@ -10,7 +10,7 @@ networks:
 services:
   # Base image containing dependencies.
   base:
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:base
+    image: ghcr.io/mul-cps/ros2_rmp/rmp:base
     build:
       context: .
       dockerfile: docker/Dockerfile
