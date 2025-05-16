@@ -15,7 +15,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:base
+        - ghcr.io/mul-cps/ros2_rmp/rmp:base
       args:
         ROS_DISTRO: humble
       target: base
@@ -50,12 +50,12 @@ services:
   # Overlay image containing the project specific source code.
   overlay:
     extends: base
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
+    image: ghcr.io/mul-cps/ros2_rmp/rmp:overlay
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
+        - ghcr.io/mul-cps/ros2_rmp/rmp:overlay
       target: overlay
       x-bake:
         platforms:
@@ -69,12 +69,12 @@ services:
   # Additional dependencies for GUI applications
   guis:
     extends: overlay
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    image: ghcr.io/mul-cps/ros2_rmp/rmp:guis
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+        - ghcr.io/mul-cps/ros2_rmp/rmp:guis
       target: guis
       x-bake:
         platforms:
@@ -189,7 +189,7 @@ services:
   # rviz2
   rviz2:
     #extends: guis
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    image: ghcr.io/mul-cps/ros2_rmp/rmp:guis
     command: >
       ros2 launch cps_rmp220_support rviz.launch.py
     # Needed to display graphical applications
@@ -253,14 +253,14 @@ services:
   ### Images for ROS1 Interactions
   #ROS1 Bridge
   ros1bridge:
-    image: ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+    image: ghcr.io/mul-cps/ros2_rmp/ros1bridge
     command: >
       ros2 run ros1_bridge dynamic_bridge --bridge-all-2to1-topics
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+        - ghcr.io/mul-cps/ros2_rmp/ros1bridge
       args:
         ROS_DISTRO: humble
       target: bridge
@@ -322,7 +322,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:orbbec
+        - ghcr.io/mul-cps/ros2_rmp/rmp:orbbec
       target: orbbec
       x-bake:
         platforms:
