@@ -317,7 +317,7 @@ services:
   # Orbbec Camera
   orbbec:
     extends: guis
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:orbbec
+    image: ghcr.io/mul-cps/ros2_rmp/rmp:orbbec
     build:
       context: .
       dockerfile: docker/Dockerfile
