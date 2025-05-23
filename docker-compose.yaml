@@ -205,6 +205,8 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    network_mode: host
+    ipc: host
     
   # Foxglove Studio Bridge
   foxglove_bridge:
@@ -333,3 +335,15 @@ services:
     devices:
       - /dev/dev:/dev/dev
     privileged: true
+    network_mode: host
+    ipc: host
+
+  # Example Robot model
+  robot_model:
+    extends: orbbec
+    depends_on:
+      - rsp
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash &&
+               xacro /overlay_ws/src/ros2_rmp_support/description/robot.urdf.xacro > /tmp/robot.urdf &&
+               ros2 run robot_state_publisher robot_state_publisher /tmp/robot.urdf"
