@@ -3,7 +3,8 @@
     <Domain id="any">
         <General>
             <Interfaces>
-                <NetworkInterface name="tailscale0"/>
+                <!-- <NetworkInterface autodetermine="true" priority="default" multicast="default" /> -->
+                <NetworkInterface address='10.71.1.0' />
             </Interfaces>
             <AllowMulticast>true</AllowMulticast>
         </General>      
