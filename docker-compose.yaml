@@ -95,7 +95,7 @@ services:
   controller:
     extends: base
     command: >
-      ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/segway
+      ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/ttyUSB1
     devices:
       - /dev/segway:/dev/ttyUSB1 #/dev/segway #/dev/ttyUSB0
       #- /dev/ttyUSB0:/dev/ttyUSB0
