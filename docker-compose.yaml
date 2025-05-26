@@ -99,7 +99,7 @@ services:
     devices:
       - /dev/segway:/dev/segway #/dev/ttyUSB0
       #- /dev/ttyUSB0:/dev/ttyUSB0
-    privileged: true
+    privileged: false
 
   # teleop
   teleop:
