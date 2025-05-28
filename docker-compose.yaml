@@ -334,8 +334,8 @@ services:
           - linux/amd64
     command: >
       ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=True enumerate_net_device:=True
-    devices:
-      - /dev:/dev
+    # devices:
+    #   - /dev:/dev
     privileged: true
     network_mode: host
     ipc: host
