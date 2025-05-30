@@ -3,16 +3,15 @@
     <Domain id="any">
         <General>
             <Interfaces>
-                <!-- <NetworkInterface autodetermine="true" priority="default" multicast="default" /> -->
-                <NetworkInterface address='10.71.1.161' />
+                <NetworkInterface autodetermine="true" priority="default" multicast="default" />
             </Interfaces>
             <AllowMulticast>true</AllowMulticast>
         </General>      
         <Discovery>
             <Peers>
-                <Peer address="10.71.1.193"/>
+                <!-- <Peer address="10.71.1.193"/>
                 <Peer address="10.71.1.109"/>
-                <Peer address="10.71.1.161"/>
+                <Peer address="10.71.1.161"/> -->
             </Peers>
             <ParticipantIndex>auto</ParticipantIndex>
             <MaxAutoParticipantIndex>40</MaxAutoParticipantIndex>
