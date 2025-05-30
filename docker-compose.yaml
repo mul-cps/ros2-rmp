@@ -38,13 +38,13 @@ services:
       # set correct ros2 parameters: domain id and rmw implementation
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      #- CYCLONEDDS_URI=file:///cyclonedds.xml
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
       - ./config/entrypoint.sh:/entrypoint.sh
-      # - ./config/cyclonedds.xml:/cyclonedds.xml
+      - ./config/cyclonedds.xml:/cyclonedds.xml
     restart: unless-stopped
 
   # Overlay image containing the project specific source code.
