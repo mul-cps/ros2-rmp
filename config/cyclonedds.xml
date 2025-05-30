@@ -4,8 +4,11 @@
         <General>
             <Interfaces>
                 <NetworkInterface autodetermine="true" priority="default" multicast="default" />
+                <!-- <NetworkInterface address='10.71.1.109' /> -->
             </Interfaces>
             <AllowMulticast>true</AllowMulticast>
+            <!-- Fragmentation size (must be ≤ 61440) -->
+            <FragmentSize>61440</FragmentSize>
         </General>      
         <Discovery>
             <Peers>
@@ -18,7 +21,7 @@
         </Discovery>
         <Tracing>
             <Verbosity>severe</Verbosity>
-            <OutputFile>stdout</OutputFile>
+            <!-- <OutputFile>stdout</OutputFile> -->
         </Tracing>
     </Domain>
 </CycloneDDS>
