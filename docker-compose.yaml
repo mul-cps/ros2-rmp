@@ -36,7 +36,7 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
       # set correct ros2 parameters: domain id and rmw implementation
-      - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=0 #5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
@@ -120,7 +120,7 @@ services:
     command: >
       ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     devices:
-      - /dev/ttyUSB0:/dev/rplidarA1 #udevrules needed for this to work:
+      - /dev/rplidar:/dev/rplidarA1 #udevrules needed for this to work:
 
   # Lidar filtering node.
   lidar_filter:

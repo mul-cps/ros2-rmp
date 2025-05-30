@@ -22,3 +22,1044 @@
 [05/30 11:00:29.483751][debug][59702][DeviceManager.cpp:56] DeviceManager destroy ...
 [05/30 11:00:29.483778][debug][59702][DeviceManager.cpp:64] DeviceManager Destructors done
 [05/30 11:00:29.484094][info][59702][Context.cpp:84] Context destroyed
+[05/30 11:32:01.744918][debug][10238][Context.cpp:30] Context creating, work_dir=/home/cpsadmin/git/ros2-rmp
+[05/30 11:32:01.744987][debug][10238][Context.cpp:49] Config file version=1.1
+[05/30 11:32:01.745010][debug][10238][FrameBufferManager.cpp:23] Max global frame buffer size updated! size=2048.000MB
+[05/30 11:32:01.745020][info][10238][Context.cpp:68] Context created with config: /opt/ros/jazzy/share/orbbec_camera/config/OrbbecSDKConfig_v1.0.xml
+[05/30 11:32:01.745040][info][10238][Context.cpp:73] Work directory=/home/cpsadmin/git/ros2-rmp, SDK version=v1.10.22-20250410-46139de
+[05/30 11:32:01.745056][debug][10238][DeviceManager.cpp:30] DeviceManager init ...
+[05/30 11:32:01.745062][info][10238][LinuxPal.cpp:32] createObPal: create LinuxPal!
+[05/30 11:32:01.745802][debug][10238][DeviceManager.cpp:34] Enable USB Device Enumerator ...
+[05/30 11:32:01.907571][debug][10238][EnumeratorLibusb.cpp:324] queryDevicesInfo done!
+[05/30 11:32:01.907620][debug][10238][UsbDeviceEnumerator.cpp:163] Current usb device port list:
+[05/30 11:32:01.907631][debug][10238][UsbDeviceEnumerator.cpp:166]  - 2-1.4-3.0 | Orbbec Femto Mega RGB Camera
+[05/30 11:32:01.907635][debug][10238][UsbDeviceEnumerator.cpp:166]  - 2-1.4-3.2 | Orbbec Femto Mega Depth Camera
+[05/30 11:32:01.907639][debug][10238][UsbDeviceEnumerator.cpp:166]  - 2-1.4-3.4 | Orbbec Femto Mega IR Camera
+[05/30 11:32:01.907643][debug][10238][UsbDeviceEnumerator.cpp:166]  - 2-1.4-3.6 | HID Interface
+[05/30 11:32:01.907763][info][10238][LinuxPal.cpp:166] Create PollingDeviceWatcher!
+[05/30 11:32:01.907794][debug][10238][UsbDeviceEnumerator.cpp:71] Found 1 device(s):
+[05/30 11:32:01.907801][debug][10238][UsbDeviceEnumerator.cpp:74]   - Name: Femto Mega, PID: 0x0669, SN/ID: CL2H84100KN, connection: USB3.2
+[05/30 11:32:01.907830][info][10238][DeviceManager.cpp:15] Current found device(s): (1)
+[05/30 11:32:01.907839][info][10238][DeviceManager.cpp:24] 	- Name: Femto Mega, PID: 0x0669, SN/ID: CL2H84100KN, Connection: USB3.2
+[05/30 11:32:01.907845][debug][10238][DeviceManager.cpp:52] DeviceManager construct done!
+[05/30 11:32:01.908831][info][10238][DeviceManager.cpp:304] Enable net device enumeration: false
+[05/30 11:32:02.009230][debug][10254][DeviceManager.cpp:109] DeviceManager  createDevice...
+[05/30 11:32:02.009266][debug][10254][UsbDeviceEnumerator.cpp:291] UsbDeviceEnumerator createDevice...
+[05/30 11:32:02.009306][debug][10254][IFemtoMegaDevice.cpp:20] IFemtoMegaDevice()
+[05/30 11:32:02.009318][debug][10254][FemtoMegaUvcDevice.cpp:19] FemtoMegaUvcDevice init ...
+[05/30 11:32:02.009400][debug][10254][FemtoMegaUvcDevice.cpp:130] Create command start!
+[05/30 11:32:02.009422][debug][10254][LinuxPal.cpp:292] Uvc backend have been set to LibUVC(1)
+[05/30 11:32:02.009458][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video5
+[05/30 11:32:02.009644][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video3
+[05/30 11:32:02.009774][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video1
+[05/30 11:32:02.009875][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video4
+[05/30 11:32:02.009969][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video2
+[05/30 11:32:02.010085][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video0
+[05/30 11:32:02.010192][debug][10254][ObV4lUvcDevicePort.cpp:355] Opened: /dev/video2
+[05/30 11:32:02.010202][debug][10254][ObV4lUvcDevicePort.cpp:343] Opened metadata dev: /dev/video2
+[05/30 11:32:02.010208][debug][10254][ObV4lUvcDevicePort.cpp:364] V4L device port created for 2-1.4-3.2 with 1 v4l2 device
+[05/30 11:32:02.010213][debug][10254][LinuxPal.cpp:119] UVC device have been create with V4L2 backend! dev: 2-1.4-3, inf: 2-1.4-3.2
+[05/30 11:32:02.010308][debug][10254][VendorCommand.cpp:205] VendorCommand constructor 7eb384007710
+[05/30 11:32:02.015375][debug][10254][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1000, dataLen: 164
+[05/30 11:32:02.015409][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=97, value={intValue: 0, floatValue: 0}
+[05/30 11:32:02.017567][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 97, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.019385][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=121, cur={intValue: 1, floatValue: 1.4013e-45}, max={intValue: 1, floatValue: 1.4013e-45}, min={intValue: 0, floatValue: 0},def={intValue: 0, floatValue: 0},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.019397][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 121, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.021113][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=122, cur={intValue: 1, floatValue: 1.4013e-45}, max={intValue: 1, floatValue: 1.4013e-45}, min={intValue: 0, floatValue: 0},def={intValue: 0, floatValue: 0},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.021158][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 122, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.022047][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597522021871, rtt=0
+[05/30 11:32:02.074203][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597522073500, rtt=0
+[05/30 11:32:02.126416][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597522125697, rtt=0
+[05/30 11:32:02.178297][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597522177643, rtt=0
+[05/30 11:32:02.178356][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9992240744584975, constantB = 1356781478977.5
+[05/30 11:32:02.178418][debug][10254][GlobalTimestampFitter.cpp:27] GlobalTimestampFitter created: maxQueueSize_=10, refreshIntervalMsec_=8000
+[05/30 11:32:02.183036][debug][10254][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1000, dataLen: 164
+[05/30 11:32:02.183055][info][10254][AbstractDevice.cpp:125] 	- Firmware version: 1.3.1
+[05/30 11:32:02.183062][debug][10254][FemtoMegaUvcDevice.cpp:235] Create command done!
+[05/30 11:32:02.183071][debug][10254][FemtoMegaUvcDevice.cpp:239] init sensor map start!
+[05/30 11:32:02.183080][debug][10254][FemtoMegaUvcDevice.cpp:262] init sensor map done!
+[05/30 11:32:02.183165][debug][10254][IFemtoMegaDevice.cpp:33] Init depth process param start!
+[05/30 11:32:02.211083][debug][10254][FemtoMegaAlgParamManager.cpp:43] Get align calibration camera params success! num=4
+[05/30 11:32:02.211136][debug][10254][FemtoMegaAlgParamManager.cpp:47] - {
+depthDistortion: {k1: 26.2603, k2: 12.6851, k3: 0.42299, k4: 26.5558, k5: 21.5916, k6: 2.81803, p1: 1.31439e-05, p2: 7.15651e-05},
+depthIntrinsic: {cx: 524.456, cy: 513.771, fx: 504.739, fy: 504.845, width: 1024, height: 1024}, 
+rgbDistortion: {k1: 0.0761046, k2: -0.103399, k3: 0.0420341, k4: 0, k5: 0, k6: 0, p1: -0.000106394, p2: 0.000405537},
+rgbIntrinsic: {cx: 318.118, cy: 172.637, fx: 374.305, fy: 374.204, width: 640, height: 360}, 
+transform: {rot: [0.994222, 0.00170781, 0.00387059, -0.00211314, 0.994228, 0.107263, -0.00366506, -0.107271, 0.994223], trans: [-32.5548, -0.588079, 2.23555]}
+}
+[05/30 11:32:02.211157][debug][10254][FemtoMegaAlgParamManager.cpp:47] - {
+depthDistortion: {k1: 26.2603, k2: 12.6851, k3: 0.42299, k4: 26.5558, k5: 21.5916, k6: 2.81803, p1: 1.31439e-05, p2: 7.15651e-05},
+depthIntrinsic: {cx: 524.456, cy: 513.771, fx: 504.739, fy: 504.845, width: 1024, height: 1024}, 
+rgbDistortion: {k1: 0.0761046, k2: -0.103399, k3: 0.0420341, k4: 0, k5: 0, k6: 0, p1: -0.000106394, p2: 0.000405537},
+rgbIntrinsic: {cx: 317.49, cy: 230.183, fx: 499.073, fy: 498.939, width: 640, height: 480}, 
+transform: {rot: [0.994222, 0.00170781, 0.00387059, -0.00211314, 0.994228, 0.107263, -0.00366506, -0.107271, 0.994223], trans: [-32.5548, -0.588079, 2.23555]}
+}
+[05/30 11:32:02.211174][debug][10254][FemtoMegaAlgParamManager.cpp:47] - {
+depthDistortion: {k1: 26.2603, k2: 12.6851, k3: 0.42299, k4: 26.5558, k5: 21.5916, k6: 2.81803, p1: 1.31439e-05, p2: 7.15651e-05},
+depthIntrinsic: {cx: 332.456, cy: 333.771, fx: 504.739, fy: 504.845, width: 640, height: 576}, 
+rgbDistortion: {k1: 0.0761046, k2: -0.103399, k3: 0.0420341, k4: 0, k5: 0, k6: 0, p1: -0.000106394, p2: 0.000405537},
+rgbIntrinsic: {cx: 318.118, cy: 172.637, fx: 374.305, fy: 374.204, width: 640, height: 360}, 
+transform: {rot: [0.994222, 0.00170781, 0.00387059, -0.00211314, 0.994228, 0.107263, -0.00366506, -0.107271, 0.994223], trans: [-32.5548, -0.588079, 2.23555]}
+}
+[05/30 11:32:02.211190][debug][10254][FemtoMegaAlgParamManager.cpp:47] - {
+depthDistortion: {k1: 26.2603, k2: 12.6851, k3: 0.42299, k4: 26.5558, k5: 21.5916, k6: 2.81803, p1: 1.31439e-05, p2: 7.15651e-05},
+depthIntrinsic: {cx: 332.456, cy: 333.771, fx: 504.739, fy: 504.845, width: 640, height: 576}, 
+rgbDistortion: {k1: 0.0761046, k2: -0.103399, k3: 0.0420341, k4: 0, k5: 0, k6: 0, p1: -0.000106394, p2: 0.000405537},
+rgbIntrinsic: {cx: 317.49, cy: 230.183, fx: 499.073, fy: 498.939, width: 640, height: 480}, 
+transform: {rot: [0.994222, 0.00170781, 0.00387059, -0.00211314, 0.994228, 0.107263, -0.00366506, -0.107271, 0.994223], trans: [-32.5548, -0.588079, 2.23555]}
+}
+[05/30 11:32:02.215328][debug][10254][FemtoMegaAlgParamManager.cpp:67] Get depth to color profile list success! num=40
+[05/30 11:32:02.215350][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 3840, colorHeight: 2160, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -1680, depthScale: 3.75}}
+[05/30 11:32:02.215358][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 2560, colorHeight: 1440, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -1120, depthScale: 2.5}}
+[05/30 11:32:02.215379][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1920, colorHeight: 1080, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -840, depthScale: 1.875}}
+[05/30 11:32:02.215386][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 720, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -560, depthScale: 1.25}}
+[05/30 11:32:02.215393][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 3840, colorHeight: 2160, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -1680, depthScale: 7.5}}
+[05/30 11:32:02.215399][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 2560, colorHeight: 1440, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -1120, depthScale: 5}}
+[05/30 11:32:02.215405][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1920, colorHeight: 1080, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -840, depthScale: 3.75}}
+[05/30 11:32:02.215412][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 720, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -560, depthScale: 2.5}}
+[05/30 11:32:02.215418][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 3840, colorHeight: 2160, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -1296, depthScale: 6}}
+[05/30 11:32:02.215424][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 2560, colorHeight: 1440, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -864, depthScale: 4}}
+[05/30 11:32:02.215430][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1920, colorHeight: 1080, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -648, depthScale: 3}}
+[05/30 11:32:02.215437][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 720, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -432, depthScale: 2}}
+[05/30 11:32:02.215443][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 3840, colorHeight: 2160, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -1296, depthScale: 12}}
+[05/30 11:32:02.215450][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 2560, colorHeight: 1440, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -864, depthScale: 8}}
+[05/30 11:32:02.215456][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1920, colorHeight: 1080, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -648, depthScale: 6}}
+[05/30 11:32:02.215462][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 720, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -432, depthScale: 4}}
+[05/30 11:32:02.215468][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 960, depthWidth: 1024, depthHeight: 1024, paramIndex: 1, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -320, depthScale: 1.25}}
+[05/30 11:32:02.215479][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 960, depthWidth: 512, depthHeight: 512, paramIndex: 1, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -320, depthScale: 2.5}}
+[05/30 11:32:02.215486][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 960, depthWidth: 640, depthHeight: 576, paramIndex: 3, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -192, depthScale: 2}}
+[05/30 11:32:02.215492][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 1, colorWidth: 1280, colorHeight: 960, depthWidth: 320, depthHeight: 288, paramIndex: 3, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: -192, depthScale: 4}}
+[05/30 11:32:02.215498][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 3840, colorHeight: 2160, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 6}}
+[05/30 11:32:02.215504][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 2560, colorHeight: 1440, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 4}}
+[05/30 11:32:02.215510][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1920, colorHeight: 1080, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 3}}
+[05/30 11:32:02.215517][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 720, depthWidth: 1024, depthHeight: 1024, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 2}}
+[05/30 11:32:02.215523][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 3840, colorHeight: 2160, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 12}}
+[05/30 11:32:02.215529][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 2560, colorHeight: 1440, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 8}}
+[05/30 11:32:02.215535][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1920, colorHeight: 1080, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 6}}
+[05/30 11:32:02.215541][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 720, depthWidth: 512, depthHeight: 512, paramIndex: 0, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 4}}
+[05/30 11:32:02.215547][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 3840, colorHeight: 2160, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 6}}
+[05/30 11:32:02.215553][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 2560, colorHeight: 1440, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 4}}
+[05/30 11:32:02.215560][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1920, colorHeight: 1080, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 3}}
+[05/30 11:32:02.215566][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 720, depthWidth: 640, depthHeight: 576, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 2}}
+[05/30 11:32:02.215572][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 3840, colorHeight: 2160, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 12}}
+[05/30 11:32:02.215583][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 2560, colorHeight: 1440, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 8}}
+[05/30 11:32:02.215590][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1920, colorHeight: 1080, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 6}}
+[05/30 11:32:02.215596][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 720, depthWidth: 320, depthHeight: 288, paramIndex: 2, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 4}}
+[05/30 11:32:02.215603][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 960, depthWidth: 1024, depthHeight: 1024, paramIndex: 1, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 2}}
+[05/30 11:32:02.215609][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 960, depthWidth: 512, depthHeight: 512, paramIndex: 1, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 4}}
+[05/30 11:32:02.215615][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 960, depthWidth: 640, depthHeight: 576, paramIndex: 3, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 2}}
+[05/30 11:32:02.215622][debug][10254][FemtoMegaAlgParamManager.cpp:71]  - {alignType: 2, colorWidth: 1280, colorHeight: 960, depthWidth: 320, depthHeight: 288, paramIndex: 3, postProcessParam: {alignLeft: 0, alignTop: 0, alignRight: 0, alignBottom: 0, depthScale: 4}}
+[05/30 11:32:02.219627][debug][10254][FemtoMegaAlgParamManager.cpp:94] Get imu calibration params success!
+[05/30 11:32:02.219642][debug][10254][IFemtoMegaDevice.cpp:52] init default softFilterParam: maxSpeckleSize: 25, maxDiff: 300, filterType: 1
+[05/30 11:32:02.219647][debug][10254][IFemtoMegaDevice.cpp:54] Init depth process param done!
+[05/30 11:32:02.219659][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=38, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.219992][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 38, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.220005][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=77, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.220322][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 77, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.220340][info][10254][FemtoMegaUvcDevice.cpp:51] FemtoMega UVC device created! PID: 0x0669, SN: CL2H84100KN
+[05/30 11:32:02.220346][debug][10254][UsbDeviceEnumerator.cpp:359] Device created successfully! Name: Femto Mega, PID: 0x0669, SN/ID: CL2H84100KN
+[05/30 11:32:02.220352][info][10254][DeviceManager.cpp:150] Device created successfully! Name: Femto Mega, PID: 0x0669, SN/ID: CL2H84100KN
+[05/30 11:32:02.220488][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.220510][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.223572][debug][10254][LinuxPal.cpp:292] Uvc backend have been set to LibUVC(1)
+[05/30 11:32:02.223628][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video5
+[05/30 11:32:02.223878][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video3
+[05/30 11:32:02.223996][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video1
+[05/30 11:32:02.224101][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video4
+[05/30 11:32:02.224229][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video2
+[05/30 11:32:02.224327][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video0
+[05/30 11:32:02.224429][debug][10254][ObV4lUvcDevicePort.cpp:355] Opened: /dev/video4
+[05/30 11:32:02.224440][debug][10254][ObV4lUvcDevicePort.cpp:343] Opened metadata dev: /dev/video4
+[05/30 11:32:02.224446][debug][10254][ObV4lUvcDevicePort.cpp:364] V4L device port created for 2-1.4-3.4 with 1 v4l2 device
+[05/30 11:32:02.224451][debug][10254][LinuxPal.cpp:119] UVC device have been create with V4L2 backend! dev: 2-1.4-3, inf: 2-1.4-3.4
+[05/30 11:32:02.224460][debug][10254][FrameProcessor.cpp:90] FrameProcessor init with 3 blocks! @139309478864016
+[05/30 11:32:02.224479][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.224486][debug][10254][FrameProcessor.cpp:98]  - block: FrameMirror, status: disable
+[05/30 11:32:02.224493][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.224498][debug][10254][FrameProcessor.cpp:98]  - block: FrameFlip, status: disable
+[05/30 11:32:02.224504][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.224509][debug][10254][FrameProcessor.cpp:98]  - block: FrameRotate, status: disable
+[05/30 11:32:02.224523][debug][10254][VideoSensor.cpp:252] VideoSensor construct!
+[05/30 11:32:02.224531][debug][10254][VideoSensor.cpp:278] VideoSensor created, @OB_SENSOR_IR
+[05/30 11:32:02.224536][info][10254][FemtoMegaUvcDevice.cpp:425] Ir sensor has been created!
+[05/30 11:32:02.224546][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format 16-bit Greyscale
+[05/30 11:32:02.224597][info][10254][VideoSensor.cpp:384] Query stream profile! size= 16, SensorType=OB_SENSOR_IR
+[05/30 11:32:02.224607][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 15}
+[05/30 11:32:02.224613][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 30}
+[05/30 11:32:02.224618][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 25}
+[05/30 11:32:02.224623][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 15}
+[05/30 11:32:02.224628][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 5}
+[05/30 11:32:02.224632][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 30}
+[05/30 11:32:02.224638][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 25}
+[05/30 11:32:02.224643][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 15}
+[05/30 11:32:02.224648][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 5}
+[05/30 11:32:02.224652][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 30}
+[05/30 11:32:02.224657][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 25}
+[05/30 11:32:02.224662][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 5}
+[05/30 11:32:02.224667][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 1024, height: 1024, fps: 30}
+[05/30 11:32:02.224672][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 1024, height: 1024, fps: 25}
+[05/30 11:32:02.224677][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 1024, height: 1024, fps: 15}
+[05/30 11:32:02.224682][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 1024, height: 1024, fps: 5}
+[05/30 11:32:02.224728][debug][10254][LinuxPal.cpp:292] Uvc backend have been set to LibUVC(1)
+[05/30 11:32:02.224754][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video5
+[05/30 11:32:02.224862][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video3
+[05/30 11:32:02.224957][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video1
+[05/30 11:32:02.225064][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video4
+[05/30 11:32:02.225158][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video2
+[05/30 11:32:02.225250][debug][10254][ObV4lUvcDevicePort.cpp:96] Found video4linux: video0
+[05/30 11:32:02.225354][debug][10254][ObV4lUvcDevicePort.cpp:355] Opened: /dev/video0
+[05/30 11:32:02.225364][debug][10254][ObV4lUvcDevicePort.cpp:343] Opened metadata dev: /dev/video0
+[05/30 11:32:02.225369][debug][10254][ObV4lUvcDevicePort.cpp:364] V4L device port created for 2-1.4-3.0 with 1 v4l2 device
+[05/30 11:32:02.225373][debug][10254][LinuxPal.cpp:119] UVC device have been create with V4L2 backend! dev: 2-1.4-3, inf: 2-1.4-3.0
+[05/30 11:32:02.225380][debug][10254][FrameProcessor.cpp:90] FrameProcessor init with 2 blocks! @139309479040672
+[05/30 11:32:02.225389][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.225395][debug][10254][FrameProcessor.cpp:98]  - block: FormatConverter, status: disable
+[05/30 11:32:02.225401][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.225406][debug][10254][FrameProcessor.cpp:98]  - block: FrameRotate, status: disable
+[05/30 11:32:02.225413][debug][10254][VideoSensor.cpp:252] VideoSensor construct!
+[05/30 11:32:02.225419][debug][10254][VideoSensor.cpp:278] VideoSensor created, @OB_SENSOR_COLOR
+[05/30 11:32:02.225424][info][10254][FemtoMegaUvcDevice.cpp:383] Color sensor has been created!
+[05/30 11:32:02.225431][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format YUYV 4:2:2
+[05/30 11:32:02.225459][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format Motion-JPEG
+[05/30 11:32:02.225483][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format H.264
+[05/30 11:32:02.225505][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format HEVC
+[05/30 11:32:02.225606][info][10254][VideoSensor.cpp:384] Query stream profile! size= 108, SensorType=OB_SENSOR_COLOR
+[05/30 11:32:02.225614][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1920, height: 1080, fps: 15}
+[05/30 11:32:02.225620][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 720, fps: 30}
+[05/30 11:32:02.225625][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 720, fps: 25}
+[05/30 11:32:02.225630][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 720, fps: 15}
+[05/30 11:32:02.225635][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 720, fps: 5}
+[05/30 11:32:02.225640][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 960, fps: 30}
+[05/30 11:32:02.225644][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 960, fps: 25}
+[05/30 11:32:02.225649][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 960, fps: 15}
+[05/30 11:32:02.225654][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1280, height: 960, fps: 5}
+[05/30 11:32:02.225659][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1920, height: 1080, fps: 30}
+[05/30 11:32:02.225664][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1920, height: 1080, fps: 25}
+[05/30 11:32:02.225669][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1920, height: 1080, fps: 15}
+[05/30 11:32:02.225682][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 1920, height: 1080, fps: 5}
+[05/30 11:32:02.225687][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 2560, height: 1440, fps: 25}
+[05/30 11:32:02.225692][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 2560, height: 1440, fps: 15}
+[05/30 11:32:02.225697][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 2560, height: 1440, fps: 5}
+[05/30 11:32:02.225702][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 3840, height: 2160, fps: 25}
+[05/30 11:32:02.225707][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 3840, height: 2160, fps: 15}
+[05/30 11:32:02.225712][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_YUYV, width: 3840, height: 2160, fps: 5}
+[05/30 11:32:02.225717][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 720, fps: 30}
+[05/30 11:32:02.225722][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 720, fps: 25}
+[05/30 11:32:02.225726][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 720, fps: 15}
+[05/30 11:32:02.225731][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 720, fps: 5}
+[05/30 11:32:02.225736][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 960, fps: 30}
+[05/30 11:32:02.225741][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 960, fps: 25}
+[05/30 11:32:02.225746][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 960, fps: 15}
+[05/30 11:32:02.225751][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 960, fps: 5}
+[05/30 11:32:02.225756][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1920, height: 1080, fps: 30}
+[05/30 11:32:02.225761][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1920, height: 1080, fps: 25}
+[05/30 11:32:02.225766][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1920, height: 1080, fps: 5}
+[05/30 11:32:02.225770][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 2560, height: 1440, fps: 25}
+[05/30 11:32:02.225775][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 2560, height: 1440, fps: 15}
+[05/30 11:32:02.225780][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 2560, height: 1440, fps: 5}
+[05/30 11:32:02.225785][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 3840, height: 2160, fps: 25}
+[05/30 11:32:02.225790][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 3840, height: 2160, fps: 15}
+[05/30 11:32:02.225795][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 3840, height: 2160, fps: 5}
+[05/30 11:32:02.225800][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 720, fps: 30}
+[05/30 11:32:02.225804][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 720, fps: 25}
+[05/30 11:32:02.225809][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 720, fps: 15}
+[05/30 11:32:02.225814][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 720, fps: 5}
+[05/30 11:32:02.225819][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 960, fps: 30}
+[05/30 11:32:02.225829][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 960, fps: 25}
+[05/30 11:32:02.225834][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 960, fps: 15}
+[05/30 11:32:02.225839][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1280, height: 960, fps: 5}
+[05/30 11:32:02.225845][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1920, height: 1080, fps: 30}
+[05/30 11:32:02.225849][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1920, height: 1080, fps: 25}
+[05/30 11:32:02.225854][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1920, height: 1080, fps: 15}
+[05/30 11:32:02.225859][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 1920, height: 1080, fps: 5}
+[05/30 11:32:02.225864][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 2560, height: 1440, fps: 25}
+[05/30 11:32:02.225869][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 2560, height: 1440, fps: 15}
+[05/30 11:32:02.225874][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 2560, height: 1440, fps: 5}
+[05/30 11:32:02.225878][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 3840, height: 2160, fps: 25}
+[05/30 11:32:02.225883][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 3840, height: 2160, fps: 15}
+[05/30 11:32:02.225888][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H264, width: 3840, height: 2160, fps: 5}
+[05/30 11:32:02.225893][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 720, fps: 30}
+[05/30 11:32:02.225898][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 720, fps: 25}
+[05/30 11:32:02.225902][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 720, fps: 15}
+[05/30 11:32:02.225907][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 720, fps: 5}
+[05/30 11:32:02.225912][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 960, fps: 30}
+[05/30 11:32:02.225917][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 960, fps: 25}
+[05/30 11:32:02.225922][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 960, fps: 15}
+[05/30 11:32:02.225927][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1280, height: 960, fps: 5}
+[05/30 11:32:02.225931][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1920, height: 1080, fps: 30}
+[05/30 11:32:02.225936][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1920, height: 1080, fps: 25}
+[05/30 11:32:02.225941][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1920, height: 1080, fps: 15}
+[05/30 11:32:02.225946][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 1920, height: 1080, fps: 5}
+[05/30 11:32:02.225950][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 2560, height: 1440, fps: 25}
+[05/30 11:32:02.225955][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 2560, height: 1440, fps: 15}
+[05/30 11:32:02.225960][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 2560, height: 1440, fps: 5}
+[05/30 11:32:02.225969][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 3840, height: 2160, fps: 25}
+[05/30 11:32:02.225979][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 3840, height: 2160, fps: 15}
+[05/30 11:32:02.225985][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_H265, width: 3840, height: 2160, fps: 5}
+[05/30 11:32:02.225990][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 720, fps: 30}
+[05/30 11:32:02.225995][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 720, fps: 25}
+[05/30 11:32:02.226000][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 720, fps: 15}
+[05/30 11:32:02.226004][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 720, fps: 5}
+[05/30 11:32:02.226009][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 960, fps: 30}
+[05/30 11:32:02.226014][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 960, fps: 25}
+[05/30 11:32:02.226019][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 960, fps: 15}
+[05/30 11:32:02.226024][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1280, height: 960, fps: 5}
+[05/30 11:32:02.226029][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1920, height: 1080, fps: 30}
+[05/30 11:32:02.226034][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1920, height: 1080, fps: 25}
+[05/30 11:32:02.226039][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1920, height: 1080, fps: 15}
+[05/30 11:32:02.226044][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 1920, height: 1080, fps: 5}
+[05/30 11:32:02.226049][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 2560, height: 1440, fps: 25}
+[05/30 11:32:02.226054][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 2560, height: 1440, fps: 15}
+[05/30 11:32:02.226059][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 2560, height: 1440, fps: 5}
+[05/30 11:32:02.226063][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 3840, height: 2160, fps: 25}
+[05/30 11:32:02.226068][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 3840, height: 2160, fps: 15}
+[05/30 11:32:02.226073][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_RGB888, width: 3840, height: 2160, fps: 5}
+[05/30 11:32:02.226078][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 720, fps: 30}
+[05/30 11:32:02.226083][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 720, fps: 25}
+[05/30 11:32:02.226088][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 720, fps: 15}
+[05/30 11:32:02.226093][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 720, fps: 5}
+[05/30 11:32:02.226098][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 960, fps: 30}
+[05/30 11:32:02.226103][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 960, fps: 25}
+[05/30 11:32:02.226108][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 960, fps: 15}
+[05/30 11:32:02.226118][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1280, height: 960, fps: 5}
+[05/30 11:32:02.226123][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1920, height: 1080, fps: 30}
+[05/30 11:32:02.226129][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1920, height: 1080, fps: 25}
+[05/30 11:32:02.226134][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1920, height: 1080, fps: 15}
+[05/30 11:32:02.226139][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 1920, height: 1080, fps: 5}
+[05/30 11:32:02.226145][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 2560, height: 1440, fps: 25}
+[05/30 11:32:02.226150][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 2560, height: 1440, fps: 15}
+[05/30 11:32:02.226155][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 2560, height: 1440, fps: 5}
+[05/30 11:32:02.226160][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 3840, height: 2160, fps: 25}
+[05/30 11:32:02.226165][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 3840, height: 2160, fps: 15}
+[05/30 11:32:02.226170][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_COLOR, format: OB_FORMAT_BGRA, width: 3840, height: 2160, fps: 5}
+[05/30 11:32:02.226225][debug][10254][FrameProcessor.cpp:90] FrameProcessor init with 6 blocks! @139309479061888
+[05/30 11:32:02.226233][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226239][debug][10254][FrameProcessor.cpp:98]  - block: FrameSoftFilter, status: disable
+[05/30 11:32:02.226245][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226250][debug][10254][FrameProcessor.cpp:98]  - block: FrameMirror, status: disable
+[05/30 11:32:02.226257][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226263][debug][10254][FrameProcessor.cpp:98]  - block: D2CFilter, status: disable
+[05/30 11:32:02.226269][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226274][debug][10254][FrameProcessor.cpp:98]  - block: PostProcessFilter, status: disable
+[05/30 11:32:02.226281][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226286][debug][10254][FrameProcessor.cpp:98]  - block: FrameFlip, status: disable
+[05/30 11:32:02.226292][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226297][debug][10254][FrameProcessor.cpp:98]  - block: FrameRotate, status: disable
+[05/30 11:32:02.226309][debug][10254][VideoSensor.cpp:252] VideoSensor construct!
+[05/30 11:32:02.226315][debug][10254][VideoSensor.cpp:278] VideoSensor created, @OB_SENSOR_DEPTH
+[05/30 11:32:02.226322][info][10254][FemtoMegaUvcDevice.cpp:341] Depth sensor has been created!
+[05/30 11:32:02.226331][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format 16-bit Greyscale
+[05/30 11:32:02.226352][debug][10254][VideoSensor.cpp:119] device has original Y16 format, no need to add virtual format!
+[05/30 11:32:02.226367][info][10254][VideoSensor.cpp:384] Query stream profile! size= 14, SensorType=OB_SENSOR_DEPTH
+[05/30 11:32:02.226373][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 15}
+[05/30 11:32:02.226378][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 30}
+[05/30 11:32:02.226383][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 25}
+[05/30 11:32:02.226388][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 15}
+[05/30 11:32:02.226399][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 320, height: 288, fps: 5}
+[05/30 11:32:02.226404][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 30}
+[05/30 11:32:02.226409][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 25}
+[05/30 11:32:02.226414][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 15}
+[05/30 11:32:02.226419][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 512, height: 512, fps: 5}
+[05/30 11:32:02.226424][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 30}
+[05/30 11:32:02.226429][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 25}
+[05/30 11:32:02.226434][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 5}
+[05/30 11:32:02.226439][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 1024, height: 1024, fps: 15}
+[05/30 11:32:02.226444][info][10254][VideoSensor.cpp:386]  - {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 1024, height: 1024, fps: 5}
+[05/30 11:32:02.226461][debug][10254][LinuxPal.cpp:292] Uvc backend have been set to LibUVC(1)
+[05/30 11:32:02.226517][debug][10254][HidDevicePort.cpp:13] obHid Device open info_.infIndex=6
+[05/30 11:32:02.226564][debug][10254][FrameProcessor.cpp:90] FrameProcessor init with 2 blocks! @139309479079280
+[05/30 11:32:02.226579][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226591][debug][10254][FrameProcessor.cpp:98]  - block: IMUFrameReversion, status: enable
+[05/30 11:32:02.226598][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.226607][debug][10254][FrameProcessor.cpp:98]  - block: IMUFrameTransformer, status: enable
+[05/30 11:32:02.226619][debug][10254][AccelSensor.cpp:11] AccelSensor initting!
+[05/30 11:32:02.226625][info][10254][AccelSensor.cpp:27] AccelSensor created
+[05/30 11:32:02.226629][info][10254][IFemtoMegaDevice.cpp:121] Accel sensor has been created!
+[05/30 11:32:02.227457][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=2024, cur={intValue: 2, floatValue: 2.8026e-45}, max={intValue: 4, floatValue: 5.60519e-45}, min={intValue: 1, floatValue: 1.4013e-45},def={intValue: 1, floatValue: 1.4013e-45},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.227695][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=2022, cur={intValue: 7, floatValue: 9.80909e-45}, max={intValue: 15, floatValue: 2.10195e-44}, min={intValue: 1, floatValue: 1.4013e-45},def={intValue: 1, floatValue: 1.4013e-45},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.227708][debug][10254][AccelSensor.cpp:147] The first one in the list is the default profile
+[05/30 11:32:02.227730][debug][10254][FrameProcessor.cpp:90] FrameProcessor init with 2 blocks! @139309479091568
+[05/30 11:32:02.227750][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.227757][debug][10254][FrameProcessor.cpp:98]  - block: IMUFrameReversion, status: enable
+[05/30 11:32:02.227765][debug][10254][FrameProcessingBlock.cpp:26] Block created with frame queue size: 10
+[05/30 11:32:02.227771][debug][10254][FrameProcessor.cpp:98]  - block: IMUFrameTransformer, status: enable
+[05/30 11:32:02.227778][debug][10254][GyroSensor.cpp:12] GyroSensor init ...
+[05/30 11:32:02.227782][info][10254][GyroSensor.cpp:28] GyroSensor created!
+[05/30 11:32:02.227786][info][10254][IFemtoMegaDevice.cpp:164] Gyro sensor has been created!
+[05/30 11:32:02.228361][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=2023, cur={intValue: 7, floatValue: 9.80909e-45}, max={intValue: 8, floatValue: 1.12104e-44}, min={intValue: 1, floatValue: 1.4013e-45},def={intValue: 1, floatValue: 1.4013e-45},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.228618][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=2021, cur={intValue: 7, floatValue: 9.80909e-45}, max={intValue: 15, floatValue: 2.10195e-44}, min={intValue: 1, floatValue: 1.4013e-45},def={intValue: 1, floatValue: 1.4013e-45},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.228634][debug][10254][GyroSensor.cpp:83] GyroSensor default stream profile is set! sampleRate=7, fullScaleRange=7
+[05/30 11:32:02.228679][debug][10254][FemtoMegaUvcDevice.cpp:515] propertyId 24 set 
+[05/30 11:32:02.228694][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 24, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.228745][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=89, value={intValue: 0, floatValue: 0}
+[05/30 11:32:02.228982][debug][10254][VendorCommand.cpp:467] disableHeartBeat heartBeatHelper_: 0
+[05/30 11:32:02.229004][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 89, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.229248][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=113, cur={intValue: 1, floatValue: 1.4013e-45}, max={intValue: 1, floatValue: 1.4013e-45}, min={intValue: 0, floatValue: 0},def={intValue: 0, floatValue: 0},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.229261][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 113, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.229436][debug][10254][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1038, dataLen: 16
+[05/30 11:32:02.231159][debug][10254][PropertyAccessor.cpp:42] set firmware data success! propertyId: 1038, dataLen: 16
+[05/30 11:32:02.231174][debug][10254][DeviceSyncConfigurator.cpp:46] Device sync config updated! mode: 1, rgbTriggerSignalInDelay: 0, irTriggerSignalInDelay: 0, deviceTriggerSignalOutDelay: 0
+[05/30 11:32:02.231375][debug][10254][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1038, dataLen: 16
+[05/30 11:32:02.231423][debug][10254][FemtoMegaUvcDevice.cpp:515] propertyId 24 set 
+[05/30 11:32:02.231440][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 24, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.231580][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2000, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.231599][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2001, value: {intValue: 200, floatValue: 2.8026e-43}
+[05/30 11:32:02.231610][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2003, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.231622][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2004, value: {intValue: 6500, floatValue: 9.10844e-42}
+[05/30 11:32:02.231633][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2002, value: {intValue: 60, floatValue: 8.40779e-44}
+[05/30 11:32:02.231644][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2009, value: {intValue: 32, floatValue: 4.48416e-44}
+[05/30 11:32:02.231655][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2008, value: {intValue: 54, floatValue: 7.56701e-44}
+[05/30 11:32:02.231666][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2006, value: {intValue: 6, floatValue: 8.40779e-45}
+[05/30 11:32:02.231676][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2005, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.231687][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2015, value: {intValue: 2, floatValue: 2.8026e-45}
+[05/30 11:32:02.231710][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 2003, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.231932][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2000, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.231952][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2001, value: {intValue: 200, floatValue: 2.8026e-43}
+[05/30 11:32:02.231964][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2003, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.231979][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2004, value: {intValue: 6500, floatValue: 9.10844e-42}
+[05/30 11:32:02.231991][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2002, value: {intValue: 60, floatValue: 8.40779e-44}
+[05/30 11:32:02.232002][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2009, value: {intValue: 32, floatValue: 4.48416e-44}
+[05/30 11:32:02.232013][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2008, value: {intValue: 54, floatValue: 7.56701e-44}
+[05/30 11:32:02.232023][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2006, value: {intValue: 6, floatValue: 8.40779e-45}
+[05/30 11:32:02.232034][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2005, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.232045][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 2015, value: {intValue: 2, floatValue: 2.8026e-45}
+[05/30 11:32:02.232052][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 2000, value: {intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.232067][debug][10254][FemtoMegaUvcDevice.cpp:515] propertyId 40 set 
+[05/30 11:32:02.232077][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 40, value: {intValue: 300, floatValue: 4.2039e-43}
+[05/30 11:32:02.232109][debug][10254][FemtoMegaUvcDevice.cpp:515] propertyId 41 set 
+[05/30 11:32:02.232119][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 41, value: {intValue: 25, floatValue: 3.50325e-44}
+[05/30 11:32:02.249823][debug][10254][Pipeline.cpp:29] Pipeline init ...
+[05/30 11:32:02.249875][debug][10254][Pipeline.cpp:168] loadFrameQueueSizeConfig() config queue size: 10
+[05/30 11:32:02.249887][info][10254][Pipeline.cpp:47] Pipeline created with device: {name: Femto Mega, sn: CL2H84100KN}, @0x7EB384156B60
+[05/30 11:32:02.249928][debug][10254][Pipeline.cpp:227] Pipeline start() start!
+[05/30 11:32:02.249934][info][10254][Pipeline.cpp:188] Check and set config start!
+[05/30 11:32:02.249945][info][10254][Pipeline.cpp:223] Check and set config done!
+[05/30 11:32:02.249957][debug][10254][FrameProcessingBlockManager.cpp:75]  FrameProcessingBlockManager started, 0 blocks contained!
+[05/30 11:32:02.249962][info][10254][Pipeline.cpp:288] Try to start streams!
+[05/30 11:32:02.249990][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=2022, value={intValue: 7, floatValue: 9.80909e-45}
+[05/30 11:32:02.250774][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=2024, value={intValue: 2, floatValue: 2.8026e-45}
+[05/30 11:32:02.251314][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=2020, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.283858][debug][10254][FrameProcessor.cpp:144] Frame processor active blocks chain update: input ->IMUFrameReversion -> IMUFrameTransformer -> output
+[05/30 11:32:02.283889][debug][10254][FrameProcessor.cpp:155] FrameProcessor started, 2 blocks contained!
+[05/30 11:32:02.283896][debug][10254][FrameMemoryPool.cpp:35] FrameMemoryPool created!
+[05/30 11:32:02.283906][debug][10254][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor10AccelFrameE, obj addr:0x7eb384158fd0, frame obj total size:0.000MB
+[05/30 11:32:02.283911][debug][10254][FrameMemoryPool.cpp:84] AccelFrame bufferManager created!
+[05/30 11:32:02.283943][debug][10254][HidDevicePort.cpp:103] HidDevicePort::startCapture start
+[05/30 11:32:02.283948][debug][10254][HidDevicePort.cpp:111] HidDevicePort::submit Request start
+[05/30 11:32:02.284011][debug][10254][HidDevicePort.cpp:118] HidDevicePort::startCapture done
+[05/30 11:32:02.284118][debug][10254][Pipeline.cpp:299] Sensor stream started, sensorType=OB_SENSOR_ACCEL
+[05/30 11:32:02.284148][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=2021, value={intValue: 7, floatValue: 9.80909e-45}
+[05/30 11:32:02.316467][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=2023, value={intValue: 7, floatValue: 9.80909e-45}
+[05/30 11:32:02.317875][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=2019, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.356221][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.000MB, max limit=2048.000MB
+[05/30 11:32:02.356270][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.001MB, max limit=2048.000MB
+[05/30 11:32:02.356280][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.001MB, max limit=2048.000MB
+[05/30 11:32:02.356288][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.002MB, max limit=2048.000MB
+[05/30 11:32:02.356393][debug][10258][FrameProcessingBlock.cpp:59] FrameProcessingBlock@N11libobsensor17IMUFrameReversionE process thread started!
+[05/30 11:32:02.356473][debug][10259][FrameProcessingBlock.cpp:59] FrameProcessingBlock@N11libobsensor19IMUFrameTransformerE process thread started!
+[05/30 11:32:02.356528][debug][10260][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor8FrameSetE, obj addr:0x7eb370000b70, frame obj total size:0.000MB
+[05/30 11:32:02.356544][debug][10260][FrameMemoryPool.cpp:92] Frameset bufferManager created!
+[05/30 11:32:02.356562][debug][10260][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL
+[05/30 11:32:02.375130][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.002MB, max limit=2048.000MB
+[05/30 11:32:02.375162][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.003MB, max limit=2048.000MB
+[05/30 11:32:02.396160][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.003MB, max limit=2048.000MB
+[05/30 11:32:02.396185][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.004MB, max limit=2048.000MB
+[05/30 11:32:02.404255][debug][10254][HostProtocol.cpp:466] get property value success! propertyId=2024, cur={intValue: 2, floatValue: 2.8026e-45}, max={intValue: 4, floatValue: 5.60519e-45}, min={intValue: 1, floatValue: 1.4013e-45},def={intValue: 1, floatValue: 1.4013e-45},step={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:32:02.404278][debug][10254][FrameProcessor.cpp:144] Frame processor active blocks chain update: input ->IMUFrameReversion -> IMUFrameTransformer -> output
+[05/30 11:32:02.404284][debug][10254][FrameProcessor.cpp:155] FrameProcessor started, 2 blocks contained!
+[05/30 11:32:02.404293][debug][10254][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor8FrameSetE, obj addr:0x7eb384158df0, frame obj total size:0.001MB
+[05/30 11:32:02.404297][debug][10254][FrameMemoryPool.cpp:92] Frameset bufferManager created!
+[05/30 11:32:02.404303][debug][10254][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor9GyroFrameE, obj addr:0x7eb384158d80, frame obj total size:0.000MB
+[05/30 11:32:02.404307][debug][10254][FrameMemoryPool.cpp:80] GyroFrame bufferManager created!
+[05/30 11:32:02.404314][debug][10254][HidDevicePort.cpp:103] HidDevicePort::startCapture start
+[05/30 11:32:02.404319][debug][10254][HidDevicePort.cpp:118] HidDevicePort::startCapture done
+[05/30 11:32:02.404431][debug][10254][Pipeline.cpp:299] Sensor stream started, sensorType=OB_SENSOR_GYRO
+[05/30 11:32:02.404441][info][10254][Pipeline.cpp:301] Start streams done!
+[05/30 11:32:02.404446][info][10254][Pipeline.cpp:277] Pipeline start done!
+[05/30 11:32:02.404558][debug][10254][Pipeline.cpp:29] Pipeline init ...
+[05/30 11:32:02.404578][debug][10254][Pipeline.cpp:168] loadFrameQueueSizeConfig() config queue size: 10
+[05/30 11:32:02.404586][info][10254][Pipeline.cpp:47] Pipeline created with device: {name: Femto Mega, sn: CL2H84100KN}, @0x7EB38415A0E0
+[05/30 11:32:02.404676][debug][10254][Pipeline.cpp:227] Pipeline start() start!
+[05/30 11:32:02.404683][info][10254][Pipeline.cpp:188] Check and set config start!
+[05/30 11:32:02.404716][info][10254][Pipeline.cpp:223] Check and set config done!
+[05/30 11:32:02.404750][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 14, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.404761][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 15, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.404771][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 118, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.404782][debug][10254][HostProtocol.cpp:433] Set property value, propertyId=63, value={intValue: 2, floatValue: 2.8026e-45}
+[05/30 11:32:02.406103][debug][10254][PropertyAccessor.cpp:17] set property value success! propertyId: 63, value: {intValue: 2, floatValue: 2.8026e-45}
+[05/30 11:32:02.406129][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 14, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.406139][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 15, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.406148][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 118, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.406158][debug][10254][PropertyAccessor.cpp:28] get property value success! propertyId: 118, value: {intValue: 0, floatValue: 0}
+[05/30 11:32:02.406171][debug][10254][FrameProcessingBlockManager.cpp:75]  FrameProcessingBlockManager started, 0 blocks contained!
+[05/30 11:32:02.406176][info][10254][Pipeline.cpp:288] Try to start streams!
+[05/30 11:32:02.406184][debug][10254][VideoSensor.cpp:566] VideoSensor::start, @OB_SENSOR_COLOR
+[05/30 11:32:02.406193][debug][10254][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor10ColorFrameE, obj addr:0x7eb38415b660, frame obj total size:0.879MB
+[05/30 11:32:02.406198][debug][10254][FrameMemoryPool.cpp:76] ColorFrame bufferManager created!
+[05/30 11:32:02.406206][debug][10254][FrameProcessor.cpp:144] Frame processor active blocks chain update: input -> output
+[05/30 11:32:02.406211][debug][10254][FrameProcessor.cpp:155] FrameProcessor started, 2 blocks contained!
+[05/30 11:32:02.406220][info][10254][VideoSensor.cpp:646] start OB_SENSOR_COLOR stream with profile: {type: OB_STREAM_COLOR, format: OB_FORMAT_MJPG, width: 1280, height: 720, fps: 30}, Backend Format: OB_FORMAT_MJPG
+[05/30 11:32:02.406231][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format YUYV 4:2:2
+[05/30 11:32:02.406256][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format Motion-JPEG
+[05/30 11:32:02.406269][debug][10254][ObV4lUvcDevicePort.cpp:579] Set metadata format to D4XX
+[05/30 11:32:02.407921][debug][10254][ObV4lUvcDevicePort.cpp:625] Video node was successfully configured to MJPG format, fd 36
+[05/30 11:32:02.412185][debug][10254][VideoSensor.cpp:672] Stream state changed to STREAM_STATE_STARTING. @OB_SENSOR_COLOR
+[05/30 11:32:02.412218][debug][10254][VideoSensor.cpp:674] Stream starting! @OB_SENSOR_COLOR
+[05/30 11:32:02.412226][debug][10254][Pipeline.cpp:299] Sensor stream started, sensorType=OB_SENSOR_COLOR
+[05/30 11:32:02.412234][debug][10254][VideoSensor.cpp:566] VideoSensor::start, @OB_SENSOR_DEPTH
+[05/30 11:32:02.412247][debug][10254][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor10DepthFrameE, obj addr:0x7eb38415b990, frame obj total size:0.704MB
+[05/30 11:32:02.412272][debug][10254][FrameMemoryPool.cpp:60] DepthFrame bufferManager created!
+[05/30 11:32:02.412284][debug][10254][FrameProcessor.cpp:144] Frame processor active blocks chain update: input ->FrameSoftFilter -> output
+[05/30 11:32:02.412289][debug][10254][FrameProcessor.cpp:155] FrameProcessor started, 6 blocks contained!
+[05/30 11:32:02.412299][info][10254][VideoSensor.cpp:646] start OB_SENSOR_DEPTH stream with profile: {type: OB_STREAM_DEPTH, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 30}, Backend Format: OB_FORMAT_Y16
+[05/30 11:32:02.412308][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format 16-bit Greyscale
+[05/30 11:32:02.412330][debug][10254][ObV4lUvcDevicePort.cpp:579] Set metadata format to D4XX
+[05/30 11:32:02.422391][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.001MB, total usage: allocated=0.004MB, max limit=2048.000MB
+[05/30 11:32:02.422430][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.005MB, max limit=2048.000MB
+[05/30 11:32:02.422440][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.005MB, max limit=2048.000MB
+[05/30 11:32:02.422465][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.001MB, total usage: allocated=0.005MB, max limit=2048.000MB
+[05/30 11:32:02.422472][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.006MB, max limit=2048.000MB
+[05/30 11:32:02.422478][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.006MB, max limit=2048.000MB
+[05/30 11:32:02.422499][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.007MB, max limit=2048.000MB
+[05/30 11:32:02.422512][debug][10252][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.007MB, max limit=2048.000MB
+[05/30 11:32:02.425105][debug][10262][FrameProcessingBlock.cpp:59] FrameProcessingBlock@N11libobsensor17IMUFrameReversionE process thread started!
+[05/30 11:32:02.425199][debug][10264][FrameProcessingBlock.cpp:59] FrameProcessingBlock@N11libobsensor19IMUFrameTransformerE process thread started!
+[05/30 11:32:02.425255][debug][10265][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=0.008MB, max limit=2048.000MB
+[05/30 11:32:02.425358][debug][10265][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO
+[05/30 11:32:02.731218][debug][10254][ObV4lUvcDevicePort.cpp:625] Video node was successfully configured to Y16  format, fd 32
+[05/30 11:32:02.732316][debug][10254][FemtoMegaUvcDevice.cpp:333] Depth sensor update FrameSoftFilter: maxdiff:300, maxSpeckleSize:25!
+[05/30 11:32:02.732341][debug][10254][FrameProcessor.cpp:144] Frame processor active blocks chain update: input ->FrameSoftFilter -> output
+[05/30 11:32:02.732356][debug][10254][VideoSensor.cpp:672] Stream state changed to STREAM_STATE_STARTING. @OB_SENSOR_DEPTH
+[05/30 11:32:02.732362][debug][10254][VideoSensor.cpp:674] Stream starting! @OB_SENSOR_DEPTH
+[05/30 11:32:02.732368][debug][10254][Pipeline.cpp:299] Sensor stream started, sensorType=OB_SENSOR_DEPTH
+[05/30 11:32:02.732381][debug][10254][VideoSensor.cpp:566] VideoSensor::start, @OB_SENSOR_IR
+[05/30 11:32:02.732396][debug][10254][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor7IRFrameE, obj addr:0x7eb38415bd60, frame obj total size:0.704MB
+[05/30 11:32:02.732401][debug][10254][FrameMemoryPool.cpp:72] IRFrame bufferManager created!
+[05/30 11:32:02.732408][debug][10254][FrameProcessor.cpp:144] Frame processor active blocks chain update: input -> output
+[05/30 11:32:02.732413][debug][10254][FrameProcessor.cpp:155] FrameProcessor started, 3 blocks contained!
+[05/30 11:32:02.732422][info][10254][VideoSensor.cpp:646] start OB_SENSOR_IR stream with profile: {type: OB_STREAM_IR, format: OB_FORMAT_Y16, width: 640, height: 576, fps: 30}, Backend Format: OB_FORMAT_Y16
+[05/30 11:32:02.732451][debug][10254][ObV4lUvcDevicePort.cpp:244] Recognized pixel-format 16-bit Greyscale
+[05/30 11:32:02.732472][debug][10254][ObV4lUvcDevicePort.cpp:579] Set metadata format to D4XX
+[05/30 11:32:02.954999][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=0.887MB, max limit=2048.000MB
+[05/30 11:32:03.415912][debug][10254][ObV4lUvcDevicePort.cpp:625] Video node was successfully configured to Y16  format, fd 34
+[05/30 11:32:03.417396][debug][10254][VideoSensor.cpp:672] Stream state changed to STREAM_STATE_STARTING. @OB_SENSOR_IR
+[05/30 11:32:03.417421][debug][10254][VideoSensor.cpp:674] Stream starting! @OB_SENSOR_IR
+[05/30 11:32:03.417429][debug][10254][Pipeline.cpp:299] Sensor stream started, sensorType=OB_SENSOR_IR
+[05/30 11:32:03.417434][info][10254][Pipeline.cpp:301] Start streams done!
+[05/30 11:32:03.417440][info][10254][Pipeline.cpp:277] Pipeline start done!
+[05/30 11:32:03.417453][debug][10263][VideoSensor.cpp:460] Stream state changed to STREAM_STATE_STREAMING. @OB_SENSOR_COLOR
+[05/30 11:32:03.417529][debug][10263][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor8FrameSetE, obj addr:0x7eb35c000f00, frame obj total size:0.000MB
+[05/30 11:32:03.417541][debug][10263][FrameMemoryPool.cpp:92] Frameset bufferManager created!
+[05/30 11:32:03.417559][debug][10263][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR
+[05/30 11:32:03.447016][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=1.766MB, max limit=2048.000MB
+[05/30 11:32:03.485076][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=2.646MB, max limit=2048.000MB
+[05/30 11:32:03.519011][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=3.525MB, max limit=2048.000MB
+[05/30 11:32:03.545933][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=4.404MB, max limit=2048.000MB
+[05/30 11:32:03.569896][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=5.108MB, max limit=2048.000MB
+[05/30 11:32:03.571049][debug][10272][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=5.812MB, max limit=2048.000MB
+[05/30 11:32:03.579160][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=6.691MB, max limit=2048.000MB
+[05/30 11:32:03.612244][debug][10263][FrameBufferManager.cpp:35] New frame buffer allocated=0.879MB, total usage: allocated=7.570MB, max limit=2048.000MB
+[05/30 11:32:03.622859][debug][10254][VendorCommand.cpp:415] syncDeviceTime success after retry 2 times, rtt=522
+[05/30 11:32:03.623083][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597523622941, rtt=0
+[05/30 11:32:03.623442][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:03.623814][debug][10267][VideoSensor.cpp:460] Stream state changed to STREAM_STATE_STREAMING. @OB_SENSOR_DEPTH
+[05/30 11:32:03.624124][debug][10272][VideoSensor.cpp:460] Stream state changed to STREAM_STATE_STREAMING. @OB_SENSOR_IR
+[05/30 11:32:03.624638][debug][10267][FrameProcessingBlock.cpp:59] FrameProcessingBlock@N11libobsensor15FrameSoftFilterE process thread started!
+[05/30 11:32:03.625006][debug][10272][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR
+[05/30 11:32:03.626060][debug][10275][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=7.571MB, max limit=2048.000MB
+[05/30 11:32:03.627922][debug][10275][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=7.571MB, max limit=2048.000MB
+[05/30 11:32:03.628152][debug][10275][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH
+[05/30 11:32:03.632205][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=8.275MB, max limit=2048.000MB
+[05/30 11:32:03.673639][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597523673407, rtt=0
+[05/30 11:32:03.724043][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597523723877, rtt=0
+[05/30 11:32:03.775264][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597523775029, rtt=0
+[05/30 11:32:04.250362][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:05.250521][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:05.356756][debug][10261][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL [**303 logs in 3000ms, last: 11:32:05.351242**]
+[05/30 11:32:05.425553][debug][10266][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO [**301 logs in 3000ms, last: 11:32:05.412244**]
+[05/30 11:32:06.250239][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:06.327044][debug][10273][FrameBufferManager.hpp:65] FrameBufferManager created! frame type:N11libobsensor10ColorFrameE, obj addr:0x7eb340000c70, frame obj total size:2.637MB
+[05/30 11:32:06.327085][debug][10273][FrameMemoryPool.cpp:76] ColorFrame bufferManager created!
+[05/30 11:32:06.327132][debug][10273][FrameBufferManager.cpp:35] New frame buffer allocated=2.637MB, total usage: allocated=10.912MB, max limit=2048.000MB
+[05/30 11:32:06.359731][debug][10272][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=11.616MB, max limit=2048.000MB
+[05/30 11:32:06.392244][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=12.319MB, max limit=2048.000MB
+[05/30 11:32:06.426332][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=13.023MB, max limit=2048.000MB
+[05/30 11:32:06.447320][debug][10274][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR [**88 logs in 3029ms, last: 11:32:06.336705**]
+[05/30 11:32:06.458480][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=13.726MB, max limit=2048.000MB
+[05/30 11:32:06.491504][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=14.430MB, max limit=2048.000MB
+[05/30 11:32:06.525366][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=15.133MB, max limit=2048.000MB
+[05/30 11:32:06.559207][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=15.837MB, max limit=2048.000MB
+[05/30 11:32:06.625017][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=16.541MB, max limit=2048.000MB
+[05/30 11:32:06.633650][debug][10276][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR [**84 logs in 3008ms, last: 11:32:06.574831**]
+[05/30 11:32:06.633804][debug][10277][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH [**91 logs in 3005ms, last: 11:32:06.594042**]
+[05/30 11:32:06.657783][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=17.244MB, max limit=2048.000MB
+[05/30 11:32:06.691196][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=17.948MB, max limit=2048.000MB
+[05/30 11:32:06.725760][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=18.651MB, max limit=2048.000MB
+[05/30 11:32:06.758408][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=19.355MB, max limit=2048.000MB
+[05/30 11:32:06.775521][debug][10278][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9979364779422494, constantB = 3608269560235.75 [**1 logs in 4597ms, last: 11:32:03.775306**]
+[05/30 11:32:06.791762][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=20.058MB, max limit=2048.000MB
+[05/30 11:32:06.824947][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=20.762MB, max limit=2048.000MB
+[05/30 11:32:07.355239][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=21.466MB, max limit=2048.000MB
+[05/30 11:32:07.366297][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.798401fps
+[05/30 11:32:07.387430][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=22.169MB, max limit=2048.000MB
+[05/30 11:32:07.387918][warning][10267][FrameProcessingBlock.cpp:89] Source frameset queue fulled, drop the oldest frame! N11libobsensor15FrameSoftFilterE@0x7eb384036640
+[05/30 11:32:07.423132][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:07.426306][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.519577fps
+[05/30 11:32:07.426652][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=102.179565fps
+[05/30 11:32:07.654391][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=22.873MB, max limit=2048.000MB
+[05/30 11:32:08.196474][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=18.504387fps
+[05/30 11:32:08.458565][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:08.583832][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.315119fps
+[05/30 11:32:08.722053][debug][10272][Pipeline.cpp:323] Pipeline streaming... frameset output rate=27.276295fps
+[05/30 11:32:08.751131][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=17.953669fps
+[05/30 11:32:09.504843][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:10.317433][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:10.709628][warning][10267][FrameProcessingBlock.cpp:89] Source frameset queue fulled, drop the oldest frame! N11libobsensor15FrameSoftFilterE@0x7eb384036640 [**16 logs in 3321ms**]
+[05/30 11:32:10.877049][debug][10272][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=23.576MB, max limit=2048.000MB
+[05/30 11:32:11.372423][debug][10283][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL [**602 logs in 6015ms, last: 11:32:11.357446**]
+[05/30 11:32:11.432419][debug][10284][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO [**602 logs in 6006ms, last: 11:32:11.417426**]
+[05/30 11:32:11.444620][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:11.775798][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597531775583, rtt=0
+[05/30 11:32:11.782196][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 1.0004058359323627, constantB = -709643706401
+[05/30 11:32:12.255891][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:12.374416][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:12.435403][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.219604fps
+[05/30 11:32:12.435530][debug][10265][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.219604fps
+[05/30 11:32:12.573175][debug][10263][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR [**23 logs in 6125ms**]
+[05/30 11:32:12.836560][debug][10291][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR [**20 logs in 6202ms, last: 11:32:12.573092**]
+[05/30 11:32:12.842061][debug][10292][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH [**138 logs in 6208ms, last: 11:32:12.580577**]
+[05/30 11:32:13.426076][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:13.443427][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.621117fps
+[05/30 11:32:13.599715][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.103670fps
+[05/30 11:32:13.945001][debug][10263][Pipeline.cpp:323] Pipeline streaming... frameset output rate=22.596706fps
+[05/30 11:32:13.965629][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.452244fps
+[05/30 11:32:14.460621][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:15.339666][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:15.360095][debug][10272][FrameBufferManager.cpp:35] New frame buffer allocated=0.000MB, total usage: allocated=23.577MB, max limit=2048.000MB
+[05/30 11:32:15.693870][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=24.280MB, max limit=2048.000MB
+[05/30 11:32:15.723660][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=24.984MB, max limit=2048.000MB
+[05/30 11:32:16.189215][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=25.687MB, max limit=2048.000MB
+[05/30 11:32:16.223526][debug][10267][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=26.391MB, max limit=2048.000MB
+[05/30 11:32:16.274339][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:16.743009][warning][10302][FrameProcessingBlock.cpp:89] Source frameset queue fulled, drop the oldest frame! N11libobsensor15FrameSoftFilterE@0x7eb384036640 [**59 logs in 6033ms, last: 11:32:16.255485**]
+[05/30 11:32:17.364067][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:17.383565][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.219604fps
+[05/30 11:32:17.443557][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:17.444136][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.219604fps
+[05/30 11:32:18.455012][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:18.459481][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.588517fps
+[05/30 11:32:18.614648][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.109673fps
+[05/30 11:32:19.006026][debug][10272][Pipeline.cpp:323] Pipeline streaming... frameset output rate=24.496248fps
+[05/30 11:32:19.246757][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.219087fps
+[05/30 11:32:19.476556][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:19.782939][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597539782694, rtt=0
+[05/30 11:32:19.782986][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 1.0000570930536379, constantB = -99832771943.75
+[05/30 11:32:20.274110][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:21.326571][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:22.349509][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:22.390683][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.259636fps
+[05/30 11:32:22.450685][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.259636fps
+[05/30 11:32:22.450822][debug][10265][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.279663fps
+[05/30 11:32:23.361624][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:23.377557][debug][10307][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL [**1204 logs in 12005ms, last: 11:32:23.368878**]
+[05/30 11:32:23.437564][debug][10308][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO [**1204 logs in 12005ms, last: 11:32:23.429799**]
+[05/30 11:32:23.630287][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.103670fps
+[05/30 11:32:23.641141][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.859514fps
+[05/30 11:32:24.149883][debug][10263][Pipeline.cpp:323] Pipeline streaming... frameset output rate=24.304880fps
+[05/30 11:32:24.396410][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:24.428092][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.473562fps
+[05/30 11:32:24.580831][debug][10309][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR [**45 logs in 12007ms, last: 11:32:24.404642**]
+[05/30 11:32:24.864191][debug][10310][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR [**40 logs in 12027ms, last: 11:32:24.396091**]
+[05/30 11:32:24.970994][debug][10275][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH [**277 logs in 12128ms**]
+[05/30 11:32:25.479248][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:26.448019][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:27.398810][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:27.458811][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:27.458953][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:32:27.555955][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:27.783486][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597547783265, rtt=0
+[05/30 11:32:27.783533][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 1.0000083882817283, constantB = -14667728285.75
+[05/30 11:32:28.378669][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:28.646108][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.103670fps
+[05/30 11:32:28.656651][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.788634fps
+[05/30 11:32:29.278124][warning][10267][FrameProcessingBlock.cpp:89] Source frameset queue fulled, drop the oldest frame! N11libobsensor15FrameSoftFilterE@0x7eb384036640 [**64 logs in 12535ms**]
+[05/30 11:32:29.438190][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:29.443013][debug][10272][Pipeline.cpp:323] Pipeline streaming... frameset output rate=27.011711fps
+[05/30 11:32:29.710557][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.029155fps
+[05/30 11:32:30.277047][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:31.324827][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:32.326018][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:32.406960][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:32.466950][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:32.467128][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.219604fps
+[05/30 11:32:33.356537][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:33.662612][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.103670fps
+[05/30 11:32:33.857618][debug][10238][VendorCommand.cpp:415] syncDeviceTime success after retry 1 times, rtt=288
+[05/30 11:32:33.860117][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597553859378, rtt=0
+[05/30 11:32:33.910557][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597553910521, rtt=0
+[05/30 11:32:33.961177][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597553961134, rtt=0
+[05/30 11:32:34.011644][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597554011635, rtt=0
+[05/30 11:32:34.011688][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9978176428542925, constantB = 3816064366722.25
+[05/30 11:32:34.383058][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:34.403966][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.654080fps
+[05/30 11:32:34.689926][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=25.352650fps
+[05/30 11:32:34.958702][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.620427fps
+[05/30 11:32:35.439851][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:36.441022][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:37.337450][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:37.415074][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.219604fps
+[05/30 11:32:37.475090][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.219604fps
+[05/30 11:32:37.475230][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:32:38.371471][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:38.677889][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.109673fps
+[05/30 11:32:39.404719][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:39.418918][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.988036fps
+[05/30 11:32:39.708879][debug][10272][Pipeline.cpp:323] Pipeline streaming... frameset output rate=22.514444fps
+[05/30 11:32:40.239581][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.029729fps
+[05/30 11:32:40.460169][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:41.439352][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:42.012025][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597562012053, rtt=0
+[05/30 11:32:42.012081][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9999915084732087, constantB = 14848262901.5
+[05/30 11:32:42.423220][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:42.457196][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:42.483229][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:42.483370][debug][10265][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:32:43.445296][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:43.528118][debug][10272][FrameBufferManager.cpp:35] New frame buffer allocated=0.704MB, total usage: allocated=27.095MB, max limit=2048.000MB
+[05/30 11:32:43.694018][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.097666fps
+[05/30 11:32:44.442546][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:44.753866][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=19.623388fps
+[05/30 11:32:44.766853][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.926702fps
+[05/30 11:32:45.254101][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:45.259185][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.984064fps
+[05/30 11:32:46.310181][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:47.329922][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:47.389016][debug][10338][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL [**2406 logs in 24011ms, last: 11:32:47.371391**]
+[05/30 11:32:47.431360][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:47.448915][debug][10339][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO [**2406 logs in 24011ms, last: 11:32:47.431379**]
+[05/30 11:32:47.491355][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:47.491479][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:32:48.292273][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:48.709033][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.109673fps
+[05/30 11:32:48.867065][debug][10263][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR [**92 logs in 24286ms**]
+[05/30 11:32:48.968875][debug][10344][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR [**83 logs in 24104ms, last: 11:32:48.864271**]
+[05/30 11:32:48.972013][debug][10346][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH [**551 logs in 24001ms, last: 11:32:48.871113**]
+[05/30 11:32:49.429582][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:49.966698][debug][10263][Pipeline.cpp:323] Pipeline streaming... frameset output rate=24.554001fps
+[05/30 11:32:49.981630][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.643337fps
+[05/30 11:32:50.012452][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597570012437, rtt=0
+[05/30 11:32:50.012493][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9999962656719681, constantB = 6529836783.25
+[05/30 11:32:50.250245][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:50.270953][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.392536fps
+[05/30 11:32:51.287217][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:52.306043][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:52.439498][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:52.499489][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:52.499613][debug][10265][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:32:53.310617][warning][10355][FrameProcessingBlock.cpp:89] Source frameset queue fulled, drop the oldest frame! N11libobsensor15FrameSoftFilterE@0x7eb384036640 [**185 logs in 24032ms, last: 11:32:53.027396**]
+[05/30 11:32:53.318867][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:53.724218][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.109673fps
+[05/30 11:32:54.437246][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:55.172001][debug][10263][Pipeline.cpp:323] Pipeline streaming... frameset output rate=24.207493fps
+[05/30 11:32:55.197823][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.834356fps
+[05/30 11:32:55.450880][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:55.455287][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.278689fps
+[05/30 11:32:56.422570][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:57.447632][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:57.494208][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:57.507641][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:32:57.507763][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:32:58.012893][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597578012845, rtt=0
+[05/30 11:32:58.012940][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9999983435829266, constantB = 2896406759.25
+[05/30 11:32:58.250400][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:32:58.741083][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.097666fps
+[05/30 11:32:59.444121][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:00.178000][debug][10263][Pipeline.cpp:323] Pipeline streaming... frameset output rate=23.571714fps
+[05/30 11:33:00.212465][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=4.187438fps
+[05/30 11:33:00.412492][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:00.700495][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.050524fps
+[05/30 11:33:01.407839][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:02.429129][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:02.455774][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:02.515774][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:02.515889][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:33:03.433031][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:03.676321][debug][10238][VendorCommand.cpp:415] syncDeviceTime success after retry 1 times, rtt=1382
+[05/30 11:33:03.678310][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597583678324, rtt=0
+[05/30 11:33:03.728848][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597583728781, rtt=0
+[05/30 11:33:03.755345][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.115677fps
+[05/30 11:33:03.779264][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597583779261, rtt=0
+[05/30 11:33:03.829855][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597583829784, rtt=0
+[05/30 11:33:03.829903][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9996613090216495, constantB = 592234226248.75
+[05/30 11:33:04.415601][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:05.217083][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=26.785715fps
+[05/30 11:33:05.231555][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.785615fps
+[05/30 11:33:05.494506][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:05.782858][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.738686fps
+[05/30 11:33:06.333701][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:07.463912][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:07.523899][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:07.524087][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.219604fps
+[05/30 11:33:07.543098][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:08.386630][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:08.772649][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.097666fps
+[05/30 11:33:09.502656][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:10.495527][debug][10263][Pipeline.cpp:323] Pipeline streaming... frameset output rate=21.220160fps
+[05/30 11:33:10.495982][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:10.510500][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=3.409737fps
+[05/30 11:33:10.865794][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=3.344481fps
+[05/30 11:33:11.445375][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:11.830427][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597591830394, rtt=0
+[05/30 11:33:11.830468][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9999941302152877, constantB = 10263891230.75
+[05/30 11:33:12.250316][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:12.472042][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.219604fps
+[05/30 11:33:12.532037][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.219604fps
+[05/30 11:33:12.532187][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:33:13.250248][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:13.787931][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.109673fps
+[05/30 11:33:14.251341][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:15.250282][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:15.516652][debug][10272][Pipeline.cpp:323] Pipeline streaming... frameset output rate=31.069510fps
+[05/30 11:33:15.526504][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=21.929825fps
+[05/30 11:33:15.882273][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=23.719353fps
+[05/30 11:33:16.250494][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:17.250604][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:17.480181][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:17.540156][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:17.540288][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:33:18.250357][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:18.804590][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.097666fps
+[05/30 11:33:19.250287][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:19.830953][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597599830934, rtt=0
+[05/30 11:33:19.831005][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9999972956342948, constantB = 4728847200.75
+[05/30 11:33:20.250253][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:20.532176][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=30.103670fps
+[05/30 11:33:20.541966][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=30.109673fps
+[05/30 11:33:20.898046][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=30.103670fps
+[05/30 11:33:21.250358][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:22.250331][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:22.489307][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.219604fps
+[05/30 11:33:22.549300][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.219604fps
+[05/30 11:33:22.549396][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.219604fps
+[05/30 11:33:23.250339][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:23.819731][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.109673fps
+[05/30 11:33:24.250669][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:25.250227][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:25.548028][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=30.103670fps
+[05/30 11:33:25.558793][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=30.097666fps
+[05/30 11:33:25.914219][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=30.103670fps
+[05/30 11:33:26.250704][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:27.250282][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:27.496441][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.259636fps
+[05/30 11:33:27.556441][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.259636fps
+[05/30 11:33:27.556609][debug][10260][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.259636fps
+[05/30 11:33:27.831459][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597607831416, rtt=0
+[05/30 11:33:27.831496][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.9999992535971389, constantB = 1305158098.25
+[05/30 11:33:28.250358][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:28.837397][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.091669fps
+[05/30 11:33:29.250524][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:30.250292][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:30.565048][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=30.097666fps
+[05/30 11:33:30.575102][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=30.097666fps
+[05/30 11:33:30.929827][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=30.109673fps
+[05/30 11:33:31.250278][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:32.250210][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:32.504588][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:32.564590][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:32.564747][debug][10265][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.239616fps
+[05/30 11:33:33.250282][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:33.624493][debug][10238][VendorCommand.cpp:415] syncDeviceTime success after retry 1 times, rtt=356
+[05/30 11:33:33.624759][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597613624923, rtt=0
+[05/30 11:33:33.675231][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597613675341, rtt=0
+[05/30 11:33:33.725747][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597613725843, rtt=0
+[05/30 11:33:33.776228][debug][10257][VendorCommand.cpp:436] get TimeStamp: tsp=1748597613776360, rtt=0
+[05/30 11:33:33.776272][debug][10257][GlobalTimestampFitter.cpp:144] GlobalTimestampFitter update: coefficientA = 0.999671183042913, constantB = 574968546224.25
+[05/30 11:33:33.851697][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.115677fps
+[05/30 11:33:34.250348][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:35.250853][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:35.391510][debug][10401][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL [**4812 logs in 48002ms, last: 11:33:35.379735**]
+[05/30 11:33:35.451547][debug][10402][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO [**4812 logs in 48002ms, last: 11:33:35.438703**]
+[05/30 11:33:35.580238][debug][10275][Pipeline.cpp:323] Pipeline streaming... frameset output rate=30.109673fps
+[05/30 11:33:35.590137][debug][10263][VideoSensor.cpp:427] OB_SENSOR_COLOR Streaming... frameRate=30.109673fps
+[05/30 11:33:35.946023][debug][10272][VideoSensor.cpp:427] OB_SENSOR_IR Streaming... frameRate=30.097666fps
+[05/30 11:33:36.250359][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:36.886026][debug][10263][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR [**836 logs in 48018ms**]
+[05/30 11:33:36.975449][debug][10275][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH [**1298 logs in 48003ms**]
+[05/30 11:33:36.975618][debug][10272][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR [**829 logs in 48006ms**]
+[05/30 11:33:37.250273][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:37.512725][debug][10252][AccelSensor.cpp:259] Accel Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:37.572720][debug][10252][GyroSensor.cpp:292] Gyro Sensor Streaming... frameRate=100.239616fps
+[05/30 11:33:37.573596][debug][10265][Pipeline.cpp:323] Pipeline streaming... frameset output rate=100.219604fps
+[05/30 11:33:38.250292][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:38.868579][debug][10267][VideoSensor.cpp:427] OB_SENSOR_DEPTH Streaming... frameRate=30.097666fps
+[05/30 11:33:39.250438][debug][10238][PropertyAccessor.cpp:50] get firmware data success! propertyId: 1003, dataLen: 24
+[05/30 11:33:39.706929][info][10238][Pipeline.cpp:411] Try to stop pipeline!
+[05/30 11:33:39.706963][info][10238][Pipeline.cpp:383] Try to stop streams!
+[05/30 11:33:39.706991][debug][10238][VideoSensor.cpp:678] VideoSensor::stop, @OB_SENSOR_IR
+[05/30 11:33:39.707001][debug][10238][VideoSensor.cpp:701] Stream state changed to STREAM_STATE_STOPPING. @OB_SENSOR_IR
+[05/30 11:33:39.707030][debug][10272][ObV4lUvcDevicePort.cpp:445] V4L stream is closed: /dev/video4
+[05/30 11:33:39.707666][debug][10238][VideoSensor.cpp:727] stream stoped! @OB_SENSOR_IR
+[05/30 11:33:39.707688][debug][10238][FrameProcessor.cpp:165] FrameProcessor stoped!
+[05/30 11:33:39.707711][debug][10238][HostProtocol.cpp:433] Set property value, propertyId=39, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:33:40.005176][debug][10238][VideoSensor.cpp:716] Stream state changed to STREAM_STATE_STOPED. @OB_SENSOR_IR
+[05/30 11:33:40.005212][info][10238][VideoSensor.cpp:734] Video sensor stopped, @OB_SENSOR_IR
+[05/30 11:33:40.005220][info][10238][Pipeline.cpp:396] Sensor stream stopped, sensorType=OB_SENSOR_IR
+[05/30 11:33:40.005227][debug][10238][VideoSensor.cpp:678] VideoSensor::stop, @OB_SENSOR_DEPTH
+[05/30 11:33:40.005233][debug][10238][VideoSensor.cpp:701] Stream state changed to STREAM_STATE_STOPPING. @OB_SENSOR_DEPTH
+[05/30 11:33:40.005274][debug][10267][ObV4lUvcDevicePort.cpp:445] V4L stream is closed: /dev/video2
+[05/30 11:33:40.006179][debug][10238][VideoSensor.cpp:727] stream stoped! @OB_SENSOR_DEPTH
+[05/30 11:33:40.006593][debug][10238][FrameProcessingBlock.cpp:74] Process thread stoped! N11libobsensor15FrameSoftFilterE@0x7eb384036640 
+[05/30 11:33:40.006610][debug][10238][FrameProcessor.cpp:165] FrameProcessor stoped!
+[05/30 11:33:40.006632][debug][10238][HostProtocol.cpp:433] Set property value, propertyId=38, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:33:40.361809][debug][10238][VideoSensor.cpp:716] Stream state changed to STREAM_STATE_STOPED. @OB_SENSOR_DEPTH
+[05/30 11:33:40.361839][info][10238][VideoSensor.cpp:734] Video sensor stopped, @OB_SENSOR_DEPTH
+[05/30 11:33:40.361847][info][10238][Pipeline.cpp:396] Sensor stream stopped, sensorType=OB_SENSOR_DEPTH
+[05/30 11:33:40.361857][debug][10238][VideoSensor.cpp:678] VideoSensor::stop, @OB_SENSOR_COLOR
+[05/30 11:33:40.361863][debug][10238][VideoSensor.cpp:701] Stream state changed to STREAM_STATE_STOPPING. @OB_SENSOR_COLOR
+[05/30 11:33:40.361955][debug][10263][ObV4lUvcDevicePort.cpp:445] V4L stream is closed: /dev/video0
+[05/30 11:33:40.362771][debug][10238][VideoSensor.cpp:727] stream stoped! @OB_SENSOR_COLOR
+[05/30 11:33:40.362786][debug][10238][FrameProcessor.cpp:165] FrameProcessor stoped!
+[05/30 11:33:40.362806][debug][10238][HostProtocol.cpp:433] Set property value, propertyId=77, value={intValue: 1, floatValue: 1.4013e-45}
+[05/30 11:33:40.737556][debug][10238][VideoSensor.cpp:716] Stream state changed to STREAM_STATE_STOPED. @OB_SENSOR_COLOR
+[05/30 11:33:40.737587][info][10238][VideoSensor.cpp:734] Video sensor stopped, @OB_SENSOR_COLOR
+[05/30 11:33:40.737595][info][10238][Pipeline.cpp:396] Sensor stream stopped, sensorType=OB_SENSOR_COLOR
+[05/30 11:33:40.737600][info][10238][Pipeline.cpp:402] Stop streams done!
+[05/30 11:33:40.737624][debug][10238][HostProtocol.cpp:433] Set property value, propertyId=13, value={intValue: 0, floatValue: 0}
+[05/30 11:33:40.738477][debug][10238][PropertyAccessor.cpp:17] set property value success! propertyId: 13, value: {intValue: 0, floatValue: 0}
+[05/30 11:33:40.738492][debug][10238][FrameProcessingBlockManager.cpp:84] FrameProcessingBlockManager stoped!
+[05/30 11:33:40.738497][debug][10238][FrameProcessingBlockManager.cpp:20] Processing block list cleared!
+[05/30 11:33:40.738502][info][10238][Pipeline.cpp:443] Stop pipeline done!
+[05/30 11:33:40.738519][info][10238][Pipeline.cpp:411] Try to stop pipeline!
+[05/30 11:33:40.738524][info][10238][Pipeline.cpp:383] Try to stop streams!
+[05/30 11:33:40.738533][debug][10238][HostProtocol.cpp:433] Set property value, propertyId=2019, value={intValue: 0, floatValue: 0}
+[05/30 11:33:40.902746][debug][10238][FrameProcessingBlock.cpp:74] Process thread stoped! N11libobsensor17IMUFrameReversionE@0x7eb38403de20 
+[05/30 11:33:40.903811][debug][10238][FrameProcessingBlock.cpp:74] Process thread stoped! N11libobsensor19IMUFrameTransformerE@0x7eb38403e430 
+[05/30 11:33:40.903824][debug][10238][FrameProcessor.cpp:165] FrameProcessor stoped!
+[05/30 11:33:40.903833][debug][10238][HidDevicePort.cpp:81] HidDevicePort::removeWatcher
+[05/30 11:33:40.903838][debug][10238][HidDevicePort.cpp:99] HidDevicePort::stopCapture done
+[05/30 11:33:40.903850][info][10238][Pipeline.cpp:396] Sensor stream stopped, sensorType=OB_SENSOR_GYRO
+[05/30 11:33:40.903872][debug][10238][HostProtocol.cpp:433] Set property value, propertyId=2020, value={intValue: 0, floatValue: 0}
+[05/30 11:33:40.909349][debug][10238][FrameProcessingBlock.cpp:74] Process thread stoped! N11libobsensor17IMUFrameReversionE@0x7eb38403ae20 
+[05/30 11:33:40.909416][debug][10238][FrameProcessingBlock.cpp:74] Process thread stoped! N11libobsensor19IMUFrameTransformerE@0x7eb38403b1b0 
+[05/30 11:33:40.909425][debug][10238][FrameProcessor.cpp:165] FrameProcessor stoped!
+[05/30 11:33:40.909432][debug][10238][HidDevicePort.cpp:81] HidDevicePort::removeWatcher
+[05/30 11:33:40.909587][debug][10252][RequestLibusb.cpp:21] transfer cancelled!
+[05/30 11:33:40.909638][debug][10238][HidDevicePort.cpp:99] HidDevicePort::stopCapture done
+[05/30 11:33:40.909648][info][10238][Pipeline.cpp:396] Sensor stream stopped, sensorType=OB_SENSOR_ACCEL
+[05/30 11:33:40.909653][info][10238][Pipeline.cpp:402] Stop streams done!
+[05/30 11:33:40.909659][debug][10238][FrameProcessingBlockManager.cpp:84] FrameProcessingBlockManager stoped!
+[05/30 11:33:40.909664][debug][10238][FrameProcessingBlockManager.cpp:20] Processing block list cleared!
+[05/30 11:33:40.909669][info][10238][Pipeline.cpp:443] Stop pipeline done!
+[05/30 11:33:40.961054][debug][10238][Pipeline.cpp:68] Pipeline deInit start!
+[05/30 11:33:40.961095][info][10238][Pipeline.cpp:75] Pipeline destroyed! @0x7EB384156B60
+[05/30 11:33:40.961110][debug][10238][Pipeline.cpp:68] Pipeline deInit start!
+[05/30 11:33:40.961116][info][10238][Pipeline.cpp:75] Pipeline destroyed! @0x7EB38415A0E0
+[05/30 11:33:40.961795][info][10238][FemtoMegaUvcDevice.cpp:55] FemtoMega UVC device destroyed! PID: 0x0669, SN: CL2H84100KN
+[05/30 11:33:40.961805][debug][10238][IFemtoMegaDevice.cpp:24] ~IFemtoMegaDevice() start!
+[05/30 11:33:40.961810][debug][10238][IFemtoMegaDevice.cpp:29] ~IFemtoMegaDevice() done!
+[05/30 11:33:40.961822][debug][10238][VideoSensor.cpp:282] VideoSensor::~VideoSensor(), @OB_SENSOR_IR
+[05/30 11:33:40.961828][info][10238][VideoSensor.cpp:303] VideoSensor destroyed, @OB_SENSOR_IR
+[05/30 11:33:40.961836][debug][10238][VideoSensor.cpp:282] VideoSensor::~VideoSensor(), @OB_SENSOR_COLOR
+[05/30 11:33:40.961842][info][10238][VideoSensor.cpp:303] VideoSensor destroyed, @OB_SENSOR_COLOR
+[05/30 11:33:40.961853][debug][10238][VideoSensor.cpp:282] VideoSensor::~VideoSensor(), @OB_SENSOR_DEPTH
+[05/30 11:33:40.961858][info][10238][VideoSensor.cpp:303] VideoSensor destroyed, @OB_SENSOR_DEPTH
+[05/30 11:33:40.961865][debug][10238][AccelSensor.cpp:31] ~AccelSensor start!
+[05/30 11:33:40.961869][info][10238][AccelSensor.cpp:40] AccelSensor destroyed!
+[05/30 11:33:40.961877][debug][10238][GyroSensor.cpp:32] ~GyroSensor start!
+[05/30 11:33:40.961881][info][10238][GyroSensor.cpp:41] GyroSensor destroyed!
+[05/30 11:33:40.961896][debug][10238][FrameProcessor.cpp:111] FrameProcessor destroyed! @139309479091568
+[05/30 11:33:40.961904][debug][10238][FrameProcessor.cpp:111] FrameProcessor destroyed! @139309479079280
+[05/30 11:33:40.961911][debug][10238][HidDevicePort.cpp:60] HidDevicePort::~HidDevicePort()
+[05/30 11:33:40.961927][debug][10238][HidDevicePort.cpp:77] obHidDevice destroy
+[05/30 11:33:40.961997][debug][10238][FrameProcessor.cpp:807] try remove eventId: PropertyValueUpdate
+[05/30 11:33:40.962008][debug][10238][FrameProcessor.cpp:807] try remove eventId: DepthStreamProfileChanged
+[05/30 11:33:40.962018][debug][10238][FrameProcessor.cpp:111] FrameProcessor destroyed! @139309479061888
+[05/30 11:33:40.962127][debug][10238][FrameProcessor.cpp:111] FrameProcessor destroyed! @139309479040672
+[05/30 11:33:40.962158][debug][10257][GlobalTimestampFitter.cpp:155] GlobalTimestampFitter fittingLoop exit
+[05/30 11:33:40.962218][debug][10238][FrameProcessor.cpp:111] FrameProcessor destroyed! @139309478864016
+[05/30 11:33:40.962229][debug][10238][VendorCommand.cpp:213] destructor 7eb384007710
+[05/30 11:33:40.962237][debug][10238][VendorCommand.cpp:467] disableHeartBeat heartBeatHelper_: 0
+[05/30 11:33:40.962242][debug][10238][HostProtocol.cpp:139] ~HostProtocol()
+[05/30 11:33:40.962254][debug][10256][HostProtocol.cpp:167] emitTranDataFutureSignalThread_ finish
+[05/30 11:33:40.962310][debug][10238][Context.cpp:81] Context destroying ...
+[05/30 11:33:40.962319][debug][10238][DeviceManager.cpp:56] DeviceManager destroy ...
+[05/30 11:33:40.962323][debug][10238][DeviceManager.cpp:64] DeviceManager Destructors done
+[05/30 11:33:40.962466][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor9GyroFrameE,  obj addr:0x7eb384158d80
+[05/30 11:33:40.962479][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.094MB, max limit=2048.000MB
+[05/30 11:33:40.962485][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.094MB, max limit=2048.000MB
+[05/30 11:33:40.962507][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb384158d80
+[05/30 11:33:40.962513][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor8FrameSetE,  obj addr:0x7eb384158df0
+[05/30 11:33:40.962518][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.001MB, total usage: allocated=27.093MB, max limit=2048.000MB
+[05/30 11:33:40.962522][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.001MB, total usage: allocated=27.093MB, max limit=2048.000MB
+[05/30 11:33:40.962526][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb384158df0
+[05/30 11:33:40.962531][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor8FrameSetE,  obj addr:0x7eb35c000f00
+[05/30 11:33:40.962536][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.092MB, max limit=2048.000MB
+[05/30 11:33:40.962540][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.092MB, max limit=2048.000MB
+[05/30 11:33:40.962545][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.091MB, max limit=2048.000MB
+[05/30 11:33:40.962549][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb35c000f00
+[05/30 11:33:40.962553][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor8FrameSetE,  obj addr:0x7eb370000b70
+[05/30 11:33:40.962558][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.091MB, max limit=2048.000MB
+[05/30 11:33:40.962562][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb370000b70
+[05/30 11:33:40.962566][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor10AccelFrameE,  obj addr:0x7eb384158fd0
+[05/30 11:33:40.962571][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.090MB, max limit=2048.000MB
+[05/30 11:33:40.962575][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.090MB, max limit=2048.000MB
+[05/30 11:33:40.962580][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.089MB, max limit=2048.000MB
+[05/30 11:33:40.962584][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.089MB, max limit=2048.000MB
+[05/30 11:33:40.962589][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.089MB, max limit=2048.000MB
+[05/30 11:33:40.962593][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.088MB, max limit=2048.000MB
+[05/30 11:33:40.962597][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.088MB, max limit=2048.000MB
+[05/30 11:33:40.962602][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.087MB, max limit=2048.000MB
+[05/30 11:33:40.962606][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.087MB, max limit=2048.000MB
+[05/30 11:33:40.962610][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.086MB, max limit=2048.000MB
+[05/30 11:33:40.962615][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.086MB, max limit=2048.000MB
+[05/30 11:33:40.962619][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.000MB, total usage: allocated=27.085MB, max limit=2048.000MB
+[05/30 11:33:40.962629][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb384158fd0
+[05/30 11:33:40.962634][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor10DepthFrameE,  obj addr:0x7eb38415b990
+[05/30 11:33:40.962685][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=26.382MB, max limit=2048.000MB
+[05/30 11:33:40.962739][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=25.678MB, max limit=2048.000MB
+[05/30 11:33:40.962795][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=24.975MB, max limit=2048.000MB
+[05/30 11:33:40.962808][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=24.271MB, max limit=2048.000MB
+[05/30 11:33:40.962852][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=23.568MB, max limit=2048.000MB
+[05/30 11:33:40.962859][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=22.864MB, max limit=2048.000MB
+[05/30 11:33:40.962864][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=22.160MB, max limit=2048.000MB
+[05/30 11:33:40.962868][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=21.457MB, max limit=2048.000MB
+[05/30 11:33:40.962918][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=20.753MB, max limit=2048.000MB
+[05/30 11:33:40.962926][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=20.050MB, max limit=2048.000MB
+[05/30 11:33:40.962931][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=19.346MB, max limit=2048.000MB
+[05/30 11:33:40.962936][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=18.643MB, max limit=2048.000MB
+[05/30 11:33:40.962940][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=17.939MB, max limit=2048.000MB
+[05/30 11:33:40.962945][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=17.235MB, max limit=2048.000MB
+[05/30 11:33:40.962949][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=16.532MB, max limit=2048.000MB
+[05/30 11:33:40.962954][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=15.828MB, max limit=2048.000MB
+[05/30 11:33:40.962958][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=15.125MB, max limit=2048.000MB
+[05/30 11:33:40.962963][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=14.421MB, max limit=2048.000MB
+[05/30 11:33:40.963012][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=13.718MB, max limit=2048.000MB
+[05/30 11:33:40.963062][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=13.014MB, max limit=2048.000MB
+[05/30 11:33:40.963070][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=12.310MB, max limit=2048.000MB
+[05/30 11:33:40.963109][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=11.607MB, max limit=2048.000MB
+[05/30 11:33:40.963115][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb38415b990
+[05/30 11:33:40.963121][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor10ColorFrameE,  obj addr:0x7eb340000c70
+[05/30 11:33:40.963255][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=2.637MB, total usage: allocated=8.970MB, max limit=2048.000MB
+[05/30 11:33:40.963262][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb340000c70
+[05/30 11:33:40.963268][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor10ColorFrameE,  obj addr:0x7eb38415b660
+[05/30 11:33:40.963284][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=8.090MB, max limit=2048.000MB
+[05/30 11:33:40.963306][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=7.211MB, max limit=2048.000MB
+[05/30 11:33:40.963323][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=6.332MB, max limit=2048.000MB
+[05/30 11:33:40.963340][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=5.452MB, max limit=2048.000MB
+[05/30 11:33:40.963357][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=4.573MB, max limit=2048.000MB
+[05/30 11:33:40.963372][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=3.694MB, max limit=2048.000MB
+[05/30 11:33:40.963388][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.879MB, total usage: allocated=2.814MB, max limit=2048.000MB
+[05/30 11:33:40.963393][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb38415b660
+[05/30 11:33:40.963398][debug][10238][FrameBufferManager.hpp:72] FrameBufferManager destroying...! frame type: N11libobsensor7IRFrameE,  obj addr:0x7eb38415bd60
+[05/30 11:33:40.963444][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=2.111MB, max limit=2048.000MB
+[05/30 11:33:40.963454][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=1.407MB, max limit=2048.000MB
+[05/30 11:33:40.963500][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=0.704MB, max limit=2048.000MB
+[05/30 11:33:40.963508][debug][10238][FrameBufferManager.cpp:54] Frame buffer released=0.704MB, total usage: allocated=0.000MB, max limit=2048.000MB
+[05/30 11:33:40.963512][debug][10238][FrameBufferManager.cpp:69] AbstractFrameBufferManager destroyed! manager type:N11libobsensor26AbstractFrameBufferManagerE,  obj addr:0x7eb38415bd60
+[05/30 11:33:40.963517][info][10238][Context.cpp:84] Context destroyed
+[05/30 11:33:40.963550][warning][10418][FrameProcessingBlock.cpp:89] Source frameset queue fulled, drop the oldest frame! N11libobsensor15FrameSoftFilterE@0x7eb384036640 [**132 logs in 47652ms, last: 11:33:11.728565**]
+[05/30 11:33:40.963609][debug][10509][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_ACCEL [**536 logs in 5572ms, last: 11:33:40.728812**]
+[05/30 11:33:40.963706][debug][10510][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_GYRO [**530 logs in 5512ms, last: 11:33:40.728836**]
+[05/30 11:33:40.963789][debug][10524][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_IR [**82 logs in 3988ms, last: 11:33:39.699268**]
+[05/30 11:33:40.963863][debug][10518][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_COLOR [**104 logs in 4077ms, last: 11:33:40.344376**]
+[05/30 11:33:40.963945][debug][10523][Pipeline.cpp:319] Frame received on pipeline! type=OB_FRAME_DEPTH [**91 logs in 3988ms, last: 11:33:39.997019**]
