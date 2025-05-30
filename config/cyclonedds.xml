@@ -3,23 +3,25 @@
     <Domain id="any">
         <General>
             <Interfaces>
-                <!-- <NetworkInterface autodetermine="true" priority="default" multicast="default" /> -->
-                <NetworkInterface address='10.71.1.161' />
+                <NetworkInterface autodetermine="true" priority="default" multicast="default" />
+                <!-- <NetworkInterface address='10.71.1.109' /> -->
             </Interfaces>
             <AllowMulticast>true</AllowMulticast>
+            <!-- Fragmentation size (must be ≤ 61440) -->
+            <FragmentSize>61440</FragmentSize>
         </General>      
         <Discovery>
             <Peers>
-                <Peer address="10.71.1.193"/>
+                <!-- <Peer address="10.71.1.193"/>
                 <Peer address="10.71.1.109"/>
-                <Peer address="10.71.1.161"/>
+                <Peer address="10.71.1.161"/> -->
             </Peers>
             <ParticipantIndex>auto</ParticipantIndex>
             <MaxAutoParticipantIndex>40</MaxAutoParticipantIndex>
         </Discovery>
         <Tracing>
             <Verbosity>severe</Verbosity>
-            <OutputFile>stdout</OutputFile>
+            <!-- <OutputFile>stdout</OutputFile> -->
         </Tracing>
     </Domain>
 </CycloneDDS>
