@@ -183,15 +183,22 @@ FROM guis AS orbbec
 
 WORKDIR /overlay_ws
 
-RUN cd /overlay_ws/src && git clone https://github.com/orbbec/OrbbecSDK_ROS2.git
+# RUN cd /overlay_ws/src && git clone https://github.com/orbbec/OrbbecSDK_ROS2.git
 
-RUN sudo apt update && sudo apt -y install libgflags-dev nlohmann-json3-dev  \
-  ros-$ROS_DISTRO-image-transport  ros-${ROS_DISTRO}-image-transport-plugins ros-${ROS_DISTRO}-compressed-image-transport \
-  ros-$ROS_DISTRO-image-publisher ros-$ROS_DISTRO-camera-info-manager \
-  ros-$ROS_DISTRO-diagnostic-updater ros-$ROS_DISTRO-diagnostic-msgs ros-$ROS_DISTRO-statistics-msgs \
-  ros-$ROS_DISTRO-backward-ros libdw-dev
+# RUN sudo apt update && sudo apt -y install libgflags-dev nlohmann-json3-dev  \
+#   ros-$ROS_DISTRO-image-transport  ros-${ROS_DISTRO}-image-transport-plugins ros-${ROS_DISTRO}-compressed-image-transport \
+#   ros-$ROS_DISTRO-image-publisher ros-$ROS_DISTRO-camera-info-manager \
+#   ros-$ROS_DISTRO-diagnostic-updater ros-$ROS_DISTRO-diagnostic-msgs ros-$ROS_DISTRO-statistics-msgs \
+#   ros-$ROS_DISTRO-backward-ros libdw-dev
 
-RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
-  && cd /overlay_ws \
-  # build release, Default is Debug
-  && colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release
+# RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+#   && cd /overlay_ws \
+#   # build release, Default is Debug
+#   && colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release
+
+### INstall Christian Rauch`s Orbbec Package
+RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" | sudo tee /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list \
+    && echo "yaml https://github.com/mul-cps/franka-ros-deb-builder/raw/noble-jazzy-amd64/local.yaml jazzy" | sudo tee /etc/ros/rosdep/sources.list.d/1-mul-cps_franka-ros-deb-builder.list \
+    && apt update \
+    && apt install -y --no-install-recommends \
+    ros-jazzy-orbbec-camera ros-jazzy-orbbec-description
