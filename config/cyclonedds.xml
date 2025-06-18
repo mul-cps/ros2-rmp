@@ -10,7 +10,7 @@
             </Interfaces>
             <AllowMulticast>true</AllowMulticast>
             <!-- Fragmentation size (must be ≤ 61440) -->
-            <FragmentSize unit="B">61440</FragmentSize>
+            <!-- <FragmentSize unit="B">61440</FragmentSize> -->
         </General>
         <Discovery>
             <Peers>
