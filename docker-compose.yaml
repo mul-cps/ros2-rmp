@@ -242,17 +242,17 @@ services:
 
 
   # ROS2 Frontier exploration
-  explorer:
-    extends: overlay
-    depends_on:
-      - controller
-      - teleop
-      - rsp
-      - lidar
-      - ekf
-      - navigation
-    command: >
-      ros2 launch ros2_rmp_support robot_exploration.launch.py
+  # explorer:
+  #   extends: overlay
+  #   depends_on:
+  #     - controller
+  #     - teleop
+  #     - rsp
+  #     - lidar
+  #     - ekf
+  #     - navigation
+  #   command: >
+  #     ros2 launch ros2_rmp_support robot_exploration.launch.py
 
   ### Images for ROS1 Interactions
   #ROS1 Bridge

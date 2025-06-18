@@ -197,8 +197,13 @@ WORKDIR /overlay_ws
 #   && colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release
 
 ### Install Christian Rauch`s Orbbec Package
-RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" | sudo tee /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list \
-    && echo "yaml https://github.com/mul-cps/franka-ros-deb-builder/raw/noble-jazzy-amd64/local.yaml jazzy" | sudo tee /etc/ros/rosdep/sources.list.d/1-mul-cps_franka-ros-deb-builder.list \
-    && apt update \
-    && apt install -y --no-install-recommends \
-    ros-jazzy-orbbec-camera ros-jazzy-orbbec-description
+# RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" | sudo tee /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list \
+#     && echo "yaml https://github.com/mul-cps/franka-ros-deb-builder/raw/noble-jazzy-amd64/local.yaml jazzy" | sudo tee /etc/ros/rosdep/sources.list.d/1-mul-cps_franka-ros-deb-builder.list \
+#     && apt update \
+#     && apt install -y --no-install-recommends \
+#     ros-jazzy-orbbec-camera ros-jazzy-orbbec-description
+RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" > /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ros-jazzy-orbbec-camera \
+        ros-jazzy-orbbec-description
