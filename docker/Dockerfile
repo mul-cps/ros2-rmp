@@ -96,6 +96,7 @@ RUN source /rmp_ws/install/setup.bash \
     nano \
     ros-jazzy-robot-localization \
     ros-jazzy-joint-state-publisher \
+    ros-${ROS_DISTRO}-tf2-geometry-msgs \
     ros-jazzy-laser-filters -y \
   && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
   && rm -rf /var/lib/apt/lists/*

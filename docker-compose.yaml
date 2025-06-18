@@ -210,27 +210,27 @@ services:
     network_mode: host
     ipc: host
     
-  # Foxglove Studio Bridge
-  foxglove_bridge:
-    extends: overlay
-    command: >
-      ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
-    volumes:
-      - /opt/cps/certs:/certs
+  # # Foxglove Studio Bridge
+  # foxglove_bridge:
+  #   extends: overlay
+  #   command: >
+  #     ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
+  #   volumes:
+  #     - /opt/cps/certs:/certs
 
-  # Foxglove Studio Webserver
-  foxglove:
-    image: ghcr.io/foxglove/studio:latest
-    stdin_open: true
-    tty: true
-    # Networking
-    network_mode: bridge
-    ports:
-      - 8080:8080
-    depends_on:
-      - foxglove_bridge
-    volumes:
-      - ./foxglove/default.json:/foxglove/default-layout.json
+  # # Foxglove Studio Webserver
+  # foxglove:
+  #   image: ghcr.io/foxglove/studio:latest
+  #   stdin_open: true
+  #   tty: true
+  #   # Networking
+  #   network_mode: bridge
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - foxglove_bridge
+  #   volumes:
+  #     - ./foxglove/default.json:/foxglove/default-layout.json
 
   # USB Camera Stream
   cam:
