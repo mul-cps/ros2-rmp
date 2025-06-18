@@ -199,7 +199,7 @@ services:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
-      - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=0
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
@@ -276,7 +276,7 @@ services:
     network_mode: host
     ipc: host
     environment:
-      - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=0
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
   
@@ -288,7 +288,7 @@ services:
     network_mode: host
     ipc: host
     environment:
-      - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=0
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 

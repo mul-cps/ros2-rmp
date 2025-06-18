@@ -1,0 +1,294 @@
+version: '3.9'
+networks:
+  rmp:
+    driver: bridge
+services:
+  base:
+    image: ghcr.io/mul-cps/ros2-rmp/rmp-zenoh:base
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.zenoh
+      tags:
+      - ghcr.io/mul-cps/ros2-rmp/rmp-zenoh:base
+      args:
+        ROS_DISTRO: jazzy
+      target: base
+      x-bake:
+        platforms:
+        - linux/arm64
+        - linux/amd64
+    stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: host
+    environment:
+    - RMW_IMPLEMENTATION=rmw_zenoh_cpp
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    - ./config/entrypoint.sh:/entrypoint.sh
+    - ./config/cyclonedds.xml:/cyclonedds.xml
+    restart: unless-stopped
+  overlay:
+    extends: base
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:overlay
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.zenoh
+      tags:
+      - ghcr.io/mul-cps/ros2-rmp/rmp:overlay
+      target: overlay
+      x-bake:
+        platforms:
+        - linux/arm64
+        - linux/amd64
+    volumes:
+    - .:/repo
+    command: '/bin/bash
+
+      '
+  guis:
+    extends: overlay
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:guis
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.zenoh
+      tags:
+      - ghcr.io/mul-cps/ros2-rmp/rmp:guis
+      target: guis
+      x-bake:
+        platforms:
+        - linux/arm64
+        - linux/amd64
+    command: '/bin/bash
+
+      '
+    devices:
+    - /dev/dri:/dev/dri
+  rsp:
+    extends: overlay
+    command: 'ros2 launch ros2_rmp_support rsp.launch.py
+
+      '
+  controller:
+    extends: base
+    command: 'ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/ttyUSB1
+
+      '
+    devices:
+    - /dev/segway:/dev/ttyUSB1
+    privileged: false
+  teleop:
+    extends: base
+    depends_on:
+    - controller
+    command: "ros2 launch rmp220_teleop robot_joystick.launch.py \n"
+    devices:
+    - /dev/input/js0:/dev/input/js0
+    privileged: true
+  lidar:
+    extends: overlay
+    depends_on:
+    - lidar_filter
+    command: 'ros2 launch ros2_rmp_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
+
+      '
+    devices:
+    - /dev/rplidar:/dev/rplidarA1
+  lidar_filter:
+    extends: overlay
+    command: 'ros2 launch ros2_rmp_support robot_scan_filter.launch.py
+
+      '
+  ekf:
+    extends: overlay
+    depends_on:
+    - controller
+    - rsp
+    command: 'ros2 launch ros2_rmp_support robot_localization.launch.py
+
+      '
+  mapping:
+    extends: overlay
+    depends_on:
+    - ekf
+    - rsp
+    - lidar
+    command: 'ros2 launch ros2_rmp_support robot_mapping.launch.py
+
+      '
+  localization:
+    extends: overlay
+    depends_on:
+    - ekf
+    - rsp
+    - lidar
+    command: 'ros2 launch ros2_rmp_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
+
+      '
+  amcl:
+    extends: overlay
+    depends_on:
+    - ekf
+    - rsp
+    - lidar
+    command: 'ros2 launch ros2_rmp_support robot_amcl.launch.py map:=/repo/maps/map.yaml
+
+      '
+  navigation:
+    extends: overlay
+    depends_on:
+    - controller
+    - teleop
+    - rsp
+    - lidar
+    - ekf
+    - oakd
+    command: 'ros2 launch nav2_bringup bringup_launch.py slam:=False map:=/repo/maps/map_01-26-24.yaml
+      use_sim_time:=False use_composition:=True params_file:=/repo/config/nav2_params.yaml
+
+      '
+  bash:
+    extends: overlay
+    command: '/bin/bash
+
+      '
+  rviz2:
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:guis
+    command: 'ros2 launch ros2_rmp_support rviz.launch.py
+
+      '
+    privileged: true
+    environment:
+    - DISPLAY=${DISPLAY}
+    - QT_X11_NO_MITSHM=1
+    - NVIDIA_DRIVER_CAPABILITIES=all
+    - ROS_DOMAIN_ID=5
+    - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    - CYCLONEDDS_URI=file:///cyclonedds.xml
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    - ./config/cyclonedds.xml:/cyclonedds.xml
+    network_mode: host
+    ipc: host
+  foxglove_bridge:
+    extends: overlay
+    command: 'ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
+
+      '
+    volumes:
+    - /opt/cps/certs:/certs
+  foxglove:
+    image: ghcr.io/foxglove/studio:latest
+    stdin_open: true
+    tty: true
+    network_mode: bridge
+    ports:
+    - 8080:8080
+    depends_on:
+    - foxglove_bridge
+    volumes:
+    - ./foxglove/default.json:/foxglove/default-layout.json
+  cam:
+    extends: overlay
+    command: 'ros2 run ros2_cam_openCV cam_node
+
+      '
+    devices:
+    - /dev/video0:/dev/video0
+  explorer:
+    extends: overlay
+    depends_on:
+    - controller
+    - teleop
+    - rsp
+    - lidar
+    - ekf
+    - navigation
+    command: 'ros2 launch ros2_rmp_support robot_exploration.launch.py
+
+      '
+  ros1bridge:
+    image: ghcr.io/mul-cps/ros2-rmp/ros1bridge
+    command: 'ros2 run ros1_bridge dynamic_bridge --bridge-all-2to1-topics
+
+      '
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.zenoh
+      tags:
+      - ghcr.io/mul-cps/ros2-rmp/ros1bridge
+      args:
+        ROS_DISTRO: humble
+      target: bridge
+      x-bake:
+        platforms:
+        - linux/amd64
+    network_mode: host
+    ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
+    - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    - ROS_MASTER_URI=http://localhost:11311
+  roscore:
+    command: 'roscore
+
+      '
+    extends: ros1bridge
+    network_mode: host
+    ipc: host
+    environment:
+    - ROS_DOMAIN_ID=5
+    - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    - ROS_MASTER_URI=http://localhost:11311
+  oakd:
+    extends: overlay
+    command: 'ros2 launch depthai_examples stereo.launch.py
+
+      '
+    device_cgroup_rules:
+    - c 189:* rmw
+    volumes:
+    - /dev/bus/usb:/dev/bus/usb
+  depthai:
+    image: luxonis/depthai:latest
+    command: 'python3 /depthai/depthai_demo.py
+
+      '
+    stdin_open: true
+    tty: true
+    device_cgroup_rules:
+    - c 189:* rmw
+    volumes:
+    - /dev/bus/usb:/dev/bus/usb
+    environment:
+    - DISPLAY=${DISPLAY}
+    - QT_X11_NO_MITSHM=1
+    - NVIDIA_DRIVER_CAPABILITIES=all
+  orbbec:
+    extends: guis
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:orbbec
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.zenoh
+      tags:
+      - ghcr.io/mul-cps/ros2-rmp/rmp:orbbec
+      target: orbbec
+      x-bake:
+        platforms:
+        - linux/amd64
+    command: 'ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=True
+      enumerate_net_device:=True
+
+      '
+    privileged: true
+    network_mode: host
+    ipc: host
+  robot_model:
+    extends: orbbec
+    depends_on:
+    - rsp
+    command: "bash -c \"source /opt/ros/jazzy/setup.bash &&\n         xacro /overlay_ws/src/ros2_rmp_support/description/robot.urdf.xacro\
+      \ > /tmp/robot.urdf &&\n         ros2 run robot_state_publisher robot_state_publisher\
+      \ /tmp/robot.urdf\""
