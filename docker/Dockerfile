@@ -10,7 +10,7 @@ ARG TARGETPLATFORM
 ########################################
 # Base Image for RMP Control #
 ########################################
-FROM ros:${ROS_DISTRO} as base
+FROM ros:${ROS_DISTRO} AS base
 ENV ROS_DISTRO=${ROS_DISTRO}
 #ENV TARGETPLATFORM=$TARGETPLATFORM
 
