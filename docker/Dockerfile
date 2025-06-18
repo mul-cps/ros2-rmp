@@ -1,4 +1,4 @@
-ARG ROS_DISTRO=humble
+ARG ROS_DISTRO=jazzy
 ARG UNDERLAY_WS=/rmp_ws
 ARG TARGETPLATFORM
 
@@ -94,9 +94,9 @@ RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install \
     nano \
-    ros-humble-robot-localization \
-    ros-humble-joint-state-publisher \
-    ros-humble-laser-filters -y \
+    ros-jazzy-robot-localization \
+    ros-jazzy-joint-state-publisher \
+    ros-jazzy-laser-filters -y \
   && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
   && rm -rf /var/lib/apt/lists/*
 

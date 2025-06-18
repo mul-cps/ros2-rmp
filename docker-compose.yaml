@@ -17,7 +17,7 @@ services:
       tags:
         - ghcr.io/mul-cps/ros2-rmp/rmp:base
       args:
-        ROS_DISTRO: humble
+        ROS_DISTRO: jazzy
       target: base
       x-bake:
         platforms:
