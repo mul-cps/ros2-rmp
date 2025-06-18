@@ -2,36 +2,20 @@ version: "3.9"
 
 # First network configuration. Change this to the network interface you want to use primarily. (Better configuration for multiple Network interfaces needed).
 networks:
-  # rmp:
-  #   driver: macvlan
-  #   driver_opts:
-  #     parent: eno1 # robot network interface
-  #   ipam:
-  #     config:
-  #         - subnet: 192.168.0.0/24
-  #           gateway: 192.168.0.1
-  #           ip_range: 192.168.0.200/25
-  #           aux_addresses:
-  #             net-address: 192.168.0.100 #? what is this for --> to exclude addresses from buing used.
-  # make new bridge network for ros
   rmp:
     driver: bridge
-    # ipam:
-    #   config:
-    #       - subnet:
 
-# add this mountpoint to all services: - ./customize/entrypoint.sh:/entrypoint.sh
 # Attention: child services will inherit settings from their parents. So if you set a network_mode: host in the base service, all child services will also use host networking. This is not always what you want. So be careful with this.
 
 services:
   # Base image containing dependencies.
   base:
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:base
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:base
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:base
+        - ghcr.io/mul-cps/ros2-rmp/rmp:base
       args:
         ROS_DISTRO: humble
       target: base
@@ -52,7 +36,7 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
       # set correct ros2 parameters: domain id and rmw implementation
-      - ROS_DOMAIN_ID=5
+      - ROS_DOMAIN_ID=0 #5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
@@ -63,19 +47,15 @@ services:
       - ./config/cyclonedds.xml:/cyclonedds.xml
     restart: unless-stopped
 
-    # networks: # not using bridging anymore, instead try using all services on macvlan? let's see... shoudl word for now. Bridging does definitely not work because multicast is not supported here.
-    #   rmp:
-    #     #ipv4_address: 192.168.0.101 #actually don't need to set ips. they are set automatically by docker-compose. SHould be inherited by all child services.
-
   # Overlay image containing the project specific source code.
   overlay:
     extends: base
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:overlay
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:overlay
+        - ghcr.io/mul-cps/ros2-rmp/rmp:overlay
       target: overlay
       x-bake:
         platforms:
@@ -89,12 +69,12 @@ services:
   # Additional dependencies for GUI applications
   guis:
     extends: overlay
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:guis
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+        - ghcr.io/mul-cps/ros2-rmp/rmp:guis
       target: guis
       x-bake:
         platforms:
@@ -109,17 +89,17 @@ services:
   rsp:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support rsp.launch.py
+      ros2 launch ros2_rmp_support rsp.launch.py
 
   # Controller
   controller:
     extends: base
     command: >
-      ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/segway
+      ros2 run segwayrmp SmartCar --ros-args -r cmd_vel:=cmd_vel_out -p serial_full_name:=/dev/ttyUSB1
     devices:
-      - /dev/segway:/dev/ttyUSB0
+      - /dev/segway:/dev/ttyUSB1 #/dev/segway #/dev/ttyUSB0
       #- /dev/ttyUSB0:/dev/ttyUSB0
-    privileged: true
+    privileged: false
 
   # teleop
   teleop:
@@ -130,7 +110,6 @@ services:
       ros2 launch rmp220_teleop robot_joystick.launch.py 
     devices:
       - /dev/input/js0:/dev/input/js0
-      #- /dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick:/dev/input/by-id/usb-Logitech_Wireless_Gamepad_F710_56679674-joystick
     privileged: true
 
   # lidar
@@ -139,17 +118,15 @@ services:
     depends_on:
       - lidar_filter
     command: >
-      ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
+      ros2 launch ros2_rmp_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     devices:
-      - /dev/rplidarA1:/dev/rplidarA1 #udevrules needed for this to work:
-#       SUBSYSTEM=="tty", ATTRS{serial}=="0001", SYMLINK+="segway"
-# SUBSYSTEM=="tty", ATTRS{serial}=="3453995662b3af4f81f4a69eba5f3f29", SYMLINK+="rplidarA1"
+      - /dev/rplidar:/dev/rplidarA1 #udevrules needed for this to work:
 
   # Lidar filtering node.
   lidar_filter:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support robot_scan_filter.launch.py
+      ros2 launch ros2_rmp_support robot_scan_filter.launch.py
 
   # localization by ekf node
   ekf:
@@ -158,7 +135,7 @@ services:
       - controller
       - rsp
     command: >
-      ros2 launch cps_rmp220_support robot_localization.launch.py
+      ros2 launch ros2_rmp_support robot_localization.launch.py
 
   # mapping
   mapping:
@@ -168,7 +145,7 @@ services:
       - rsp
       - lidar
     command: >
-      ros2 launch cps_rmp220_support robot_mapping.launch.py
+      ros2 launch ros2_rmp_support robot_mapping.launch.py
 
   # slam-toolbox-localization
   localization:
@@ -178,7 +155,7 @@ services:
       - rsp
       - lidar
     command: >
-      ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
+      ros2 launch ros2_rmp_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
 
   # amcl_localization
   amcl:
@@ -188,7 +165,7 @@ services:
       - rsp
       - lidar
     command: >
-      ros2 launch cps_rmp220_support robot_amcl.launch.py map:=/repo/maps/map.yaml
+      ros2 launch ros2_rmp_support robot_amcl.launch.py map:=/repo/maps/map.yaml
 
   # navigation
   navigation:
@@ -212,9 +189,9 @@ services:
   # rviz2
   rviz2:
     #extends: guis
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:guis
     command: >
-      ros2 launch cps_rmp220_support rviz.launch.py
+      ros2 launch ros2_rmp_support rviz.launch.py
     # Needed to display graphical applications
     privileged: true # really necessary?
     environment:
@@ -224,17 +201,20 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - ROS_DOMAIN_ID=5
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+      - ./config/cyclonedds.xml:/cyclonedds.xml
+    network_mode: host
+    ipc: host
     
   # Foxglove Studio Bridge
   foxglove_bridge:
     extends: overlay
     command: >
       ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765
-    #tls:=true certfile:=/certs/foxgloveCert.crt keyfile:=/certs/foxgloveKey.key
     volumes:
       - /opt/cps/certs:/certs
 
@@ -272,19 +252,19 @@ services:
       - ekf
       - navigation
     command: >
-      ros2 launch cps_rmp220_support robot_exploration.launch.py
+      ros2 launch ros2_rmp_support robot_exploration.launch.py
 
   ### Images for ROS1 Interactions
   #ROS1 Bridge
   ros1bridge:
-    image: ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+    image: ghcr.io/mul-cps/ros2-rmp/ros1bridge
     command: >
       ros2 run ros1_bridge dynamic_bridge --bridge-all-2to1-topics
     build:
       context: .
       dockerfile: docker/Dockerfile
       tags:
-        - ghcr.io/bjoernellens1/ros2_rmp/ros1bridge
+        - ghcr.io/mul-cps/ros2-rmp/ros1bridge
       args:
         ROS_DISTRO: humble
       target: bridge
@@ -312,38 +292,11 @@ services:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_MASTER_URI=http://localhost:11311 # is configured to run roscore on the robot but could change to local ros1 machine here
 
-## Configure on ROS1 Hosts
-# seggy 192.168.0.100
-#     locally running ros-package: control1 
-#          subscribing topic2
-#          publishing  topic1                 
-
-# robot2 192.168.x.x
-#     locally running ros-package: control2
-#          subscribing topic1
-#          publishing  topic2
-# As we need one ros-master to control the communication, we choose 192.168.1.1 as master. Therefore we execute locally on robot 1:
-
-# export ROS_MASTER_URI=http://192.168.0.100:11311 # or localhost?
-# export ROS_HOSTNAME=192.168.0.100
-# export ROS_IP=192.168.0.100   
-# roscore
-
-# In order to connect to the ROS-master, we execute locally on robot2:
-
-# export ROS_MASTER_URI=http://192.168.0.100:11311            
-# export ROS_IP=192.168.0.?                               
-# export ROS_HOSTNAME=192.168.1.?
-
   # ROS2 oak-d-lite camera
   oakd:
     extends: overlay
     command: >
       ros2 launch depthai_examples stereo.launch.py
-    #devices:
-      #- /dev/oakd-lite:/dev/oakd-lite # need corresponding udevrules for this to work:
-# SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666", SYMLINK+="oakd-lite"
-      #- /dev/:/dev/ 
     device_cgroup_rules:
       - 'c 189:* rmw'
     volumes:
@@ -365,24 +318,34 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
   
-  zerotier:
-    image: "zyclonite/zerotier:router"
-    container_name: zerotier-one
-    devices:
-      - /dev/net/tun
+  # Orbbec Camera
+  orbbec:
+    extends: guis
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:orbbec
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      tags:
+        - ghcr.io/mul-cps/ros2-rmp/rmp:orbbec
+      target: orbbec
+      x-bake:
+        platforms:
+          #- linux/arm64
+          - linux/amd64
+    command: >
+      ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=True enumerate_net_device:=True
+    # devices:
+    #   - /dev:/dev
+    privileged: true
     network_mode: host
-    volumes:
-      - '/var/lib/zerotier-one:/var/lib/zerotier-one'
-    cap_add:
-      - NET_ADMIN
-      - SYS_ADMIN
-      - NET_RAW
-    restart: unless-stopped
-    environment:
-      - TZ=Europe/Amsterdam
-      - PUID=1000
-      - PGID=1000
-      - ZEROTIER_ONE_LOCAL_PHYS=enp5s0 wlx00e04c5513fc # change for actual interfaces
-      - ZEROTIER_ONE_USE_IPTABLES_NFT=false
-      - ZEROTIER_ONE_GATEWAY_MODE=inbound # might change to both ways
-      #- ZEROTIER_ONE_NETWORK_IDS= # does not really do much?
+    ipc: host
+
+  # Example Robot model
+  robot_model:
+    extends: orbbec
+    depends_on:
+      - rsp
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash &&
+               xacro /overlay_ws/src/ros2_rmp_support/description/robot.urdf.xacro > /tmp/robot.urdf &&
+               ros2 run robot_state_publisher robot_state_publisher /tmp/robot.urdf"
