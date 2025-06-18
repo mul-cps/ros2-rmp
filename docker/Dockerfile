@@ -196,7 +196,7 @@ WORKDIR /overlay_ws
 #   # build release, Default is Debug
 #   && colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release
 
-### INstall Christian Rauch`s Orbbec Package
+### Install Christian Rauch`s Orbbec Package
 RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" | sudo tee /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list \
     && echo "yaml https://github.com/mul-cps/franka-ros-deb-builder/raw/noble-jazzy-amd64/local.yaml jazzy" | sudo tee /etc/ros/rosdep/sources.list.d/1-mul-cps_franka-ros-deb-builder.list \
     && apt update \
