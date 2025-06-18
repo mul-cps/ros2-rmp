@@ -89,7 +89,7 @@ services:
   rsp:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support rsp.launch.py
+      ros2 launch ros2_rmp_support rsp.launch.py
 
   # Controller
   controller:
@@ -118,7 +118,7 @@ services:
     depends_on:
       - lidar_filter
     command: >
-      ros2 launch cps_rmp220_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
+      ros2 launch ros2_rmp_support robot_lidar.launch.py serial_port:=/dev/rplidarA1
     devices:
       - /dev/rplidar:/dev/rplidarA1 #udevrules needed for this to work:
 
@@ -126,7 +126,7 @@ services:
   lidar_filter:
     extends: overlay
     command: >
-      ros2 launch cps_rmp220_support robot_scan_filter.launch.py
+      ros2 launch ros2_rmp_support robot_scan_filter.launch.py
 
   # localization by ekf node
   ekf:
@@ -135,7 +135,7 @@ services:
       - controller
       - rsp
     command: >
-      ros2 launch cps_rmp220_support robot_localization.launch.py
+      ros2 launch ros2_rmp_support robot_localization.launch.py
 
   # mapping
   mapping:
@@ -145,7 +145,7 @@ services:
       - rsp
       - lidar
     command: >
-      ros2 launch cps_rmp220_support robot_mapping.launch.py
+      ros2 launch ros2_rmp_support robot_mapping.launch.py
 
   # slam-toolbox-localization
   localization:
@@ -155,7 +155,7 @@ services:
       - rsp
       - lidar
     command: >
-      ros2 launch cps_rmp220_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
+      ros2 launch ros2_rmp_support robot_mapping_localization.launch.py map_file_name:=/repo/maps/map.yaml
 
   # amcl_localization
   amcl:
@@ -165,7 +165,7 @@ services:
       - rsp
       - lidar
     command: >
-      ros2 launch cps_rmp220_support robot_amcl.launch.py map:=/repo/maps/map.yaml
+      ros2 launch ros2_rmp_support robot_amcl.launch.py map:=/repo/maps/map.yaml
 
   # navigation
   navigation:
@@ -191,7 +191,7 @@ services:
     #extends: guis
     image: ghcr.io/mul-cps/ros2-rmp/rmp:guis
     command: >
-      ros2 launch cps_rmp220_support rviz.launch.py
+      ros2 launch ros2_rmp_support rviz.launch.py
     # Needed to display graphical applications
     privileged: true # really necessary?
     environment:
@@ -252,7 +252,7 @@ services:
       - ekf
       - navigation
     command: >
-      ros2 launch cps_rmp220_support robot_exploration.launch.py
+      ros2 launch ros2_rmp_support robot_exploration.launch.py
 
   ### Images for ROS1 Interactions
   #ROS1 Bridge
