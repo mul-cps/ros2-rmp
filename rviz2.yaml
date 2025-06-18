@@ -43,7 +43,7 @@ services:
     #     ipv4_address: 192.168.0.201 #here need to set fixed ip to avoid collissions with other containers on robot.
 
   rviz2-depthai:
-    image: luxonis/depthai-ros:humble-latest
+    image: luxonis/depthai-ros:jazzy-latest
     command: >
       ros2 launch cps_rmp220_support rviz.launch.py
     # Interactive shell
