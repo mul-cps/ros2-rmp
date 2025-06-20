@@ -21,8 +21,7 @@ RUN echo "update base 26.09.2023 - test"
 
 RUN mkdir -p /rmp_ws/src
 WORKDIR /rmp_ws/src
-COPY dependencies.arm64.repos .
-COPY dependencies.amd64.repos .
+COPY dependencies.*.repos .
 
 # Choose correct sources for architecture:
 # Copy platform-specific files
@@ -41,8 +40,8 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
   mv dependencies.arm64.repos dependencies.repos; \
   fi
 
-#RUN vcs import < dependencies.repos
-RUN vcs import < dependencies.repos
+RUN vcs import --input dependencies.common.repos
+RUN vcs import --input dependencies.repos
 
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws
@@ -88,7 +87,7 @@ RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
 
-ENV DEBIAN_FRONTEND noninteractive 
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
@@ -129,7 +128,7 @@ RUN vcs pull src
 # Set up the entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
+LABEL org.opencontainers.image.source=https://github.com/mul-cps/ros2-rmp
 
 # This is an auto generated Dockerfile for ros:ros1-bridge
 # generated from docker_images_ros2/ros1_bridge/create_ros_ros1_bridge_image.Dockerfile.em
