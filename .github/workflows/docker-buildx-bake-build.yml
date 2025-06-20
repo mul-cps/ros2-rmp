@@ -1,6 +1,7 @@
 name: Docker Compose Build
 
 on:
+  pull_request:
   push:
     branches:
       - main  # Change this to your main branch name
@@ -37,8 +38,17 @@ jobs:
     #     registry: ghcr.io
     #     username: ${{github.actor}}
     #     password: ${{secrets.GITHUB_TOKEN}}
-              
+
+    - name: Build Docker Compose Services
+      if: ${{ github.event_name == 'pull_request' }}
+      run: |
+        docker buildx bake
+        docker buildx bake -f docker-compose.yml
+      #env:
+      #  COMPOSE_FILE: docker-compose.yml
+
     - name: Build and Push Docker Compose Services
+      if: ${{ github.event_name == 'push' }}
       run: |
         docker buildx bake --push
         docker buildx bake -f docker-compose.yml --push
