@@ -1,12 +1,12 @@
 repositories:
 
   # CPS RMP lite 220 Dependencies
-  
+
   segwayrmp:
     type: git
     url: https://github.com/bjoernellens1/segwayrmp
     version: humble
-  
+
   segway_msgs:
     type: git
     url: https://github.com/bjoernellens1/segway_msgs
