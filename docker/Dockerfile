@@ -5,7 +5,7 @@ ARG TARGETPLATFORM
 
 # This file should work for both amd64 and arm64 builds. Because segway did not release some source code we must copy some binaries for the specific architectures.
 # That is why we must use some conditional statements to copy over the correct files during build process.
-# Variable TARGETPLATFORM should be auomatically created during build process by docker.
+# Variable TARGETPLATFORM should be automatically created during build process by docker.
 
 ########################################
 # Base Image for RMP Control #
