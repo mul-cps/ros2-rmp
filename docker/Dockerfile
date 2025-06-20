@@ -122,6 +122,7 @@ FROM overlay AS guis
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
   && apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rviz2 \
+  ros-${ROS_DISTRO}-rqt* \
   && rm -rf /var/lib/apt/lists/*
 
 # Update repository at the end of this build stage
