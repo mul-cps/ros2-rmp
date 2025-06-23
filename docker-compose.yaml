@@ -1,5 +1,3 @@
-version: "3.9"
-
 # First network configuration. Change this to the network interface you want to use primarily. (Better configuration for multiple Network interfaces needed).
 networks:
   rmp:
