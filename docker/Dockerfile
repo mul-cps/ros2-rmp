@@ -203,7 +203,7 @@ WORKDIR /overlay_ws
 #     && apt update \
 #     && apt install -y --no-install-recommends \
 #     ros-jazzy-orbbec-camera ros-jazzy-orbbec-description
-RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" > /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list && \
+RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-$(dpkg --print-architecture)/ ./" > /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         ros-jazzy-orbbec-camera \
