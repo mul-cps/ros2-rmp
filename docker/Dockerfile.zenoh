@@ -96,7 +96,7 @@ RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
 
-ENV DEBIAN_FRONTEND noninteractive 
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \

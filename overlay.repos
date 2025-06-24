@@ -1,5 +1,5 @@
-repositories:  
-  
+repositories:
+
   cps_rmp220_support:
     type: git
     url: https://github.com/bjoernellens1/cps_rmp220_support.git
@@ -9,7 +9,7 @@ repositories:
     type: git
     url: https://github.com/bjoernellens1/ros2_cam_openCV.git
     version: main
-  
+
   # ros2-exploration:
   #   type: git
   #   url: https://github.com/robo-friends/m-explore-ros2.git
