@@ -5,7 +5,7 @@ ARG TARGETPLATFORM
 
 # This file should work for both amd64 and arm64 builds. Because segway did not release some source code we must copy some binaries for the specific architectures.
 # That is why we must use some conditional statements to copy over the correct files during build process.
-# Variable TARGETPLATFORM should be auomatically created during build process by docker.
+# Variable TARGETPLATFORM should be automatically created during build process by docker.
 
 ########################################
 # Base Image for RMP Control #
@@ -21,8 +21,7 @@ RUN echo "update base 26.09.2023 - test"
 
 RUN mkdir -p /rmp_ws/src
 WORKDIR /rmp_ws/src
-COPY dependencies.arm64.repos .
-COPY dependencies.amd64.repos .
+COPY dependencies.*.repos .
 
 # Choose correct sources for architecture:
 # Copy platform-specific files
@@ -41,8 +40,8 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
   mv dependencies.arm64.repos dependencies.repos; \
   fi
 
-#RUN vcs import < dependencies.repos
-RUN vcs import < dependencies.repos
+RUN vcs import --input dependencies.common.repos
+RUN vcs import --input dependencies.repos
 
 # Build the base Colcon workspace, installing dependencies first.
 WORKDIR /rmp_ws
@@ -88,7 +87,7 @@ RUN vcs import < overlay.repos
 
 WORKDIR /overlay_ws
 
-ENV DEBIAN_FRONTEND noninteractive 
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN source /rmp_ws/install/setup.bash \
   && apt-get update \
@@ -131,7 +130,7 @@ RUN vcs pull src
 # Set up the entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
+LABEL org.opencontainers.image.source=https://github.com/mul-cps/ros2-rmp
 
 # This is an auto generated Dockerfile for ros:ros1-bridge
 # generated from docker_images_ros2/ros1_bridge/create_ros_ros1_bridge_image.Dockerfile.em
@@ -203,7 +202,7 @@ WORKDIR /overlay_ws
 #     && apt update \
 #     && apt install -y --no-install-recommends \
 #     ros-jazzy-orbbec-camera ros-jazzy-orbbec-description
-RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-amd64/ ./" > /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list && \
+RUN echo "deb [trusted=yes] https://raw.githubusercontent.com/mul-cps/franka-ros-deb-builder/noble-jazzy-$(dpkg --print-architecture)/ ./" > /etc/apt/sources.list.d/mul-cps_franka-ros-deb-builder.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         ros-jazzy-orbbec-camera \

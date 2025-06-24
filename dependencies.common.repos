@@ -1,0 +1,23 @@
+repositories:
+
+  # CPS RMP lite 220 Dependencies
+
+  segway_msgs:
+    type: git
+    url: https://github.com/mul-cps/segway_msgs.git
+    version: main
+
+  RPlidar_ROS2:
+    type: git
+    url: https://github.com/Slamtec/sllidar_ros2.git
+    version: main
+
+  rmp220_teleop:
+    type: git
+    url: https://github.com/mul-cps/ros2_rmp_teleop.git
+    version: main
+
+  rmp220_middleware:
+    type: git
+    url: https://github.com/mul-cps/ros2_rmp_middleware.git
+    version: main
