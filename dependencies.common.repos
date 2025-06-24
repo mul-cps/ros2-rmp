@@ -9,7 +9,7 @@ repositories:
 
   RPlidar_ROS2:
     type: git
-    url: https://github.com/bjoernellens1/sllidar_ros2
+    url: https://github.com/Slamtec/sllidar_ros2.git
     version: main
 
   rmp220_teleop:
