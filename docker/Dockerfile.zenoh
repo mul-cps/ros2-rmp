@@ -138,7 +138,7 @@ RUN vcs pull src
 # Set up the entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-LABEL org.opencontainers.image.source=https://github.com/bjoernellens1/ros2_rmp
+LABEL org.opencontainers.image.source=https://github.com/mul-cps/ros2-rmp
 
 # This is an auto generated Dockerfile for ros:ros1-bridge
 # generated from docker_images_ros2/ros1_bridge/create_ros_ros1_bridge_image.Dockerfile.em

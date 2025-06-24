@@ -14,7 +14,7 @@ networks:
 services:
    # rviz2
   rviz2:
-    image: ghcr.io/bjoernellens1/ros2_rmp/rmp:guis
+    image: ghcr.io/mul-cps/ros2-rmp/rmp:guis
     # command: >
     #   ros2 launch cps_rmp220_support robot_rviz2.launch.py
     command: >
