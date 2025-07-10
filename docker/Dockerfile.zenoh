@@ -65,6 +65,7 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
 # Use Cyclone DDS as middleware and install xacro
 RUN apt-get install -y --no-install-recommends \
   ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+  ros-${ROS_DISTRO}-rmw-zenoh-cpp \
   ros-${ROS_DISTRO}-xacro \
   && rm -rf /var/lib/apt/lists/*
 
