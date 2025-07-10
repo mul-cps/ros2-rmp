@@ -7,6 +7,7 @@ on:
     branches:
       - main  # Change this to your main branch name
       - orbbec
+      - jazzy
 
 jobs:
   build:
