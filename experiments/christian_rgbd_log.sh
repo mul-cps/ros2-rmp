@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 ros2 bag record \
-    --no-discovery \
     --topics \
         /camera/depth/camera_info \
         /camera/depth/image_raw/compressed \
