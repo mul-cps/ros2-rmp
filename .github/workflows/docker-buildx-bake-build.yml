@@ -50,7 +50,7 @@ jobs:
     #   #  COMPOSE_FILE: docker-compose.yaml
 
     - name: Build Docker Compose Services
-      uses: docker/build-push-action@v6
+      uses: docker/bake-action@v6
       with:
         push: false
         # tags: user/app:latest
@@ -64,7 +64,7 @@ jobs:
     #   #  COMPOSE_FILE: docker-compose.yaml
 
     - name: Build and Push Docker Compose Services
-      uses: docker/build-push-action@v6
+      uses: docker/bake-action@v6
       with:
         push: true
         # tags: user/app:latest
