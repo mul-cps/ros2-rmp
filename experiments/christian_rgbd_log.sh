@@ -13,8 +13,7 @@ ros2 bag record \
         /cmd_vel_out \
         /scan \
         /speed_fb \
-        /map
+        /map \
     --output $1
 
 ros2 bag info $1
-
