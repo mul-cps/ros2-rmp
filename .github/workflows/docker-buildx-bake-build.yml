@@ -41,18 +41,30 @@ jobs:
     #     username: ${{github.actor}}
     #     password: ${{secrets.GITHUB_TOKEN}}
 
+    # - name: Build Docker Compose Services
+    #   if: ${{ github.event_name == 'pull_request' }}
+    #   run: |
+    #     docker buildx bake
+    #     docker buildx bake -f docker-compose.yaml
+    #   #env:
+    #   #  COMPOSE_FILE: docker-compose.yaml
+
     - name: Build Docker Compose Services
-      if: ${{ github.event_name == 'pull_request' }}
-      run: |
-        docker buildx bake
-        docker buildx bake -f docker-compose.yaml
-      #env:
-      #  COMPOSE_FILE: docker-compose.yaml
+      uses: docker/build-push-action@v6
+      with:
+        push: false
+        # tags: user/app:latest
+
+    # - name: Build and Push Docker Compose Services
+    #   if: ${{ github.event_name == 'push' }}
+    #   run: |
+    #     docker buildx bake --push
+    #     docker buildx bake -f docker-compose.yaml --push
+    #   #env:
+    #   #  COMPOSE_FILE: docker-compose.yaml
 
     - name: Build and Push Docker Compose Services
-      if: ${{ github.event_name == 'push' }}
-      run: |
-        docker buildx bake --push
-        docker buildx bake -f docker-compose.yaml --push
-      #env:
-      #  COMPOSE_FILE: docker-compose.yaml
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        # tags: user/app:latest
