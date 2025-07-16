@@ -1,8 +1,0 @@
-repositories:
-
-  # CPS RMP lite 220 Dependencies
-
-  segwayrmp:
-    type: git
-    url: https://github.com/mul-cps/segwayrmp.git
-    version: humble-arm64

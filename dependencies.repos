@@ -4,7 +4,12 @@ repositories:
 
   segway_msgs:
     type: git
-    url: https://github.com/mul-cps/segway_msgs.git
+    url: https://github.com/LuckierDodge/segway_msgs.git
+    version: main
+
+  segwayrmp:
+    type: git
+    url: https://github.com/LuckierDodge/segwayrmp.git
     version: main
 
   RPlidar_ROS2:
